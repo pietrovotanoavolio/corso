@@ -206,3 +206,7 @@ a.row:not(.locked) .st{color:#fff;background:var(--teal);padding:4px 12px;border
 .gl dl>div.hl{background:var(--tint);outline:2px solid var(--teal)}
 .app.dark .top .btn[style*="teal"]{border-color:var(--coral)!important}
 @media (max-width:700px){.top{flex-wrap:wrap}}
+
+/* liste numerate: il contenuto (anche con grassetti) scorre normalmente accanto al numero */
+ol.steps li{display:block;position:relative;padding:10px 16px 10px 64px;min-height:52px}
+ol.steps li::before{position:absolute;left:16px;top:10px}

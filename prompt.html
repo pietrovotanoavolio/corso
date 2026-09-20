@@ -11,12 +11,13 @@
 <main class="page" style="max-width:1000px">
   <div class="page-nav">
     <a class="btn" id="menu" href="index.html">&#8962; Menu</a>
+    <a class="btn" href="normativa.html">Normativa</a>
     <a class="btn" href="glossario.html">Glossario</a>
     <a class="btn" id="back" href="index.html" hidden style="border-color:var(--teal);color:var(--teal)"></a>
   </div>
   <div class="eyebrow" style="margin-top:22px">Appendice</div>
   <h1>Galleria di prompt</h1>
-  <p class="lead mute" style="margin-top:8px">30 prompt pronti per Gemini e i suoi assistenti (Gem, Canvas, NotebookLM, Deep Research, AI Studio), pensati per il metodo di studio e per il lavoro del docente.</p>
+  <p class="lead mute" style="margin-top:8px">35 prompt pronti per Gemini e i suoi assistenti (Gem, Canvas, NotebookLM, Deep Research, AI Studio), pensati per il metodo di studio e per il lavoro del docente.</p>
   <p class="note" style="margin-top:8px">Sostituisci le parti tra [parentesi quadre]. Non inserire dati personali degli studenti. L'IA propone: controlla sempre il risultato prima di usarlo (Human-in-the-Loop).</p>
 
   <div class="gl-tools">
@@ -153,6 +154,17 @@ Temperatura bassa (ad esempio 0,2-0,4) per risposte coerenti.
 - Scrivi solo il risultato.
 
 Se il tutor cede, aggiungi una regola mirata per quel caso e rifai la prova.`]
+,
+[31,"Verifica adattata per alunni con PDP","Gemini","Docente","Inclusione","3","Stessi obiettivi della classe, forma e tempi adattati.",`Ecco la verifica originale: [INCOLLA].
+Crea una versione per uno studente con [DIFFICOLTÀ IN TERMINI FUNZIONALI, senza dati personali]: stessi obiettivi, consegne brevi e a passi, un solo compito per domanda, spazio per le risposte, glossario dei termini chiave e un esempio svolto per il primo esercizio.
+Non abbassare il livello concettuale: cambia forma e tempo. Elenca le modifiche fatte.`],
+[32,"Dettatura e revisione guidata","Gemini","Docente","Inclusione","3","Per far correggere allo studente i propri errori senza riscrivere il testo.",`Ti darò un testo dettato da uno studente con difficoltà ortografiche. Non riscriverlo.
+Segna gli errori, indicane il tipo e per ciascuno dammi un suggerimento perché sia lui a correggerlo. Poi fammi 3 domande per verificare che il contenuto sia completo.`],
+[33,"Compito in micro-obiettivi","Gemini","Entrambi","Inclusione","3","Per attenzione e organizzazione.",`Trasforma il compito [COMPITO] in micro-obiettivi da 10 minuti, con pause brevi. Per ciascuno indica il risultato osservabile a fine tempo e una domanda di autocontrollo. Linguaggio semplice e incoraggiante.`],
+[34,"Testo in linguaggio facile","Gemini","Docente","Inclusione","3","Supporto per materiali legati al PEI, da far rivedere al sostegno.",`Riscrivi il testo [INCOLLA] in linguaggio facile: frasi di massimo 10 parole, parole semplici e concrete, un'idea per frase, niente metafore né doppie negazioni.
+Aggiungi un titolo per ogni parte e descrivi un'immagine o un simbolo da abbinare. Obiettivo da mantenere: [OBIETTIVO, in forma generica].`],
+[35,"Storia sociale: bozza per il team","Gemini","Docente","Inclusione","3","Bozza da rivedere con specialisti e famiglia prima dell'uso.",`Scrivi una bozza di storia sociale per preparare uno studente a [SITUAZIONE]. Frasi brevi e affermative: che cosa accade, chi c'è, perché e quale comportamento è atteso, descritto in positivo. Non aggiungere dettagli che non ti ho dato.
+È una bozza: sarà rivista con specialisti e famiglia prima dell'uso.`]
 ];
 function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 function uniq(i){ var o={}; P.forEach(function(p){ o[p[i]]=1; }); return Object.keys(o); }

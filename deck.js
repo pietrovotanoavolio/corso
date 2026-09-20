@@ -4,6 +4,7 @@ function startDeck() {
   if (!track) return;
 
   var lesson = track.getAttribute("data-lesson") || "";
+  var label = track.getAttribute("data-label") || ("Lezione " + lesson);
   var slides = Array.prototype.slice.call(track.children);
   var total = slides.length;
   var cur = 0;
@@ -27,6 +28,9 @@ function startDeck() {
   var ovBtn = el("button", "btn", "Panoramica <kbd>O</kbd>");
   ovBtn.type = "button";
   var topR = el("div", "top-r");
+  var nm = el("a", "btn", "Normativa");
+  nm.href = "normativa.html";
+  topR.appendChild(nm);
   var pr = el("a", "btn", "Prompt");
   pr.href = "prompt.html";
   topR.appendChild(pr);
@@ -72,7 +76,7 @@ function startDeck() {
   ov.setAttribute("role", "dialog");
   ov.setAttribute("aria-label", "Panoramica delle slide");
   var ovGrid = el("div", "ov-grid");
-  var ovHead = el("div", "ov-head", "<strong>Lezione " + lesson + " · panoramica</strong>");
+  var ovHead = el("div", "ov-head", "<strong>" + label + " · panoramica</strong>");
   var ovClose = el("button", "btn", "Chiudi <kbd>Esc</kbd>");
   ovClose.type = "button";
   ovHead.appendChild(ovClose);
@@ -105,12 +109,12 @@ function startDeck() {
     });
     slides[cur].scrollTop = 0;
     app.classList.toggle("dark", slides[cur].classList.contains("dark"));
-    counter.innerHTML = "Lezione " + lesson + " &middot; <b>" + (cur + 1) + "</b> / " + total;
+    counter.innerHTML = label + " &middot; <b>" + (cur + 1) + "</b> / " + total;
     prev.disabled = cur === 0;
     next.disabled = cur === total - 1;
     try { history.replaceState(null, "", "#" + (cur + 1)); } catch (e) {}
     /* ricorda dove eri, per tornare dal glossario */
-    try { sessionStorage.setItem("posizione", JSON.stringify({ l: lesson, s: cur + 1 })); } catch (e) {}
+    if (lesson) { try { sessionStorage.setItem("posizione", JSON.stringify({ l: lesson, s: cur + 1 })); } catch (e) {} }
   }
 
   prev.addEventListener("click", function () { go(cur - 1); });
@@ -230,7 +234,7 @@ function startDeck() {
   var n = parseInt(track.getAttribute("data-lesson"), 10);
   var attive = (window.STATO && window.STATO.attive) || [];
   (window.ANTEPRIMA || Promise.resolve(false)).then(function (anteprima) {
-    if (anteprima || attive.indexOf(n) !== -1) { startDeck(); return; }
+    if (isNaN(n) || anteprima || attive.indexOf(n) !== -1) { startDeck(); return; }
     document.documentElement.classList.remove("deckpage");
     document.body.innerHTML =
       '<main class="page"><div class="eyebrow">Lezione ' + n + '</div>' +
