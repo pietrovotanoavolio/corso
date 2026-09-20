@@ -102,6 +102,8 @@
     prev.disabled = cur === 0;
     next.disabled = cur === total - 1;
     try { history.replaceState(null, "", "#" + (cur + 1)); } catch (e) {}
+    /* ricorda dove eri, per tornare dal glossario */
+    try { sessionStorage.setItem("posizione", JSON.stringify({ l: lesson, s: cur + 1 })); } catch (e) {}
   }
 
   prev.addEventListener("click", function () { go(cur - 1); });
@@ -210,5 +212,6 @@
   });
 
   var start = parseInt((location.hash || "").replace("#", ""), 10);
+  if (window.__deckStart) { start = window.__deckStart; window.__deckStart = null; }
   go(isNaN(start) ? 0 : start - 1);
 })();

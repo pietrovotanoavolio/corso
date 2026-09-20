@@ -166,3 +166,12 @@ a.row:hover{border-color:var(--teal)}
 .ubars div{flex:1;height:var(--h);background:var(--teal);border-radius:3px 3px 0 0}
 .ubars div:nth-child(n+3):nth-child(-n+7){background:var(--coral)}
 .ulabels{display:flex;justify-content:space-between;font-size:14px;color:var(--mute);margin-top:-8px}
+
+/* menu: lezioni disponibili e non disponibili */
+.row.locked{opacity:1;background:var(--tint);border:1px dashed var(--line);color:var(--mute);cursor:not-allowed;pointer-events:none;user-select:none}
+.row.locked .n{color:var(--seg)}
+.row.locked b{color:var(--mute)}
+a.row:not(.locked){border-color:var(--teal)}
+a.row:not(.locked) .st{color:#fff;background:var(--teal);padding:4px 12px;border-radius:3px;letter-spacing:.06em}
+
+[hidden]{display:none!important}

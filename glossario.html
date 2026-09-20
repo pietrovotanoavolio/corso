@@ -9,7 +9,10 @@
 </head>
 <body>
 <main class="page">
-  <a class="btn" id="menu" href="index.html">&#8962; Menu</a>
+  <div style="display:flex;gap:10px;flex-wrap:wrap">
+    <a class="btn" id="menu" href="index.html">&#8962; Menu</a>
+    <a class="btn" id="back" href="index.html" hidden style="border-color:var(--teal);color:var(--teal)"></a>
+  </div>
   <h1 style="margin-top:20px">Glossario</h1>
   <p class="lead mute" style="margin-top:8px">Tutti i termini usati nel corso, in ordine alfabetico, con la lezione in cui compaiono.</p>
   <div class="gl-tools">
@@ -132,6 +135,15 @@ var T = [
 try {
   if (/[?&]anteprima/.test(location.search)) sessionStorage.setItem("anteprima", "1");
   if (sessionStorage.getItem("anteprima") === "1") document.getElementById("menu").href = "index.html?anteprima";
+} catch (e) {}
+try {
+  var pos = JSON.parse(sessionStorage.getItem("posizione") || "null");
+  if (pos && pos.l && pos.s) {
+    var back = document.getElementById("back");
+    back.href = "lezione-" + pos.l + ".html#" + pos.s;
+    back.textContent = "← Torna alla Lezione " + pos.l + ", slide " + pos.s;
+    back.hidden = false;
+  }
 } catch (e) {}
 T.sort(function(a,b){ return a[0].localeCompare(b[0], "it"); });
 function ini(s){ var c = s.charAt(0).toUpperCase(); return c; }
