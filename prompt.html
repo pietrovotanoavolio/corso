@@ -25,6 +25,7 @@
     <select id="fs" aria-label="Strumento"></select>
     <select id="fc" aria-label="Categoria"></select>
     <select id="fp" aria-label="Per chi"></select>
+    <button type="button" class="btn" id="rst">Azzera filtri</button>
     <span class="note" id="cnt"></span>
   </div>
   <div class="pgrid" id="pg"></div>
@@ -167,21 +168,47 @@ Aggiungi un titolo per ogni parte e descrivi un'immagine o un simbolo da abbinar
 È una bozza: sarà rivista con specialisti e famiglia prima dell'uso.`]
 ];
 function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
-function uniq(i){ var o={}; P.forEach(function(p){ o[p[i]]=1; }); return Object.keys(o); }
-function fill(id, label, arr){ var s=document.getElementById(id); s.innerHTML='<option value="">'+label+'</option>'+arr.map(function(a){return '<option>'+esc(a)+'</option>';}).join(""); }
-fill("fs","Tutti gli strumenti",uniq(2)); fill("fp","Per chi",uniq(3)); fill("fc","Tutte le categorie",uniq(4));
+var LBL_W = {"Docente":"Per il docente","Studente":"Per lo studente"};
+function vals(i){ var o=[],seen={}; P.forEach(function(p){ if(!seen[p[i]]){ seen[p[i]]=1; o.push(p[i]); } }); return o; }
+var TOOLS = vals(2), CATS = vals(4), WHO = ["Docente","Studente"];
+/* i prompt «per entrambi» compaiono sia tra quelli per il docente sia tra quelli per lo studente */
+function match(p,s,c,w){ return (!s||p[2]===s) && (!c||p[4]===c) && (!w||p[3]===w||p[3]==="Entrambi"); }
+function state(){ return { s:document.getElementById("fs").value, c:document.getElementById("fc").value, w:document.getElementById("fp").value }; }
+/* ogni menu mostra solo le voci che, insieme agli altri filtri scelti, danno almeno un prompt */
+function fillSel(id,label,arr,field,f){
+  var cur = f[field], html = '<option value="">'+label+'</option>';
+  arr.forEach(function(v){
+    var g = {s:f.s,c:f.c,w:f.w}; g[field] = v;
+    var n = P.filter(function(p){ return match(p,g.s,g.c,g.w); }).length;
+    if(n>0 || v===cur) html += '<option value="'+esc(v)+'"'+(v===cur?' selected':'')+'>'+esc(field==="w"?LBL_W[v]:v)+' ('+n+')</option>';
+  });
+  document.getElementById(id).innerHTML = html;
+}
+function refreshFilters(){
+  var f = state();
+  fillSel("fs","Tutti gli strumenti",TOOLS,"s",f);
+  fillSel("fc","Tutte le categorie",CATS,"c",f);
+  fillSel("fp","Per chi",WHO,"w",f);
+}
 function render(){
-  var q=document.getElementById("q").value.toLowerCase().trim(), s=document.getElementById("fs").value, c=document.getElementById("fc").value, w=document.getElementById("fp").value;
-  var list=P.filter(function(p){ return (!s||p[2]===s)&&(!c||p[4]===c)&&(!w||p[3]===w)&&(!q||(p[1]+" "+p[6]+" "+p[7]).toLowerCase().indexOf(q)!==-1); });
+  var q=document.getElementById("q").value.toLowerCase().trim(), f=state();
+  var list=P.filter(function(p){ return match(p,f.s,f.c,f.w) && (!q||(p[1]+" "+p[6]+" "+p[7]).toLowerCase().indexOf(q)!==-1); });
   document.getElementById("pg").innerHTML=list.map(function(p){
     return '<article class="pcard"><div class="ph"><span class="pn">'+p[0]+'</span><h2>'+esc(p[1])+'</h2></div>'+
       '<div class="ptags"><span class="pt">'+esc(p[2])+'</span><span class="pt o">'+esc(p[3])+'</span><span class="pt o">'+esc(p[4])+'</span><span class="pt o">Lezione '+esc(p[5])+'</span></div>'+
       '<p class="pw">'+esc(p[6])+'</p><pre>'+esc(p[7])+'</pre>'+
       '<button type="button" class="btn pcopy" data-i="'+p[0]+'">Copia prompt</button></article>';
-  }).join("")||"<p>Nessun prompt trovato.</p>";
+  }).join("")||'<p>Nessun prompt corrisponde alla ricerca. Modifica le parole o <button type="button" class="btn" id="rst2">azzera la ricerca</button>.</p>';
   document.getElementById("cnt").textContent=list.length+" di "+P.length+" prompt";
+  var r2=document.getElementById("rst2"); if(r2) r2.addEventListener("click",function(){ document.getElementById("q").value=""; render(); });
 }
-["q","fs","fc","fp"].forEach(function(id){ document.getElementById(id).addEventListener("input",render); });
+function onFilter(){ refreshFilters(); render(); }
+document.getElementById("q").addEventListener("input",render);
+["fs","fc","fp"].forEach(function(id){ document.getElementById(id).addEventListener("change",onFilter); });
+document.getElementById("rst").addEventListener("click",function(){
+  document.getElementById("q").value=""; ["fs","fc","fp"].forEach(function(id){ document.getElementById(id).value=""; }); onFilter();
+});
+refreshFilters();
 document.getElementById("pg").addEventListener("click",function(e){
   var b=e.target.closest?e.target.closest(".pcopy"):null; if(!b) return;
   var p=P.filter(function(x){return String(x[0])===b.getAttribute("data-i");})[0]; if(!p) return;
