@@ -193,3 +193,8 @@ a.row:not(.locked) .st{color:#fff;background:var(--teal);padding:4px 12px;border
 .pcard pre{max-height:none}
 .pcopy{align-self:flex-start}
 .gl-tools select{font:400 16px var(--body);padding:10px 12px;border:1px solid var(--line);border-radius:4px;background:var(--panel);color:var(--ink);min-width:0;max-width:100%}
+
+/* barra di navigazione sempre visibile in glossario e galleria: da qualsiasi voce si può tornare */
+.page-nav{position:sticky;top:0;z-index:4;display:flex;gap:10px;flex-wrap:wrap;background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line)}
+.gl h2{scroll-margin-top:72px}
+.pcard{scroll-margin-top:72px}
