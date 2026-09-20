@@ -21,17 +21,23 @@
   var viewport = el("div", "viewport");
   var foot = el("footer", "foot");
 
+  /* l'anteprima (?anteprima sul menu) resta attiva finché la scheda è aperta */
+  var anteprima = /[?&]anteprima/.test(location.search);
+  try {
+    if (anteprima) sessionStorage.setItem("anteprima", "1");
+    else anteprima = sessionStorage.getItem("anteprima") === "1";
+  } catch (e) {}
+  var qs = anteprima ? "?anteprima" : "";
+
   var home = el("a", "btn", "&#8962; Menu");
-  home.href = "index.html";
+  home.href = "index.html" + qs;
   home.title = "Torna al menu delle lezioni (Esc dalla panoramica)";
   var ovBtn = el("button", "btn", "Panoramica <kbd>O</kbd>");
   ovBtn.type = "button";
   var topR = el("div", "top-r");
-  if (track.getAttribute("data-glossario")) {
-    var g = el("a", "btn", "Glossario");
-    g.href = "glossario.html";
-    topR.appendChild(g);
-  }
+  var g = el("a", "btn", "Glossario");
+  g.href = "glossario.html";
+  topR.appendChild(g);
   topR.appendChild(ovBtn);
   top.appendChild(home);
   top.appendChild(topR);
@@ -130,6 +136,78 @@
     sx = null;
     if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) go(cur + (dx < 0 ? 1 : -1));
   }, { passive: true });
+
+  /* autovalutazione: domande a scelta multipla con feedback e risultato finale */
+  var quizSlides = slides.filter(function (s) { return s.classList.contains("quiz"); });
+  var resSlides = slides.filter(function (s) { return s.classList.contains("quiz-result"); });
+
+  function updateResult() {
+    var n = quizSlides.length, ok = 0, done = 0, wrong = [];
+    quizSlides.forEach(function (s, i) {
+      var d = s.getAttribute("data-done");
+      if (d) done++;
+      if (d === "ok") ok++;
+      if (d === "no") wrong.push(i + 1);
+    });
+    resSlides.forEach(function (r) {
+      r.querySelector(".qr-score").textContent = "Risposte esatte: " + ok + " su " + n;
+      var msg;
+      if (done < n) msg = "Hai risposto a " + done + " domande su " + n + ". Torna indietro per completare l'autovalutazione.";
+      else if (ok === n) msg = "Ottimo: hai colto tutti i punti della lezione. Puoi passare alla prossima.";
+      else if (ok >= Math.ceil(n * 0.6)) msg = "Buon risultato. Rivedi le slide legate alle domande " + wrong.join(", ") + ".";
+      else msg = "Vale la pena rivedere la lezione, in particolare gli argomenti delle domande " + wrong.join(", ") + ".";
+      r.querySelector(".qr-msg").textContent = msg;
+    });
+  }
+
+  function answer(s, btn) {
+    if (s.getAttribute("data-done")) return;
+    var right = s.getAttribute("data-correct");
+    var ok = btn.getAttribute("data-k") === right;
+    s.setAttribute("data-done", ok ? "ok" : "no");
+    Array.prototype.forEach.call(s.querySelectorAll(".opt"), function (b) {
+      b.setAttribute("aria-disabled", "true");
+      if (b.getAttribute("data-k") === right) b.classList.add("right");
+    });
+    if (!ok) btn.classList.add("wrong");
+    var fb = s.querySelector(".fb");
+    fb.querySelector("strong").textContent = ok ? "Esatto." : "Non è questa: la risposta giusta è la " + right + ".";
+    fb.hidden = false;
+    updateResult();
+  }
+
+  quizSlides.forEach(function (s) {
+    Array.prototype.forEach.call(s.querySelectorAll(".opt"), function (b) {
+      b.addEventListener("click", function () { answer(s, b); });
+    });
+  });
+
+  resSlides.forEach(function (r) {
+    r.querySelector(".qr-retry").addEventListener("click", function () {
+      quizSlides.forEach(function (s) {
+        s.removeAttribute("data-done");
+        s.querySelector(".fb").hidden = true;
+        Array.prototype.forEach.call(s.querySelectorAll(".opt"), function (b) {
+          b.classList.remove("right", "wrong");
+          b.removeAttribute("aria-disabled");
+        });
+      });
+      updateResult();
+      go(slides.indexOf(quizSlides[0]));
+    });
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.ctrlKey || e.metaKey || e.altKey || !ov.hidden) return;
+    var s = slides[cur];
+    if (!s || !s.classList.contains("quiz")) return;
+    var k = e.key.toUpperCase();
+    var map = { "1": "A", "2": "B", "3": "C", "4": "D" };
+    k = map[k] || k;
+    if (k !== "A" && k !== "B" && k !== "C" && k !== "D") return;
+    var b = s.querySelector('.opt[data-k="' + k + '"]');
+    if (b) { e.preventDefault(); answer(s, b); }
+  });
 
   var start = parseInt((location.hash || "").replace("#", ""), 10);
   go(isNaN(start) ? 0 : start - 1);

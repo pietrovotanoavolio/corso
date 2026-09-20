@@ -139,3 +139,30 @@ a.row:hover{border-color:var(--teal)}
 .gl dt{font:600 19px var(--display);color:var(--ink)}
 .gl dt small{font:600 12px var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--teal);margin-left:8px}
 .gl dd{margin:2px 0 0;color:var(--ink)}
+
+/* autovalutazione */
+:root{--ok:#1E7A55;--okbg:#DDF1E8;--ko:#B3402A;--kobg:#FBE4DE}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ok:#5CCB98;--okbg:#153A2C;--ko:#FF8A70;--kobg:#472018}}
+:root[data-theme="dark"]{--ok:#5CCB98;--okbg:#153A2C;--ko:#FF8A70;--kobg:#472018}
+.quiz h2{font-size:clamp(22px,3vw,34px)}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:14px;align-items:flex-start;text-align:left;font:400 18px/1.4 var(--body);padding:14px 16px;border:1px solid var(--line);border-radius:4px;background:var(--tint);color:var(--ink);cursor:pointer;width:100%}
+.opt span{flex:none;width:30px;height:30px;border-radius:50%;background:var(--panel);display:grid;place-items:center;font:800 15px var(--display);color:var(--teal)}
+.opt:hover{border-color:var(--teal)}
+.opt[aria-disabled="true"]{cursor:default}
+.opt[aria-disabled="true"]:hover{border-color:var(--line)}
+.opt.right{background:var(--okbg);border-color:var(--ok)}
+.opt.right span{background:var(--ok);color:#fff}
+.opt.wrong{background:var(--kobg);border-color:var(--ko)}
+.opt.wrong span{background:var(--ko);color:#fff}
+.fb{padding:14px 18px;border-radius:4px;background:var(--tint)}
+.quiz[data-done="ok"] .fb{background:var(--okbg)}
+.quiz[data-done="no"] .fb{background:var(--kobg)}
+.fb strong{font-family:var(--display)}
+.quiz-result .qr-score{color:var(--teal)}
+
+/* grafico illustrativo lost in the middle */
+.ubars{display:flex;align-items:flex-end;gap:8px;height:190px;padding:0 4px;border-bottom:1px solid var(--line)}
+.ubars div{flex:1;height:var(--h);background:var(--teal);border-radius:3px 3px 0 0}
+.ubars div:nth-child(n+3):nth-child(-n+7){background:var(--coral)}
+.ulabels{display:flex;justify-content:space-between;font-size:14px;color:var(--mute);margin-top:-8px}

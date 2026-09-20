@@ -56,6 +56,24 @@ Fonte: pagina 45 del PDF, capitolo «Capitali nazionali», con citazione cliccab
 </section>
 
 <section class="slide">
+  <div class="eyebrow">Source-grounded · Come funziona</div>
+  <h2>Dalle fonti alla risposta: il principio del RAG</h2>
+  <ol class="steps">
+    <li>Fai una domanda.</li>
+    <li>Il sistema cerca nelle tue fonti i passaggi più pertinenti (retrieval).</li>
+    <li>Passa al modello la domanda insieme a quei passaggi.</li>
+    <li>Il modello scrive la risposta usando quei passaggi e indica dove li ha presi.</li>
+  </ol>
+  <div class="scroll"><table class="t">
+    <tr><th>Strumento</th><th>Che cosa cambia</th><th>Quando</th></tr>
+    <tr><td>Prompt o Gem</td><td>Istruzioni su ruolo e metodo</td><td>Uso quotidiano</td></tr>
+    <tr><td>Fonti fornite (RAG)</td><td>Risposte basate sui tuoi documenti</td><td>Studio su materiali specifici</td></tr>
+    <tr><td>Fine-tuning</td><td>Riaddestramento del modello su altri dati</td><td>Progetti tecnici: non serve in classe</td></tr>
+  </table></div>
+  <p class="note">Riduce le invenzioni ma non le elimina: il sistema può non trovare il passaggio giusto, o dare peso minore a quelli centrali. Le citazioni si controllano.</p>
+</section>
+
+<section class="slide">
   <div class="eyebrow">Che cosa si genera</div>
   <h2>Un solo documento, tanti formati di studio</h2>
   <div class="scroll"><table class="t">
@@ -68,6 +86,17 @@ Fonte: pagina 45 del PDF, capitolo «Capitali nazionali», con citazione cliccab
     <tr><td>Glossario e guida allo studio</td><td>Definizioni e domande di verifica</td><td>Testo</td></tr>
   </table></div>
   <p class="note">I formati disponibili cambiano con gli aggiornamenti e con l'account: controlla quali vedi prima della lezione.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Accessibilità · UDL</div>
+  <h2>Progettare per tutti: i tre principi dell'UDL</h2>
+  <p class="lead">Universal Design for Learning: non un materiale «speciale» per alcuni, ma più strade per tutti.</p>
+  <div class="grid g3">
+    <div class="box"><h3>Rappresentazione</h3><p>Più modi di presentare lo stesso contenuto.</p><p class="note" style="margin-top:8px">Testo, podcast, mappa mentale, video, infografica.</p></div>
+    <div class="box"><h3>Azione ed espressione</h3><p>Più modi di mostrare ciò che si è capito.</p><p class="note" style="margin-top:8px">Quiz, spiegazione orale, mappa, presentazione.</p></div>
+    <div class="box"><h3>Coinvolgimento</h3><p>Più modi di motivare.</p><p class="note" style="margin-top:8px">Scelta dell'attività, obiettivi chiari, gioco, feedback.</p></div>
+  </div>
 </section>
 
 <section class="slide">
@@ -132,6 +161,79 @@ Non semplificare il contenuto disciplinare. Alla fine elenca cosa hai modificato
   <p class="note">Compito a casa: un blocco con podcast, mappa e glossario, da provare con uno studente.</p>
 </section>
 
+
+<section class="slide dark">
+  <div class="eyebrow">Autovalutazione</div>
+  <h2>Cinque domande per verificare che cosa hai capito</h2>
+  <p class="lead mute">Una sola risposta è esatta. Non c'è un voto: alla fine vedi che cosa rivedere. Puoi rispondere anche con i tasti A, B, C, D.</p>
+</section>
+
+<section class="slide quiz" data-correct="D">
+  <div class="eyebrow">Autovalutazione · domanda 1 di 5</div>
+  <h2>Che cosa significa che NotebookLM è «source-grounded»?</h2>
+  <div class="opts">
+    <button type="button" class="opt" data-k="A"><span>A</span>Funziona solo senza connessione</button>
+    <button type="button" class="opt" data-k="B"><span>B</span>Non usa mai il web</button>
+    <button type="button" class="opt" data-k="C"><span>C</span>Genera soltanto immagini</button>
+    <button type="button" class="opt" data-k="D"><span>D</span>Risponde a partire dalle fonti caricate e le cita</button>
+  </div>
+  <div class="fb" hidden><strong></strong> <span class="why">Le risposte sono ancorate ai materiali forniti, con citazioni che permettono di controllare.</span></div>
+</section>
+
+<section class="slide quiz" data-correct="B">
+  <div class="eyebrow">Autovalutazione · domanda 2 di 5</div>
+  <h2>Dopo che NotebookLM ha generato una risposta con citazioni, che cosa deve fare il docente?</h2>
+  <div class="opts">
+    <button type="button" class="opt" data-k="A"><span>A</span>Nulla: le citazioni garantiscono la correttezza</button>
+    <button type="button" class="opt" data-k="B"><span>B</span>Controllare a campione che le citazioni tornino alla fonte</button>
+    <button type="button" class="opt" data-k="C"><span>C</span>Cancellare le fonti caricate</button>
+    <button type="button" class="opt" data-k="D"><span>D</span>Rigenerare finché la risposta è più lunga</button>
+  </div>
+  <div class="fb" hidden><strong></strong> <span class="why">Le citazioni permettono di verificare, ma la verifica resta al docente. E la qualità delle fonti resta decisiva.</span></div>
+</section>
+
+<section class="slide quiz" data-correct="A">
+  <div class="eyebrow">Autovalutazione · domanda 3 di 5</div>
+  <h2>Come si adatta un testo per uno studente con DSA senza impoverirlo?</h2>
+  <div class="opts">
+    <button type="button" class="opt" data-k="A"><span>A</span>Cambiando la forma (frasi brevi, elenchi, termini spiegati) e mantenendo i concetti</button>
+    <button type="button" class="opt" data-k="B"><span>B</span>Eliminando i concetti più difficili</button>
+    <button type="button" class="opt" data-k="C"><span>C</span>Riscrivendolo nel modo più breve possibile</button>
+    <button type="button" class="opt" data-k="D"><span>D</span>Sostituendolo con un'immagine</button>
+  </div>
+  <div class="fb" hidden><strong></strong> <span class="why">Si cambia la forma, non il contenuto disciplinare. Si chiede anche l'elenco delle modifiche per poterle verificare.</span></div>
+</section>
+
+<section class="slide quiz" data-correct="C">
+  <div class="eyebrow">Autovalutazione · domanda 4 di 5</div>
+  <h2>Chi decide gli strumenti compensativi per uno studente?</h2>
+  <div class="opts">
+    <button type="button" class="opt" data-k="A"><span>A</span>L'IA, in base al testo</button>
+    <button type="button" class="opt" data-k="B"><span>B</span>Lo studente da solo</button>
+    <button type="button" class="opt" data-k="C"><span>C</span>Il docente, sulla base del PDP e con gli specialisti</button>
+    <button type="button" class="opt" data-k="D"><span>D</span>L'editore del libro di testo</button>
+  </div>
+  <div class="fb" hidden><strong></strong> <span class="why">L'IA prepara il materiale: la scelta degli strumenti spetta ai docenti e agli specialisti.</span></div>
+</section>
+
+<section class="slide quiz" data-correct="D">
+  <div class="eyebrow">Autovalutazione · domanda 5 di 5</div>
+  <h2>Quale istruzione riduce il rischio di allucinazioni in un riassunto?</h2>
+  <div class="opts">
+    <button type="button" class="opt" data-k="A"><span>A</span>Aggiungi tutto ciò che sai sull'argomento</button>
+    <button type="button" class="opt" data-k="B"><span>B</span>Sii il più creativo possibile</button>
+    <button type="button" class="opt" data-k="C"><span>C</span>Scrivi almeno 500 parole</button>
+    <button type="button" class="opt" data-k="D"><span>D</span>Usa solo le fonti caricate e scrivi «non presente nelle fonti» se manca un'informazione</button>
+  </div>
+  <div class="fb" hidden><strong></strong> <span class="why">Vincolare il modello alle fonti e permettergli di dire «non lo so» riduce le invenzioni.</span></div>
+</section>
+
+<section class="slide quiz-result">
+  <div class="eyebrow">Autovalutazione · risultato</div>
+  <h2 class="qr-score">Risposte esatte: 0 su 5</h2>
+  <p class="lead qr-msg">Rispondi alle domande per vedere il risultato.</p>
+  <div><button type="button" class="btn qr-retry">Ricomincia</button></div>
+</section>
 
 </main>
 <script src="deck.js"></script>

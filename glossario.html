@@ -9,7 +9,7 @@
 </head>
 <body>
 <main class="page">
-  <a class="btn" href="index.html">&#8962; Menu</a>
+  <a class="btn" id="menu" href="index.html">&#8962; Menu</a>
   <h1 style="margin-top:20px">Glossario</h1>
   <p class="lead mute" style="margin-top:8px">Tutti i termini usati nel corso, in ordine alfabetico, con la lezione in cui compaiono.</p>
   <div class="gl-tools">
@@ -22,6 +22,45 @@
 <footer class="sitefoot"><span>Pietro Votano Avolio</span><span>AI e Metodo di Studio</span></footer>
 <script>
 var T = [
+["Assistente IA","Programma che risponde a richieste in linguaggio naturale, una alla volta, e svolge compiti. Può essere generalista (Gemini) o specializzato (NotebookLM, un Gem). Diverso dall'agente, che persegue un obiettivo in più passi.","1"],
+["Assistente generalista e specializzato","Generalista: adatto a molti compiti. Specializzato: configurato per uno scopo, come un tutor di Matematica o uno strumento che lavora solo sulle tue fonti.","1"],
+["ChatGPT","Assistente generalista di OpenAI, con assistenti personalizzabili (GPT).","1"],
+["Claude","Assistente generalista di Anthropic, con progetti e artefatti interattivi.","1"],
+["Microsoft Copilot","Assistente di Microsoft, integrato in Windows e in Microsoft 365.","1"],
+["Perplexity","Motore di risposta che cita le fonti web.","1"],
+["Le Chat (Mistral)","Assistente generalista dell'azienda europea Mistral AI.","1"],
+["Agente","Sistema che riceve un obiettivo, pianifica i passi e li esegue usando strumenti (cercare, leggere, scrivere), con un certo grado di autonomia. Diverso dall'assistente, che risponde a una richiesta alla volta.","1"],
+["Automation bias","Tendenza a fidarsi troppo dell'output di un sistema automatico, soprattutto se appare ordinato e sicuro.","1"],
+["Catena di pensiero (chain of thought)","Tecnica che chiede al modello di ragionare passo per passo. I passaggi vanno controllati: non sono una prova.","1"],
+["Contenuto sintetico / deepfake","Immagine, audio o video creati dall'IA. Il deepfake imita persone reali in modo verosimile.","5"],
+["Data di addestramento (knowledge cutoff)","Data oltre la quale il modello non ha informazioni, se non ne cerca di nuove.","1"],
+["Delega cognitiva (cognitive offloading)","Affidare a uno strumento un'attività mentale. Danneggia quando riguarda proprio la competenza da allenare.","1"],
+["Difficoltà desiderabili","Un po' di sforzo durante lo studio rende l'apprendimento più duraturo.","4"],
+["Effetto generazione","Si ricorda meglio ciò che si è provato a produrre prima di vedere la risposta.","4"],
+["Fine-tuning","Riaddestramento di un modello su dati aggiuntivi. Non serve per l'uso didattico quotidiano.","3"],
+["GDPR","Regolamento europeo sulla protezione dei dati personali: richiede particolare cautela con i dati degli studenti.","1"],
+["Human-in-the-Loop","Principio per cui una persona resta nel ciclo di lavoro: guida, verifica e decide prima che un output venga usato.","1"],
+["IA generativa","Sistemi che creano contenuti nuovi: testi, immagini, audio, codice.","1"],
+["Illusione di padronanza","Sensazione di sapere già una cosa perché il testo è chiaro e scorrevole. Si smaschera richiamando senza guardare.","4"],
+["In / on / out of the loop","Tre livelli di controllo: la persona approva ogni output, supervisiona e interviene, oppure non controlla (sconsigliato a scuola).","1"],
+["Interleaving","Alternare argomenti o tipi di problema invece di studiarli a blocchi.","4"],
+["Jailbreak","Tentativo di far ignorare al modello le sue regole con richieste costruite ad arte.","6"],
+["Lettura laterale","Verificare una fonte aprendo altre schede per capire chi la pubblica e cosa dicono fonti indipendenti.","5"],
+["Lost in the middle","Tendenza dei modelli a usare meglio le informazioni all'inizio e alla fine di un testo lungo che quelle nel mezzo.","1"],
+["Metaprompt","Prompt in cui si chiede all'IA di migliorare o valutare un altro prompt.","1"],
+["Modello di ragionamento","Modello che elabora più passaggi intermedi prima di rispondere, utile su problemi articolati.","1"],
+["Pattern (schema)","Regolarità statistica del linguaggio, imparata durante l'addestramento: quali parole e idee stanno insieme.","1"],
+["Prompt chaining","Dividere un compito in più prompt in sequenza, usando il risultato di ciascuno per il successivo.","1"],
+["Prompt injection","Istruzioni nascoste in un testo o in un file che cercano di cambiare il comportamento del modello.","6"],
+["RAG (retrieval-augmented generation)","Il sistema recupera prima i passaggi pertinenti dalle fonti e li passa al modello per rispondere. Riduce le invenzioni, non le elimina.","3"],
+["Regolamento europeo sull'IA (AI Act)","Norma europea sull'IA: prevede alfabetizzazione, categorie di rischio e divieti, alcuni riguardanti la scuola.","1"],
+["Scatola nera","Sistema di cui si vedono ingressi e uscite ma non si spiega bene il funzionamento interno, come i grandi modelli.","1"],
+["Sicofanzia (sycophancy)","Tendenza del modello ad assecondare l'utente e a dargli ragione anche quando sbaglia.","1"],
+["Temperatura","Parametro che regola quanto il modello può scegliere parole meno probabili: bassa per coerenza, alta per varietà e fantasia. Non rende il modello più intelligente.","1, 6"],
+["Token","Unità di testo in cui il modello divide parole e frasi. Limiti di lunghezza e alcuni errori (contare lettere, calcoli lunghi) dipendono da qui.","1"],
+["UDL (Universal Design for Learning)","Progettazione per tutti: più modi di rappresentare i contenuti, di esprimere ciò che si è capito e di coinvolgere.","3"],
+["Verifica incrociata","Controllo di un'informazione confrontando più fonti indipendenti.","5"],
+["Zona di sviluppo prossimale","Distanza tra ciò che lo studente sa fare da solo e ciò che sa fare con aiuto (Vygotskij): l'ambito dello scaffolding.","1"],
 ["Addestramento","Fase in cui un modello apprende da grandi quantità di dati, riconoscendo regolarità nel linguaggio.","1"],
 ["AI Literacy","Alfabetizzazione sull'IA: capire come funziona, usarla bene, valutarla in modo critico e con responsabilità.","1"],
 ["Allucinazione","Risposta plausibile e sicura nel tono, ma falsa: dati alterati, citazioni o fonti inesistenti.","1, 5"],
@@ -57,7 +96,6 @@ var T = [
 ["Glossario (di NotebookLM)","Elenco di termini chiave estratti dalle fonti, con definizioni ancorate ad esse.","3"],
 ["Google AI Studio","Ambiente di Google per sperimentare con i modelli: istruzioni di sistema, parametri e app più articolate.","2, 6"],
 ["Guida allo studio","Riassunto strutturato con domande di verifica generato da NotebookLM.","3"],
-["Human-in-the-Loop","Principio per cui l'IA propone e la persona decide e verifica ogni output prima di usarlo.","Corso"],
 ["Infografica","Rappresentazione visiva di dati e relazioni, generabile da NotebookLM.","3"],
 ["Istruzioni di sistema (system instructions)","Regole permanenti che definiscono ruolo, metodo e limiti di un assistente.","6"],
 ["Learning by Doing","Metodo che fa imparare facendo: ogni lezione è laboratoriale.","Corso"],
@@ -85,14 +123,17 @@ var T = [
 ["Storia a bivio","Racconto interattivo in cui le scelte dello studente portano a conseguenze diverse.","2"],
 ["Studente-tipo","Studente di riferimento usato nelle demo, «Marco»: personalizzato poi con studenti reali anonimizzati.","1"],
 ["Studio multimodale","Studio con più canali: lettura, ascolto, quiz, schemi.","4"],
-["Temperatura","Parametro che regola la variabilità delle risposte: bassa per risposte coerenti, alta per più creatività.","1, 6"],
 ["Tassonomia di Bloom","Scala di livelli cognitivi: ricordare, comprendere, applicare, analizzare, valutare, creare.","2"],
-["Token","Unità di testo in cui il modello divide parole e frasi.","1"],
 ["Tutor socratico","Tutor virtuale che pone domande guida anziché dare le soluzioni.","1, 6"],
 ["Tutor virtuale","Assistente configurato per accompagnare lo studente nello studio autonomo.","6"],
 ["Vincoli","Elemento del prompt che stabilisce limiti e cosa non fare.","1"],
 ["Zero-shot","Tecnica di prompting senza esempi: si chiede direttamente.","1"]
 ];
+try {
+  if (/[?&]anteprima/.test(location.search)) sessionStorage.setItem("anteprima", "1");
+  if (sessionStorage.getItem("anteprima") === "1") document.getElementById("menu").href = "index.html?anteprima";
+} catch (e) {}
+T.sort(function(a,b){ return a[0].localeCompare(b[0], "it"); });
 function ini(s){ var c = s.charAt(0).toUpperCase(); return c; }
 function render(filter){
   var f = (filter || "").toLowerCase().trim();
@@ -101,7 +142,7 @@ function render(filter){
   list.forEach(function(t){
     var c = ini(t[0]);
     if (c !== cur) { if (cur) out += "</dl>"; out += '<h2 id="l-' + c + '">' + c + "</h2><dl>"; cur = c; }
-    out += "<div><dt>" + t[0] + "<small>Lezione " + t[2] + "</small></dt><dd>" + t[1] + "</dd></div>";
+    out += "<div><dt>" + t[0] + "<small>" + (t[2] === "Corso" ? "Corso" : "Lezione " + t[2]) + "</small></dt><dd>" + t[1] + "</dd></div>";
   });
   if (cur) out += "</dl>";
   document.getElementById("gl").innerHTML = out || "<p>Nessun termine trovato.</p>";
