@@ -27,6 +27,9 @@ function startDeck() {
   var ovBtn = el("button", "btn", "Panoramica <kbd>O</kbd>");
   ovBtn.type = "button";
   var topR = el("div", "top-r");
+  var pr = el("a", "btn", "Prompt");
+  pr.href = "prompt.html";
+  topR.appendChild(pr);
   var g = el("a", "btn", "Glossario");
   g.href = "glossario.html";
   topR.appendChild(g);

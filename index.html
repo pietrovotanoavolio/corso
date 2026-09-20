@@ -23,6 +23,7 @@
     <a class="row" data-n="4" href="lezione-4.html"><span class="n">4</span><span><small>Giovedì 8 ottobre</small><b>Memorizzazione, studio multimodale e metacognizione: flashcard, audio e autovalutazione</b></span><span class="st"></span></a>
     <a class="row" data-n="5" href="lezione-5.html"><span class="n">5</span><span><small>Martedì 13 ottobre</small><b>Ricerca evoluta e senso critico: Gemini Deep Research e fact-checking</b></span><span class="st"></span></a>
     <a class="row" data-n="6" href="lezione-6.html"><span class="n">6</span><span><small>Giovedì 15 ottobre</small><b>Tutor virtuali personalizzati: creare i propri Gem e assistenti con il dialogo socratico</b></span><span class="st"></span></a>
+    <a class="row" data-n="p" href="prompt.html"><span class="n">30</span><span><small>Appendice · sempre disponibile</small><b>Galleria di prompt per Gemini e i suoi assistenti</b></span><span class="st"></span></a>
     <a class="row" data-n="g" href="glossario.html"><span class="n">A–Z</span><span><small>Sempre disponibile</small><b>Glossario di tutti i termini utilizzati</b></span><span class="st"></span></a>
   </div>
   <p class="note">Nelle slide: frecce ← → o barra spaziatrice per spostarsi, O per la panoramica, pulsanti nel footer.</p>
@@ -34,7 +35,7 @@
   var rows = document.querySelectorAll(".row");
   Array.prototype.forEach.call(rows, function (r) {
     var n = r.getAttribute("data-n");
-    var open = preview || n === "g" || attive.indexOf(parseInt(n, 10)) !== -1;
+    var open = preview || n === "g" || n === "p" || attive.indexOf(parseInt(n, 10)) !== -1;
     var st = r.querySelector(".st");
     if (open) { st.textContent = "Apri"; }
     else {
