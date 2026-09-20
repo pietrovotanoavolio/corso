@@ -234,7 +234,7 @@ function startDeck() {
   var n = parseInt(track.getAttribute("data-lesson"), 10);
   var attive = (window.STATO && window.STATO.attive) || [];
   (window.ANTEPRIMA || Promise.resolve(false)).then(function (anteprima) {
-    if (isNaN(n) || anteprima || attive.indexOf(n) !== -1) { startDeck(); return; }
+    if (isNaN(n) || anteprima || (window.lezioneAperta ? window.lezioneAperta(n) : attive.indexOf(n) !== -1)) { startDeck(); return; }
     document.documentElement.classList.remove("deckpage");
     document.body.innerHTML =
       '<main class="page"><div class="eyebrow">Lezione ' + n + '</div>' +

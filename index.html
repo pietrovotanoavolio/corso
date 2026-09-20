@@ -31,20 +31,24 @@
 <footer class="sitefoot"><span>Pietro Votano Avolio</span><span>AI e Metodo di Studio</span></footer>
 <script>
 (window.ANTEPRIMA || Promise.resolve(false)).then(function (preview) {
-  var attive = (window.STATO && window.STATO.attive) || [];
   var rows = document.querySelectorAll(".row");
-  Array.prototype.forEach.call(rows, function (r) {
-    var n = r.getAttribute("data-n");
-    var open = preview || n === "g" || n === "p" || n === "a" || attive.indexOf(parseInt(n, 10)) !== -1;
-    var st = r.querySelector(".st");
-    if (open) { st.textContent = "Apri"; }
-    else {
-      r.classList.add("locked");
-      r.removeAttribute("href");
-      r.setAttribute("aria-disabled", "true");
-      st.textContent = "Non ancora disponibile";
-    }
-  });
+  Array.prototype.forEach.call(rows, function (r) { r.setAttribute("data-href", r.getAttribute("href") || ""); });
+  function aperta(n) {
+    if (window.lezioneAperta) return window.lezioneAperta(n);
+    var a = (window.STATO && window.STATO.attive) || [];
+    return a.indexOf(n) !== -1;
+  }
+  function aggiorna() {
+    Array.prototype.forEach.call(rows, function (r) {
+      var n = r.getAttribute("data-n");
+      var open = preview || n === "g" || n === "p" || n === "a" || aperta(parseInt(n, 10));
+      var st = r.querySelector(".st");
+      if (open) { r.classList.remove("locked"); r.setAttribute("href", r.getAttribute("data-href")); r.removeAttribute("aria-disabled"); st.textContent = "Apri"; }
+      else { r.classList.add("locked"); r.removeAttribute("href"); r.setAttribute("aria-disabled", "true"); st.textContent = "Non ancora disponibile"; }
+    });
+  }
+  aggiorna();
+  setInterval(aggiorna, 30000); /* le lezioni si aprono da sole all'orario stabilito */
 });
 </script>
 </body>

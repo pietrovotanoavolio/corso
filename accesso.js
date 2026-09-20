@@ -15,3 +15,13 @@
     }, function () { resolve(false); });
   });
 })();
+
+/* Una lezione è aperta se è in "attive" oppure se è arrivato l'orario in "apertura" (e non è in "bloccate"). */
+window.lezioneAperta = function (n) {
+  var s = window.STATO || {};
+  if ((s.bloccate || []).indexOf(n) !== -1) return false;
+  if ((s.attive || []).indexOf(n) !== -1) return true;
+  var t = s.apertura && s.apertura[n];
+  if (t) { var d = new Date(t); if (!isNaN(d.getTime()) && Date.now() >= d.getTime()) return true; }
+  return false;
+};
