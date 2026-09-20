@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestione Lezioni - AI e Metodo di Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1em;
+        }
+        
+        .auth-section {
+            display: none;
+        }
+        
+        .auth-section.active {
+            display: block;
+        }
+        
+        .password-form {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .password-form input {
+            padding: 12px 20px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        
+        .password-form button {
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .password-form button:hover {
+            background: #5568d3;
+        }
+        
+        .admin-panel {
+            display: none;
+        }
+        
+        .admin-panel.active {
+            display: block;
+        }
+        
+        .section-title {
+            font-size: 1.3em;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .lezione-item {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .lezione-info h3 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .lezione-info p {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .lezione-status {
+            text-align: center;
+            min-width: 150px;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        
+        .status-disabled {
+            background: #ffebee;
+            color: #c62828;
+        }
+        
+        .status-enabled {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .btn-activate, .btn-deactivate {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn-activate {
+            background: #4caf50;
+            color: white;
+        }
+        
+        .btn-activate:hover {
+            background: #45a049;
+        }
+        
+        .btn-deactivate {
+            background: #f44336;
+            color: white;
+        }
+        
+        .btn-deactivate:hover {
+            background: #da190b;
+        }
+        
+        .logout-btn {
+            background: #666;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+        }
+        
+        .logout-btn:hover {
+            background: #555;
+        }
+        
+        .log-section {
+            margin-top: 40px;
+        }
+        
+        .log-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #f8f9fa;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .log-table th, .log-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .log-table th {
+            background: #667eea;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .log-table tr:hover {
+            background: #f0f0f0;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .success-message {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔐 Gestione Lezioni</h1>
+            <p>AI e Metodo di Studio - Controllo Accesso</p>
+        </div>
+        
+        <!-- SEZIONE AUTENTICAZIONE -->
+        <div id="authSection" class="auth-section active">
+            <div class="password-form">
+                <h2 style="margin-bottom: 20px;">Accesso Amministratore</h2>
+                <input type="password" id="passwordInput" placeholder="Inserisci password..." />
+                <button onclick="authenticate()">Accedi</button>
+                <p style="color: #999; margin-top: 10px; font-size: 0.85em;">Password: 'corso2026'</p>
+            </div>
+        </div>
+        
+        <!-- SEZIONE AMMINISTRAZIONE -->
+        <div id="adminPanel" class="admin-panel">
+            <div class="success-message" id="successMessage">
+                ✅ Lezione attivata/disattivata con successo!
+            </div>
+            
+            <div class="section-title">📋 Stato Lezioni</div>
+            
+            <div id="lezioniContainer"></div>
+            
+            <div class="section-title">📊 Log Attivazioni</div>
+            
+            <table class="log-table">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Lezione</th>
+                        <th>Azione</th>
+                        <th>Ora</th>
+                    </tr>
+                </thead>
+                <tbody id="logTable">
+                    <tr>
+                        <td colspan="4" style="text-align: center; color: #999;">Nessun evento registrato</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <button class="logout-btn" onclick="logout()">Esci</button>
+        </div>
+        
+        <div class="footer">
+            <p>Pietro Votano Avolio | AI e Metodo di Studio</p>
+            <p>Settembre - Ottobre 2026</p>
+        </div>
+    </div>
+    
+    <script>
+        const PASSWORD = "corso2026";
+        const LEZIONI = [
+            { id: 1, titolo: "AI Literacy e Prompt Engineering", data: "Martedì 29 settembre" },
+            { id: 2, titolo: "Canvas: Quiz e Escape Room", data: "Giovedì 1 ottobre" },
+            { id: 3, titolo: "NotebookLM: Fonti Verificate", data: "Martedì 6 ottobre" },
+            { id: 4, titolo: "Memorizzazione e Metacognizione", data: "Giovedì 8 ottobre" },
+            { id: 5, titolo: "Deep Research e Fact-Checking", data: "Martedì 13 ottobre" },
+            { id: 6, titolo: "Tutor Virtuali Personalizzati", data: "Giovedì 15 ottobre" }
+        ];
+        
+        let statoLezioni = JSON.parse(localStorage.getItem('statoLezioni')) || {
+            1: false, 2: false, 3: false, 4: false, 5: false, 6: false
+        };
+        
+        let logAttivazioni = JSON.parse(localStorage.getItem('logAttivazioni')) || [];
+        
+        function authenticate() {
+            const password = document.getElementById('passwordInput').value;
+            if (password === PASSWORD) {
+                document.getElementById('authSection').classList.remove('active');
+                document.getElementById('adminPanel').classList.add('active');
+                renderLezioni();
+                renderLog();
+            } else {
+                alert('❌ Password errata!');
+            }
+        }
+        
+        function renderLezioni() {
+            const container = document.getElementById('lezioniContainer');
+            container.innerHTML = LEZIONI.map(lezione => `
+                <div class="lezione-item">
+                    <div class="lezione-info">
+                        <h3>Lezione ${lezione.id}: ${lezione.titolo}</h3>
+                        <p>📅 ${lezione.data}</p>
+                    </div>
+                    <div class="lezione-status">
+                        <div class="status-badge ${statoLezioni[lezione.id] ? 'status-enabled' : 'status-disabled'}">
+                            ${statoLezioni[lezione.id] ? '✅ ATTIVA' : '⬜ DISABILITATA'}
+                        </div>
+                        ${statoLezioni[lezione.id] 
+                            ? `<button class="btn-deactivate" onclick="toggleLezione(${lezione.id})">Disattiva</button>` 
+                            : `<button class="btn-activate" onclick="toggleLezione(${lezione.id})">Attiva</button>`
+                        }
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function toggleLezione(id) {
+            statoLezioni[id] = !statoLezioni[id];
+            localStorage.setItem('statoLezioni', JSON.stringify(statoLezioni));
+            
+            const azione = statoLezioni[id] ? 'ATTIVATA' : 'DISATTIVATA';
+            const ora = new Date().toLocaleTimeString('it-IT');
+            const data = new Date().toLocaleDateString('it-IT');
+            
+            logAttivazioni.unshift({
+                data: data,
+                lezione: `Lezione ${id}`,
+                azione: azione,
+                ora: ora
+            });
+            
+            localStorage.setItem('logAttivazioni', JSON.stringify(logAttivazioni));
+            
+            renderLezioni();
+            renderLog();
+            
+            // Mostra messaggio di successo
+            const msg = document.getElementById('successMessage');
+            msg.classList.add('show');
+            setTimeout(() => msg.classList.remove('show'), 3000);
+        }
+        
+        function renderLog() {
+            const tbody = document.getElementById('logTable');
+            if (logAttivazioni.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; color: #999;">Nessun evento registrato</td></tr>';
+            } else {
+                tbody.innerHTML = logAttivazioni.slice(0, 20).map(entry => `
+                    <tr>
+                        <td>${entry.data}</td>
+                        <td>${entry.lezione}</td>
+                        <td><strong>${entry.azione}</strong></td>
+                        <td>${entry.ora}</td>
+                    </tr>
+                `).join('');
+            }
+        }
+        
+        function logout() {
+            document.getElementById('adminPanel').classList.remove('active');
+            document.getElementById('authSection').classList.add('active');
+            document.getElementById('passwordInput').value = '';
+        }
+    </script>
+</body>
+</html>

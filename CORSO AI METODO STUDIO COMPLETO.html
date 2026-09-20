@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI e Metodo di Studio - Corso Completo per Docenti</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #f5f7fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 18px;
+            opacity: 0.95;
+            margin-bottom: 5px;
+        }
+
+        .header .meta {
+            font-size: 14px;
+            opacity: 0.85;
+            margin-top: 15px;
+        }
+
+        .content {
+            padding: 40px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .toc {
+            background: #f0f4ff;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            border-left: 5px solid #667eea;
+        }
+
+        .toc h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .toc a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .toc a:hover {
+            color: #764ba2;
+            transform: translateX(5px);
+        }
+
+        .modulo {
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .modulo:last-child {
+            border-bottom: none;
+        }
+
+        .modulo-header {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 25px;
+            border-left: 5px solid #667eea;
+            margin-bottom: 25px;
+            border-radius: 5px;
+        }
+
+        .modulo-title {
+            color: #667eea;
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .modulo-subtitle {
+            color: #666;
+            font-size: 16px;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 28px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: #555;
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #e83e8c;
+            font-size: 14px;
+        }
+
+        pre {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-size: 13px;
+            line-height: 1.6;
+            border-left: 4px solid #667eea;
+            font-family: 'Courier New', monospace;
+        }
+
+        blockquote {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-style: italic;
+            color: #666;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        table th {
+            background: #f0f0f0;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid #ddd;
+            color: #333;
+        }
+
+        table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .timeline {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+        }
+
+        .timeline strong {
+            color: #667eea;
+        }
+
+        .check {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+
+        .footer {
+            background: #f5f5f5;
+            padding: 30px 40px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .download-btn {
+            background: #667eea;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .download-btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .breadcrumb {
+            position: sticky;
+            top: 0;
+            background: white;
+            border-bottom: 1px solid #eee;
+            padding: 10px 40px;
+            font-size: 12px;
+            color: #999;
+            z-index: 100;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 20px;
+            }
+
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .container {
+                border-radius: 0;
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            table th, table td {
+                padding: 8px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .download-btn, .breadcrumb {
+                display: none;
+            }
+
+            .modulo {
+                page-break-inside: avoid;
+            }
+
+            pre {
+                background: #f9f9f9;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AI e Metodo di Studio</h1>
+            <p><strong>Corso per docenti</strong></p>
+            <div class="meta">
+                <p>6 lezioni · 18 ore totali · Learning by Doing</p>
+                <p><strong>Autore:</strong> Pietro Votano Avolio</p>
+            </div>
+        </div>
+
+        <div class="breadcrumb">
+            <a href="#toc">Torna all'indice</a> | Versione stampabile
+        </div>
+
+        <div class="content">
+            <!-- INDICE -->
+            <div class="toc" id="toc">
+                <h2>📚 Indice dei Moduli</h2>
+                <ul>
+                    <li><a href="#mod1">Modulo 1 — AI Literacy, Prompt Engineering e primi Gem</a></li>
+                    <li><a href="#mod2">Modulo 2 — Gemini Canvas: giochi didattici interattivi</a></li>
+                    <li><a href="#mod3">Modulo 3 — NotebookLM: comprensione e sintesi</a></li>
+                    <li><a href="#mod4">Modulo 4 — Memorizzazione, studio multimodale e metacognizione</a></li>
+                    <li><a href="#mod5">Modulo 5 — Ricerca evoluta con Deep Research e fact-checking</a></li>
+                    <li><a href="#mod6">Modulo 6 — Tutor virtuali personalizzati</a></li>
+                </ul>
+            </div>
+
+            <!-- MODULO 1 -->
+            <div class="modulo" id="mod1">
+                <div class="modulo-header">
+                    <h1 class="modulo-title">MODULO 1</h1>
+                    <p class="modulo-subtitle">AI Literacy, Prompt Engineering e primi Gem</p>
+                </div>
+
+                <h2>Obiettivi</h2>
+                <ul>
+                    <li>Comprendere il funzionamento di base di Gemini</li>
+                    <li>Padroneggiare il Prompt Engineering con i 5 pilastri</li>
+                    <li>Creare il primo Gem «Pianificatore di Studio»</li>
+                    <li>Applicare lo scaffolding cognitivo ai propri studenti</li>
+                </ul>
+
+                <h3>Output finale</h3>
+                <p><strong>Gem personalizzato «Pianificatore di Studio» + Prompt Kit personale salvato</strong></p>
+
+                <h2>Timeline: 180 minuti</h2>
+
+                <div class="timeline">
+                    <strong>0:00-0:10</strong> | Accoglienza e icebreaker (10 min)<br>
+                    <strong>0:10-0:25</strong> | AI Literacy: Che cos'è l'IA (15 min)<br>
+                    <strong>0:25-0:45</strong> | Prompt Engineering: I 5 pilastri (20 min)<br>
+                    <strong>0:45-1:05</strong> | Demo live: Prompt vago vs strutturato (20 min)<br>
+                    <strong>1:05-1:20</strong> | Pausa (15 min)<br>
+                    <strong>1:20-1:50</strong> | Esercitazione pratica guidata (30 min)<br>
+                    <strong>1:50-2:15</strong> | Privacy e sicurezza (25 min)<br>
+                    <strong>2:15-2:40</strong> | Scaffolding cognitivo: prompt socratico (25 min)<br>
+                    <strong>2:40-3:00</strong> | Laboratorio integrato: creare il primo tutor (20 min)<br>
+                </div>
+
+                <h3>Concetti chiave</h3>
+                <p>L'IA non è magia, è <strong>riconoscimento di schemi</strong>. Gemini impara a prevedere quale parola viene dopo basandosi su miliardi di testi.</p>
+
+                <h3>I 5 pilastri del Prompt Engineering</h3>
+                <table>
+                    <tr>
+                        <th>Pilastro</th>
+                        <th>Descrizione</th>
+                        <th>Esempio</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Contesto</strong></td>
+                        <td>La situazione generale</td>
+                        <td>«Marco conosce i campi E e B»</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ruolo</strong></td>
+                        <td>Chi è l'IA (tutor, coach, ecc.)</td>
+                        <td>«Tu sei un tutor di Fisica»</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Compito</strong></td>
+                        <td>Cosa esattamente fare</td>
+                        <td>«Spiega il significato di ogni equazione»</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vincoli</strong></td>
+                        <td>Limiti e regole</td>
+                        <td>«No formule complicate»</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Formato</strong></td>
+                        <td>Come presentare la risposta</td>
+                        <td>«Una sezione per ogni equazione»</td>
+                    </tr>
+                </table>
+
+                <blockquote>
+                    L'IA non è una scorciatoia. È uno strumento che il docente impara a progettare perché aiuti lo studente a studiare <strong>meglio</strong>, non a studiare <strong>meno</strong>.
+                </blockquote>
+
+                <h3>Template universale</h3>
+                <pre>Tu sei un tutor di [DISCIPLINA] per [LIVELLO].
+Devo aiutare [NOME STUDENTE] con [ARGOMENTO].
+Sa: [PREREQUISITI]. Fatica: [DIFFICOLTÀ].
+
+Fai:
+1. [COSA 1 IN DETTAGLIO]
+2. [COSA 2 CON ESEMPI]
+3. [COSA 3 PER VERIFICARE]
+4. [COSA 4 PER SCAFFOLDING]
+
+Spiega come se stessi parlando a un amico.</pre>
+
+                <h3>Prompt Kit personale</h3>
+                <p>Salva questi 4 prompt nel tuo Google Doc come kit di emergenza:</p>
+
+                <h4>Prompt 1: Spiegare con un'analogia</h4>
+                <pre>Spiega [CONCETTO] a uno studente di [CLASSE] 
+con un'analogia della vita quotidiana.
+Poi indica dove l'analogia NON regge.</pre>
+
+                <h4>Prompt 2: Semplificare</h4>
+                <pre>Riscrivi questo testo per [CLASSE] in frasi brevi, 
+mantenendo TUTTI i concetti.
+Elenca i termini difficili con una definizione di una riga.</pre>
+
+                <h4>Prompt 3: Farmi domande</h4>
+                <pre>Interrogami su [ARGOMENTO]:
+- Una domanda per volta, dal semplice al difficile
+- Dopo la mia risposta, dimmi cosa è corretto, cosa manca
+- Se sbaglio, fai una domanda di clarificazione</pre>
+
+                <h4>Prompt 4: Controllare il mio lavoro</h4>
+                <pre>Ecco il mio svolgimento: [INCOLLA IL TUO LAVORO].
+NON riscriverlo.
+Indicami i 3 punti più deboli e domande per correggerli da solo.</pre>
+
+            </div>
+
+            <!-- MODULO 2 -->
+            <div class="modulo" id="mod2">
+                <div class="modulo-header">
+                    <h1 class="modulo-title">MODULO 2</h1>
+                    <p class="modulo-subtitle">Gemini Canvas: Giochi Didattici Interattivi</p>
+                </div>
+
+                <h2>Obiettivi</h2>
+                <ul>
+                    <li>Capire come funziona Gemini Canvas</li>
+                    <li>Creare quiz interattivi con feedback adattivo</li>
+                    <li>Progettare escape room didattiche</li>
+                    <li>Implementare scaffolding progressivo mediante Canvas</li>
+                </ul>
+
+                <h3>Output finale</h3>
+                <p><strong>Un'escape room didattica o un quiz interattivo pronto per la classe</strong></p>
+
+                <h2>Cosa si può creare con Canvas</h2>
+                <ul>
+                    <li><span class="check">✓</span> <strong>Quiz adattivo</strong> — verifica + correzione istantanea</li>
+                    <li><span class="check">✓</span> <strong>Escape room didattica</strong> — enigmi = concetti</li>
+                    <li><span class="check">✓</span> <strong>Flashcard</strong> — girare e autovalutarsi</li>
+                    <li><span class="check">✓</span> <strong>Sfide progressive</strong> — livelli 1, 2, 3</li>
+                    <li><span class="check">✓</span> <strong>Caccia all'errore</strong> — testo con errori da trovare</li>
+                    <li><span class="check">✓</span> <strong>Simulatori</strong> — fenomeni interattivi</li>
+                </ul>
+
+                <h3>Tassonomia di Bloom</h3>
+                <p>Usa questo per ordinare le domande di un Canvas:</p>
+                <table>
+                    <tr>
+                        <th>Livello</th>
+                        <th>Descrizione</th>
+                        <th>Tipo di domanda</th>
+                    </tr>
+                    <tr>
+                        <td><strong>1. Ricorda</strong></td>
+                        <td>Memoria pura</td>
+                        <td>«Quali sono i 4 elementi?»</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Comprende</strong></td>
+                        <td>Capisce il significato</td>
+                        <td>«Perché si chiama così?»</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Applica</strong></td>
+                        <td>Usa il concetto</td>
+                        <td>«Usa questo per spiegare...»</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Analizza</strong></td>
+                        <td>Scompone il problema</td>
+                        <td>«Quali elementi interagiscono?»</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Valuta</strong></td>
+                        <td>Giudica l'importanza</td>
+                        <td>«Quale è il più importante?»</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. Crea</strong></td>
+                        <td>Inventa qualcosa di nuovo</td>
+                        <td>«Crea una combinazione nuova»</td>
+                    </tr>
+                </table>
+
+                <h3>Prompt scaffolding progressivo</h3>
+                <pre>Crea Canvas con 6 domande su [ARGOMENTO],
+ordinate per difficoltà crescente seguendo Bloom.
+
+Livello 1 - RICORDA: [DOMANDA FACILE]
+Livello 2 - COMPRENDE: [DOMANDA MEDIA]
+Livello 3 - APPLICA: [DOMANDA DIFFICILE]
+
+Feedback:
+- Se giusto: «Perfetto! Sei al Livello X»
+- Se sbagliato: Domanda guida (non soluzione)
+
+Finale: Report su cosa ha capito.</pre>
+
+            </div>
+
+            <!-- MODULO 3 -->
+            <div class="modulo" id="mod3">
+                <div class="modulo-header">
+                    <h1 class="modulo-title">MODULO 3</h1>
+                    <p class="modulo-subtitle">NotebookLM: Comprensione e Sintesi</p>
+                </div>
+
+                <h2>Obiettivi</h2>
+                <ul>
+                    <li>Capire come usare NotebookLM per creare output multimediali</li>
+                    <li>Generare video, podcast, infografiche da documenti</li>
+                    <li>Adattare testi per BES/DSA</li>
+                    <li>Usare source-grounded AI per ridurre le allucinazioni</li>
+                </ul>
+
+                <h2>Cosa genera NotebookLM</h2>
+                <table>
+                    <tr>
+                        <th>Output</th>
+                        <th>Uso</th>
+                        <th>Durata</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Video</strong></td>
+                        <td>Spiegazione breve e visiva</td>
+                        <td>2-5 min</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Podcast</strong></td>
+                        <td>Spiegazione narrativa, studio mentre cammini</td>
+                        <td>10-15 min</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mappa mentale</strong></td>
+                        <td>Visualizzazione dei concetti</td>
+                        <td>Statica</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Infografica</strong></td>
+                        <td>Dati e relazioni visive</td>
+                        <td>Statica</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Timeline</strong></td>
+                        <td>Cronologie e sequenze</td>
+                        <td>Statica</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Glossario</strong></td>
+                        <td>Definizioni ancorate alla fonte</td>
+                        <td>Statica</td>
+                    </tr>
+                </table>
+
+                <h3>Source-Grounded AI</h3>
+                <p>Il vantaggio principale: <strong>ogni risposta cita la fonte</strong>. No allucinazioni.</p>
+
+                <blockquote>
+                    NotebookLM trasforma un PDF in una fonte verificata con citazioni. Puoi chiedere a Marco di studiare: "Il podcast cita pagina 45, quindi è corretto".
+                </blockquote>
+
+            </div>
+
+            <!-- MODULO 4 -->
+            <div class="modulo" id="mod4">
+                <div class="modulo-header">
+                    <h1 class="modulo-title">MODULO 4</h1>
+                    <p class="modulo-subtitle">Memorizzazione, Studio Multimodale e Metacognizione</p>
+                </div>
+
+                <h2>Obiettivi</h2>
+                <ul>
+                    <li>Creare flashcard e quiz a risposta multipla con distrattori logici</li>
+                    <li>Usare audio di ripasso per lo studio multimodale</li>
+                    <li>Implementare strategie metacognitive</li>
+                    <li>Fare autovalutazione consapevole</li>
+                </ul>
+
+                <h3>Active Recall vs Passive Review</h3>
+                <table>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Cosa fa lo studente</th>
+                        <th>Risultato</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Passive Review ❌</strong></td>
+                        <td>Legge, guarda, sottolinea</td>
+                        <td>Dimentica subito</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Active Recall ✅</strong></td>
+                        <td>Quiz, flashcard, autointerrogazione</td>
+                        <td>Memorizza e capisce</td>
+                    </tr>
+                </table>
+
+                <h3>Spaced Repetition</h3>
+                <ul>
+                    <li><strong>Giorno 1:</strong> Primo incontro con il concetto</li>
+                    <li><strong>Giorno 1 sera:</strong> Ripassare (consolidamento iniziale)</li>
+                    <li><strong>Giorno 3:</strong> Ripassare di nuovo</li>
+                    <li><strong>Giorno 7:</strong> Ripassare ancora</li>
+                    <li><strong>Giorno 30:</strong> Ultima verifica</li>
+                </ul>
+
+                <h3>Specchio metacognitivo</h3>
+                <p><strong>Metacognizione = pensare al proprio pensiero</strong></p>
+                <p>«So quello che so? Dove ho lacune?»</p>
+
+                <p>Prompt per Gemini:</p>
+                <pre>Sei il mio specchio metacognitivo.
+Analizzo le mie risposte errate.
+
+Identifica il tipo di lacuna:
+- Non ricordo / Non capisco / Confondo / Non so applicare
+
+Proponi azione di studio + ripassi a 1, 3, 7 giorni.
+
+Poi chiedimi di riformulare il concetto più difficile 
+con parole mie (questo è il vero test).</pre>
+
+            </div>
+
+            <!-- MODULO 5 -->
+            <div class="modulo" id="mod5">
+                <div class="modulo-header">
+                    <h1 class="modulo-title">MODULO 5</h1>
+                    <p class="modulo-subtitle">Ricerca Evoluta con Deep Research e Fact-Checking</p>
+                </div>
+
+                <h2>Obiettivi</h2>
+                <ul>
+                    <li>Usare Gemini Deep Research per ricerche documentali avanzate</li>
+                    <li>Verificare criticamente le fonti</li>
+                    <li>Insegnare ai docenti a controllare le affermazioni dell'IA</li>
+                    <li>Creare attività di fact-checking per gli studenti</li>
+                </ul>
+
+                <h3>Checklist di verifica delle fonti</h3>
+                <table>
+                    <tr>
+                        <th>Domanda</th>
+                        <th>Cosa controllare</th>
+                    </tr>
+                    <tr>
+                        <td><strong>La fonte esiste?</strong></td>
+                        <td>Si trova davvero, con autore e data</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dice quello che si afferma?</strong></td>
+                        <td>Il passaggio citato sostiene il dato</td>
+                    </tr>
+                    <tr>
+                        <td><strong>È affidabile e attuale?</strong></td>
+                        <td>Chi pubblica, quando, con quale scopo?</td>
+                    </tr>
+                </table>
+
+                <h3>Prompt ricerca verificata</h3>
+                <pre>Ricerca su [ARGOMENTO].
+Max 1.000 parole.
+Usa solo fonti istituzionali/accademiche.
+
+Includi una sezione «Cosa NON è certo»
+dove indichi affermazioni ancora dibattute.</pre>
+
+            </div>
+
+            <!-- MODULO 6 -->
+            <div class="modulo" id="mod6">
+                <div class="modulo-header">
+                    <h1 class="modulo-title">MODULO 6</h1>
+                    <p class="modulo-subtitle">Tutor Virtuali Personalizzati</p>
+                </div>
+
+                <h2>Obiettivi</h2>
+                <ul>
+                    <li>Creare il tutor socratico finale</li>
+                    <li>Configurare system instructions personalizzate</li>
+                    <li>Testare il tutor con 3 "studenti finti"</li>
+                    <li>Pubblicare il tutor per uso autonomo degli studenti</li>
+                </ul>
+
+                <h3>Istruzioni per un Tutor Socratico Generico</h3>
+                <pre>RUOLO
+Sei il «Tutor Socratico» di [MATERIA] per [CLASSE].
+Scopo: far capire, non far consegnare.
+
+METODO
+1. Capisco cosa lo studente sa e dove si blocca
+2. Una sola domanda guida per volta
+3. Se giusto: conferma e alza difficoltà
+4. Se sbagliato: chiedo il ragionamento + indizio
+
+VINCOLI
+- No soluzioni di compiti/verifiche
+- No dati personali (niente cognomi)
+- Max 4 frasi per messaggio
+
+STILE
+Amichevole, incoraggiante, curioso</pre>
+
+                <h3>Varianti disciplinari</h3>
+                <table>
+                    <tr>
+                        <th>Materia</th>
+                        <th>Focus</th>
+                        <th>Cosa chiede</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Matematica</strong></td>
+                        <td>Ragionamento</td>
+                        <td>«Come sei arrivato qui?» (non «è giusto?»)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Storia</strong></td>
+                        <td>Causa/effetto</td>
+                        <td>«Cosa avrebbe potuto cambiare se...?»</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lingue</strong></td>
+                        <td>Pratica attiva</td>
+                        <td>Risponde nella lingua target a livello dello studente</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Italiano</strong></td>
+                        <td>Interpretazione</td>
+                        <td>«Cosa suggerisce il testo qui?»</td>
+                    </tr>
+                </table>
+
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <p><strong>AI e Metodo di Studio</strong> — Corso per docenti di Pietro Votano Avolio</p>
+            <p style="margin-top: 10px; font-size: 11px;">Versione HTML interattiva | Scaricabile e stampabile</p>
+            <p style="margin-top: 10px; font-size: 11px;">© 2025 · Sviluppato con Gemini e NotebookLM</p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scroll per link interni
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({behavior: 'smooth', block: 'start'});
+                }
+            });
+        });
+    </script>
+</body>
+</html>
