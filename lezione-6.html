@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="it" class="deckpage">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lezione 6 · AI e Metodo di Studio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="track" id="deck" data-lesson="6" data-glossario="1">
+
+<section class="slide dark">
+  <div class="lhead"><div class="lnum">6</div><div><div class="eyebrow">Lezione 6 · giovedì 15 ottobre · 14:30–17:30</div><h2>Tutor virtuali personalizzati: creare i propri Gem e assistenti con il dialogo socratico</h2></div></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">giovedì 15 ottobre · 14:30–17:30</div>
+  <h2>Tutor virtuali personalizzati: creare i propri Gem e assistenti con il dialogo socratico</h2>
+  <div class="grid g3">
+    <div class="box"><h3>Obiettivi</h3><p>Configurare agenti virtuali su misura da mettere a disposizione degli studenti per lo studio autonomo a casa.</p></div>
+    <div class="box"><h3>Contenuti</h3><ul><li>Creazione e personalizzazione avanzata dei Gem</li><li>System Instructions su Google AI Studio</li><li>Dialogo socratico: il tutor pone domande guida invece di dare soluzioni</li><li>Integrazione nelle routine di studio</li></ul></div>
+    <div class="box"><h3>Output pratico</h3><p>Un tutor virtuale disciplinare pubblicato, ad esempio Tutor Socratico di Matematica, Storia o Lingue straniere.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Timeline <span class="badge">Proposta</span></div>
+  <h2>Le 3 ore, blocco per blocco</h2>
+  <div class="tl">
+    <div><b>14:30–14:45</b><span>Dal prompt al tutor: il dialogo socratico</span><span class="m">15'</span></div>
+    <div><b>14:45–15:10</b><span>Istruzioni di sistema: Gem e Google AI Studio</span><span class="m">25'</span></div>
+    <div><b>15:10–15:40</b><span>Esercitazione: il tutor della propria disciplina</span><span class="m">30'</span></div>
+    <div><b>15:40–15:55</b><span>Pausa</span><span class="m">15'</span></div>
+    <div><b>15:55–16:20</b><span>Collaudo con tre studenti finti</span><span class="m">25'</span></div>
+    <div class="hl"><b>16:20–17:05</b><span>Laboratorio: rifinire, salvare e integrare nelle routine di studio</span><span class="m">45'</span></div>
+    <div><b>17:05–17:30</b><span>Presentazioni finali e chiusura del corso</span><span class="m">25'</span></div>
+  </div>
+  <p class="note">Anche questa timeline è una proposta: nel programma originale il Lezione 6 non l'aveva ancora.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Procedura</div>
+  <h2>Due strade per costruire il tutor</h2>
+  <div class="grid g2">
+    <div class="box"><h3>Con un Gem</h3><ol class="steps">
+      <li>Gemini → «Gem» → «Nuovo Gem»</li>
+      <li>Nome del tutor, ad esempio «Tutor Socratico di Matematica»</li>
+      <li>Incolla le istruzioni (slide seguente) e adatta materia e classe</li>
+      <li>Collauda con tre studenti finti</li>
+      <li>Condividi solo se la licenza del tuo istituto lo consente</li>
+    </ol></div>
+    <div class="box"><h3>Con Google AI Studio</h3><ol class="steps">
+      <li>aistudio.google.com: crea un nuovo prompt</li>
+      <li>Incolla le istruzioni nel campo «System instructions»</li>
+      <li>Scegli il modello e imposta una temperatura bassa per risposte coerenti</li>
+      <li>Collauda con gli stessi tre studenti finti</li>
+      <li>Salva il prompt e annota la versione</li>
+    </ol></div>
+  </div>
+  <p class="note">AI Studio è pensato per utenti maggiorenni e non passa per l'account scolastico gestito: per gli studenti minorenni il tutor si usa tramite Gem, se l'istituto lo permette.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Istruzioni del tutor</div>
+  <h2>Tutor socratico: le istruzioni da incollare</h2>
+<pre>RUOLO
+Sei un tutor socratico di [MATERIA] per studenti di [CLASSE]. Il tuo scopo è far capire, non far consegnare.
+
+METODO
+1. All'inizio chiedi: argomento, cosa sa già lo studente, cosa lo blocca.
+2. Poni UNA sola domanda guida per volta, breve.
+3. Se la risposta è corretta, conferma e alza di poco la difficoltà. Se è sbagliata non dire «sbagliato»: chiedi come ci è arrivato e offri un indizio.
+4. Dopo 3 indizi inutili mostra un esempio risolto simile (mai lo stesso esercizio) e riproponi il problema.
+5. Ogni 5 scambi chiedi allo studente di riassumere con parole sue.
+
+VINCOLI
+- Non dare mai la soluzione finale di un compito o di un'interrogazione. Se lo studente insiste, ricorda che ti occupi di aiutarlo a capire.
+- Non inventare: se non sei sicuro, dillo e invita a controllare il libro.
+- Non chiedere dati personali. Se lo studente esprime disagio, invitalo a parlarne con un adulto o con il docente.
+- Linguaggio semplice, massimo 4 frasi per messaggio.
+
+FORMATO
+Una domanda per messaggio. A fine sessione: «Cosa hai capito oggi / Cosa ripassare / Prossimo passo».</pre>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Varianti per disciplina</div>
+  <h2>Cosa aggiungere alle istruzioni in base alla materia</h2>
+  <div class="grid g3">
+    <div class="box"><h3>Matematica</h3><p>Chiedi sempre di scrivere il primo passaggio del ragionamento prima del calcolo. Distingui l'errore di calcolo dall'errore di metodo. Proponi sempre una verifica del risultato, ad esempio per sostituzione.</p></div>
+    <div class="box"><h3>Storia</h3><p>Chiedi causa, fonte e conseguenze. Fai distinguere fatto e interpretazione. Evita giudizi anacronistici: chiedi come la vedeva un contemporaneo.</p></div>
+    <div class="box"><h3>Lingue straniere</h3><p>Rispondi in [LINGUA] al livello [A2 / B1]. Correggi un solo errore per messaggio, con la forma corretta e una regola breve. Chiudi ogni messaggio con una domanda; passa all'italiano solo se lo studente è bloccato.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Collaudo</div>
+  <h2>Prima di consegnarlo: tre studenti finti</h2>
+  <div class="grid g3">
+    <div class="box"><h3>Lo studente che sa</h3><p>Risponde bene. Il tutor deve alzare la difficoltà e non ripetere le stesse domande.</p></div>
+    <div class="box"><h3>Lo studente che sbaglia</h3><p>Risponde in modo errato. Il tutor deve chiedere il ragionamento e dare un indizio, senza correggere subito.</p></div>
+    <div class="box"><h3>Lo studente che chiede la soluzione</h3><p>«Dammi solo il risultato». Il tutor deve rifiutare con gentilezza e riportare la conversazione sul ragionamento.</p></div>
+  </div>
+  <div class="box"><h3>Se il tutor sbaglia</h3><p>Non riscrivere tutto: aggiungi alle istruzioni una regola precisa per il caso che è andato male, poi collauda di nuovo. Tieni una versione datata di ogni modifica.</p></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Dopo il corso</div>
+  <h2>Un piano d'azione di 30 giorni <span class="badge">Proposta</span></h2>
+  <div class="day">
+    <div><b>Settimana 1</b>Prova il tuo Gem con uno studente reale e annota cosa migliorare.</div>
+    <div><b>Settimana 2</b>Crea un Canvas per una tua classe e osserva come reagiscono.</div>
+    <div><b>Settimana 3</b>Prepara un kit di studio con NotebookLM su un argomento chiave.</div>
+    <div><b>Settimana 4</b>Raccogli feedback e condividi il materiale con un collega.</div>
+  </div>
+  <p class="note">Principio di tutto il percorso: l'IA propone, il docente decide e verifica.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Etica e uso responsabile</div>
+  <h2>Regole d'oro nell'uso dell'IA</h2>
+  <div class="grid g2">
+    <div class="box"><h3>Da fare</h3><ul>
+      <li>Prima prova da solo, poi chiedi aiuto</li>
+      <li>Chiedi spiegazioni e domande, non solo risposte</li>
+      <li>Verifica sempre fatti, numeri e citazioni</li>
+      <li>Dichiara quando e come hai usato l'IA</li></ul></div>
+    <div class="box"><h3>Da evitare</h3><ul>
+      <li>Copiare risposte senza capirle</li>
+      <li>Fidarsi di fonti e riferimenti non controllati</li>
+      <li>Inserire dati personali o riservati</li>
+      <li>Usare l'IA dove il regolamento lo vieta</li></ul></div>
+  </div>
+</section>
+
+<section class="slide dark">
+  <h2 style="font-size:clamp(30px,5.4vw,60px)">L'IA non studia al posto dello studente.</h2>
+  <p class="lead" style="color:var(--coral);font-family:var(--display);font-weight:600;font-size:clamp(22px,3.4vw,36px)">Il docente impara a progettarla perché lo aiuti a studiare meglio.</p>
+  <p class="mute">Grazie per aver partecipato. <a href="glossario.html" style="color:inherit">Apri il glossario</a>.</p>
+</section>
+
+
+</main>
+<script src="deck.js"></script>
+</body>
+</html>

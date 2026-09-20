@@ -1,5 +1,10 @@
 # AI e Metodo di Studio
 
-Presentazione del corso per docenti: 6 moduli da 3 ore su AI e metodo di studio (Gemini, NotebookLM, Gem, AI Studio).
+Sito del corso per docenti (6 lezioni da 3 ore) di Pietro Votano Avolio.
 
-Apri `index.html` nel browser, oppure usa la versione online con GitHub Pages.
+- `index.html`: menu delle lezioni
+- `lezione-1.html` ... `lezione-6.html`: slide orizzontali (frecce, barra spaziatrice, O per la panoramica)
+- `glossario.html`: glossario finale
+- `stato.js`: elenco delle lezioni attive. Dopo ogni lezione aggiungi il numero (es. `attive: [1, 2]`) e salva.
+
+Per vedere tutte le lezioni senza modificare `stato.js`, apri `index.html?anteprima`.

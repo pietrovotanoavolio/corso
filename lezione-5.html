@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="it" class="deckpage">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lezione 5 · AI e Metodo di Studio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="track" id="deck" data-lesson="5">
+
+<section class="slide dark">
+  <div class="lhead"><div class="lnum">5</div><div><div class="eyebrow">Lezione 5 · martedì 13 ottobre · 14:30–17:30</div><h2>Ricerca evoluta e senso critico: Gemini Deep Research e fact-checking</h2></div></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">martedì 13 ottobre · 14:30–17:30</div>
+  <h2>Ricerca evoluta e senso critico: Gemini Deep Research e fact-checking</h2>
+  <div class="grid g3">
+    <div class="box"><h3>Obiettivi</h3><p>Insegnare la ricerca documentale avanzata e sviluppare la capacità di verificare criticamente le fonti.</p></div>
+    <div class="box"><h3>Contenuti</h3><ul><li>Gemini Deep Research per indagini tematiche e report approfonditi</li><li>Verifica delle fonti e tracciamento delle citazioni</li><li>Individuazione di bias e inesattezze logiche nei testi dell'IA</li></ul></div>
+    <div class="box"><h3>Output pratico</h3><p>Scheda per un'attività laboratoriale di «caccia all'errore» e fact-checking guidato dall'IA.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Timeline <span class="badge">Proposta</span></div>
+  <h2>Le 3 ore, blocco per blocco</h2>
+  <div class="tl">
+    <div><b>14:30–14:45</b><span>Perché verificare: allucinazioni e fonti inesistenti</span><span class="m">15'</span></div>
+    <div><b>14:45–15:10</b><span>Demo live di Deep Research</span><span class="m">25'</span></div>
+    <div><b>15:10–15:40</b><span>Esercitazione: la propria ricerca</span><span class="m">30'</span></div>
+    <div><b>15:40–15:55</b><span>Pausa</span><span class="m">15'</span></div>
+    <div><b>15:55–16:25</b><span>Verifica delle fonti, bias e citazioni</span><span class="m">30'</span></div>
+    <div class="hl"><b>16:25–17:10</b><span>Laboratorio: la scheda «caccia all'errore»</span><span class="m">45'</span></div>
+    <div><b>17:10–17:30</b><span>Chiusura e compito a casa</span><span class="m">20'</span></div>
+  </div>
+  <p class="note">Nel programma originale il Lezione 5 non aveva ancora la timeline: questa è una proposta, con lo stesso schema degli altri moduli.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Perché verificare</div>
+  <h2>Tre rischi da insegnare a riconoscere</h2>
+  <div class="grid g3">
+    <div class="box"><h3>Fonti inventate</h3><p>Una citazione con autore, titolo e anno può non esistere.</p></div>
+    <div class="box"><h3>Dati alterati o datati</h3><p>Numeri e date plausibili ma sbagliati, o non più aggiornati.</p></div>
+    <div class="box"><h3>Bias e salti logici</h3><p>Generalizzazioni, un solo punto di vista, cause e conseguenze invertite.</p></div>
+  </div>
+  <p class="note">Il senso critico è la competenza che gli studenti devono portare via: l'IA sbaglia con lo stesso tono con cui ha ragione.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Procedura</div>
+  <h2>Ricerca con Deep Research e verifica delle fonti</h2>
+  <ol class="steps">
+    <li>In Gemini seleziona «Deep Research» dagli strumenti.</li>
+    <li>Scrivi la domanda con obiettivo, tipo di fonti ammesse e periodo (slide seguente).</li>
+    <li>Leggi il piano di ricerca proposto e modificalo prima di avviare.</li>
+    <li>Avvia la ricerca e attendi il report.</li>
+    <li>Apri le fonti citate una per una.</li>
+    <li>Compila la scheda di verifica: la fonte esiste? Dice ciò che il report afferma? È recente e affidabile?</li>
+    <li>Correggi il report o rigenera la ricerca con un prompt più preciso.</li>
+  </ol>
+  <p class="note">Una citazione che sembra precisa non è una prova: la verifica sta nell'aprire la fonte.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Prompt</div>
+  <h2>Domanda di ricerca e caccia all'errore</h2>
+  <div class="grid g2">
+    <div><span class="tag t">Ricerca approfondita</span>
+<pre>Ricerca approfondita su [TEMA] per una lezione di [MATERIA] in [CLASSE].
+
+Obiettivo: capire [DOMANDA CENTRALE], comprese le posizioni discordanti.
+Fonti: privilegia istituzioni, riviste scientifiche, enti ufficiali e testi accademici; escludi blog e forum.
+Periodo: [ANNI].
+Report: massimo 1.000 parole, con titoli, ogni dato con fonte e link, e una sezione finale «Cosa non è certo o è controverso».</pre></div>
+    <div><span class="tag t">Testo con errori per la classe</span>
+<pre>Scrivi un testo di 250 parole su [ARGOMENTO] per [CLASSE] che contenga esattamente 5 errori: 2 fattuali, 1 di ragionamento (causa/effetto), 1 fonte o citazione inesistente, 1 dato numerico alterato. Non segnalarli nel testo.
+
+Restituisci a parte la «chiave del docente»: posizione, errore, versione corretta e come si scopre. Difficoltà: [FACILE / MEDIO / DIFFICILE].</pre></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Prompt</div>
+  <h2>Il revisore critico: fact-checking guidato</h2>
+<pre>Sei un revisore critico. Ti fornisco un testo generato dall'IA.
+
+1) Elenca ogni affermazione verificabile.
+2) Per ciascuna indica con quale fonte si può controllare e il livello di certezza (alto, medio, basso).
+3) Segnala bias, generalizzazioni e salti logici.
+4) Indica le 3 affermazioni da controllare per prime.
+
+Non riscrivere il testo e non inventare fonti: se non ne conosci una, scrivi «fonte da cercare».</pre>
+  <div class="grid g3">
+    <div class="box"><h3>La fonte esiste?</h3><p>Si trova davvero, con autore e data.</p></div>
+    <div class="box"><h3>Dice quello che si afferma?</h3><p>Il passaggio citato sostiene il dato.</p></div>
+    <div class="box"><h3>È affidabile e attuale?</h3><p>Chi la pubblica, quando, con quale scopo.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Laboratorio</div>
+  <h2>La scheda «caccia all'errore» da consegnare agli studenti</h2>
+<pre>SCHEDA – CACCIA ALL'ERRORE
+Materia e classe: ______________________
+Argomento: ______________________
+
+1. Testo con errori (generato con il prompt della slide precedente)
+2. Compito per gli studenti: trova tutti gli errori e classificali
+   [ ] fattuale   [ ] di ragionamento   [ ] fonte inesistente   [ ] dato alterato
+3. Per ogni errore: dove si trova, perché è sbagliato, come lo hai scoperto
+4. Fonti usate per verificare (con link)
+5. Riflessione: quale errore era più difficile da vedere e perché?
+
+CHIAVE DEL DOCENTE (non distribuire)
+Posizione, errore, versione corretta, come si scopre.</pre>
+  <p class="note">Output del modulo: la scheda completa e un report di ricerca verificato.</p>
+</section>
+
+
+</main>
+<script src="deck.js"></script>
+</body>
+</html>

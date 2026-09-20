@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="it" class="deckpage">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lezione 4 · AI e Metodo di Studio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="track" id="deck" data-lesson="4">
+
+<section class="slide dark">
+  <div class="lhead"><div class="lnum">4</div><div><div class="eyebrow">Lezione 4 · giovedì 8 ottobre · 14:30–17:30</div><h2>Memorizzazione, studio multimodale e metacognizione: flashcard, audio e autovalutazione</h2></div></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">giovedì 8 ottobre · 14:30–17:30</div>
+  <h2>Memorizzazione, studio multimodale e metacognizione: flashcard, audio e autovalutazione</h2>
+  <div class="grid g3">
+    <div class="box"><h3>Obiettivi</h3><p>Sfruttare la multimodalità e le neuroscienze (Active Recall e strategie metacognitive) per consolidare le conoscenze.</p></div>
+    <div class="box"><h3>Contenuti</h3><ul><li>Flashcard e quiz a risposta multipla con distrattori logici</li><li>Panoramiche audio (Audio Overview) di NotebookLM per lo studio multimodale</li><li>L'IA come «specchio metacognitivo» per analizzare le proprie lacune</li></ul></div>
+    <div class="box"><h3>Output pratico</h3><p>Kit di autoverifica: flashcard, traccia audio di ripasso e prompt di autovalutazione.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Timeline</div>
+  <h2>Le 3 ore, blocco per blocco</h2>
+  <div class="tl">
+    <div><b>14:30–14:45</b><span>Memoria, richiamo attivo e metacognizione</span><span class="m">15'</span></div>
+    <div><b>14:45–15:30</b><span>Creare flashcard e quiz</span><span class="m">45'</span></div>
+    <div><b>15:30–15:45</b><span>Pausa</span><span class="m">15'</span></div>
+    <div><b>15:45–16:30</b><span>Audio di ripasso e specchio metacognitivo</span><span class="m">45'</span></div>
+    <div class="hl"><b>16:30–17:15</b><span>Laboratorio: il proprio kit di autoverifica</span><span class="m">45'</span></div>
+    <div><b>17:15–17:30</b><span>Chiusura e compito a casa</span><span class="m">15'</span></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Come si impara</div>
+  <h2>Richiamare è meglio che rileggere</h2>
+  <div class="grid g2">
+    <div class="box"><h3>Studio passivo, poco efficace</h3><ul><li>Leggere e rileggere</li><li>Sottolineare</li><li>Ascoltare un podcast senza rispondere</li></ul><p class="note" style="margin-top:10px">Marco legge o ascolta, poi dimentica.</p></div>
+    <div class="box"><h3>Richiamo attivo, efficace</h3><ul><li>Quiz</li><li>Flashcard da girare dopo aver risposto</li><li>Autointerrogazione</li></ul><p class="note" style="margin-top:10px">Ricordare è già un esercizio.</p></div>
+  </div>
+  <div class="box"><h3>Ripetizione dilazionata</h3><div class="day"><div><b>Giorno 1</b>Primo incontro con il concetto</div><div><b>Sera</b>Consolidamento iniziale</div><div><b>Giorno 3</b>Secondo ripasso</div><div><b>Giorno 7</b>Terzo ripasso</div><div><b>Giorno 30</b>Verifica finale</div></div></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Procedura</div>
+  <h2>Costruire il kit di autoverifica</h2>
+  <ol class="steps">
+    <li>Riparti dal taccuino del Lezione 3, con le stesse fonti.</li>
+    <li>Genera flashcard e quiz dal pannello Studio oppure con i prompt delle slide seguenti.</li>
+    <li>Controlla ogni domanda: una sola risposta corretta, distrattori plausibili, riferimento alla fonte.</li>
+    <li>Personalizza la panoramica audio con le istruzioni: cosa approfondire, a chi è rivolta, quanto dura.</li>
+    <li>Ascolta la traccia e annota i punti poco chiari: diventano le domande di autovalutazione.</li>
+    <li>A fine ripasso usa il prompt «specchio metacognitivo» e pianifica i ripassi a 1, 3 e 7 giorni.</li>
+  </ol>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Prompt</div>
+  <h2>Flashcard e quiz con distrattori logici</h2>
+  <div class="grid g2">
+    <div><span class="tag t">Flashcard di richiamo attivo</span>
+<pre>Dalle fonti crea 20 flashcard per ripassare [ARGOMENTO].
+
+Fronte: una domanda che richiede di richiamare un concetto (non sì/no).
+Retro: risposta in massimo 2 frasi + riferimento alla fonte.
+
+Mescola 3 tipi: definizione, «perché», applicazione a un caso. Ordina dal fondamentale all'avanzato.</pre></div>
+    <div><span class="tag t">Quiz a risposta multipla</span>
+<pre>Crea 10 domande a risposta multipla su [ARGOMENTO] per [CLASSE]. 4 opzioni, una sola corretta.
+
+I 3 distrattori devono essere errori che gli studenti commettono davvero (scambio di concetti simili, errore di segno, confusione tra causa ed effetto), non risposte assurde.
+
+Dopo il quiz spiega per ogni distrattore quale errore di ragionamento rappresenta. Distribuisci la risposta corretta in modo casuale tra A, B, C, D.</pre></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Prompt</div>
+  <h2>Traccia audio di ripasso e specchio metacognitivo</h2>
+  <div class="grid g2">
+    <div><span class="tag t">Istruzioni per la panoramica audio</span>
+<pre>Panoramica audio per uno studente di [CLASSE] che ripassa [ARGOMENTO] prima di [VERIFICA]. Durata circa 8 minuti.
+
+Struttura: idea centrale; 3 concetti chiave con un esempio ciascuno; 2 errori frequenti da evitare. Chiudi con 3 domande a cui rispondere ad alta voce, con una pausa dopo ciascuna. Registro chiaro e non scolastico.</pre></div>
+    <div><span class="tag t">Specchio metacognitivo</span>
+<pre>Sei il mio specchio metacognitivo. Ti darò le mie risposte a un quiz e le note su cosa ho trovato difficile.
+
+Non correggermi subito.
+1) Chiedimi come sono arrivato a ogni risposta sbagliata.
+2) Individua il tipo di lacuna: non ricordo, non capisco, confondo due concetti, non so applicare.
+3) Per ogni lacuna proponi un'azione di studio diversa e i ripassi a 1, 3 e 7 giorni.
+
+Finisci chiedendomi di riformulare con parole mie il concetto più difficile.</pre></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Esempi per Marco</div>
+  <h2>Come si presentano una flashcard e un quiz ben fatti</h2>
+  <div class="grid g2">
+    <div><span class="tag t">Flashcard</span>
+<pre>Fronte: Perché la legge di Gauss è la prima delle 4 equazioni?
+Retro: Perché definisce come le cariche creano il campo E. Senza Gauss il resto non ha senso. Fonte: p. 120, cap. X.</pre></div>
+    <div><span class="tag t">Quiz con distrattori logici</span>
+<pre>Il flusso di E attraverso una superficie chiusa è...
+A) proporzionale alla carica racchiusa  ✔
+B) inversamente proporzionale alla carica (confonde con una legge inversa)
+C) indipendente dalla carica (errore logico)
+D) funzione del tempo (confonde con Faraday)</pre></div>
+  </div>
+  <p class="note">Sono gli errori che gli studenti fanno davvero, non risposte assurde: per questo i distrattori insegnano.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Specchio metacognitivo</div>
+  <h2>Un esempio di dialogo e il kit finale</h2>
+  <div class="grid g2">
+    <div><span class="tag t">Marco risponde male: «Cos'è il flusso?»</span>
+<pre>1) Come sei arrivato a dire che il flusso è la carica?
+2) Hai confuso due cose: il flusso che esce e la carica che crea il campo.
+3) Azione: confronta «flusso» e «carica» nel capitolo e fai la flashcard specifica.
+4) Ripassi: oggi sera, domani, tra 3 giorni, tra 7.
+5) Ora spiega con parole tue la differenza.</pre></div>
+    <div class="box"><h3>Kit di autoverifica in un documento</h3><ul><li>Flashcard</li><li>Quiz con spiegazione dei distrattori</li><li>Link alla traccia audio di ripasso</li><li>Glossario</li><li>Piano della settimana: lunedì flashcard, martedì quiz, mercoledì audio, giovedì specchio metacognitivo, venerdì ripasso</li></ul></div>
+  </div>
+</section>
+
+
+</main>
+<script src="deck.js"></script>
+</body>
+</html>

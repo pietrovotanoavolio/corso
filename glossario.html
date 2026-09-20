@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Glossario · AI e Metodo di Studio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="page">
+  <a class="btn" href="index.html">&#8962; Menu</a>
+  <h1 style="margin-top:20px">Glossario</h1>
+  <p class="lead mute" style="margin-top:8px">Tutti i termini usati nel corso, in ordine alfabetico, con la lezione in cui compaiono.</p>
+  <div class="gl-tools">
+    <input id="q" type="search" placeholder="Cerca un termine" aria-label="Cerca un termine">
+    <span class="note" id="cnt"></span>
+  </div>
+  <nav class="az" id="az" aria-label="Indice alfabetico"></nav>
+  <div class="gl" id="gl"></div>
+</main>
+<footer class="sitefoot"><span>Pietro Votano Avolio</span><span>AI e Metodo di Studio</span></footer>
+<script>
+var T = [
+["Addestramento","Fase in cui un modello apprende da grandi quantità di dati, riconoscendo regolarità nel linguaggio.","1"],
+["AI Literacy","Alfabetizzazione sull'IA: capire come funziona, usarla bene, valutarla in modo critico e con responsabilità.","1"],
+["Allucinazione","Risposta plausibile e sicura nel tono, ma falsa: dati alterati, citazioni o fonti inesistenti.","1, 5"],
+["Audio Overview (panoramica audio)","Traccia audio generata da NotebookLM a partire dalle fonti caricate, in forma di conversazione o di ripasso guidato.","4"],
+["Autovalutazione","Verifica che lo studente fa da solo sulla propria preparazione, con quiz, flashcard o domande di controllo.","4"],
+["BES (Bisogni Educativi Speciali)","Situazioni che richiedono strategie didattiche personalizzate. Il materiale può essere adattato nella forma, non nei contenuti.","3"],
+["Bias","Squilibrio ereditato dai dati di addestramento che orienta le risposte, ad esempio stereotipi o prevalenza di certe fonti.","1"],
+["Caccia all'errore","Attività in cui gli studenti cercano e classificano errori nascosti in un testo, per allenare il senso critico.","2, 5"],
+["Canvas (Gemini Canvas)","Spazio dentro Gemini in cui la conversazione diventa un artefatto interattivo: quiz, giochi, flashcard, escape room.","2"],
+["Chat","Modalità di conversazione con l'IA, a domanda e risposta, senza un artefatto interattivo.","1"],
+["Citazione (nelle fonti)","Rimando che indica il punto esatto della fonte da cui proviene un'affermazione, in NotebookLM cliccabile.","3"],
+["Collaudo","Prova di un tutor con studenti finti (che sa, che sbaglia, che chiede la soluzione) prima di consegnarlo.","6"],
+["Compito","Elemento del prompt che dice che cosa fare, in passi chiari.","1"],
+["Contesto","Elemento del prompt che descrive la situazione: chi è lo studente, che cosa sa, dove fatica.","1"],
+["Deep Research","Funzione di Gemini che esegue ricerche approfondite su più fonti e produce un report con riferimenti.","5"],
+["Dialogo socratico","Modo di guidare l'apprendimento con domande, senza dare subito la risposta, perché lo studente scopra il concetto.","1, 6"],
+["DigCompEdu","Quadro europeo delle competenze digitali dei docenti, articolato in aree.","Corso"],
+["Distrattore","Opzione sbagliata di un quiz a risposta multipla. Un buon distrattore rappresenta un errore reale.","4"],
+["DSA (Disturbi Specifici dell'Apprendimento)","Difficoltà come dislessia, disortografia, discalculia. Il materiale si adatta nella forma mantenendo i concetti.","3"],
+["Ecosistema Gemini","L'insieme di strumenti usati nel corso: Gemini, Canvas, NotebookLM, Google AI Studio e, come opzione, Storybook.","Corso"],
+["Escape room didattica","Attività a stanze in cui ogni enigma è un concetto della materia, con indizi progressivi.","2"],
+["Fact-checking","Verifica dell'esattezza di un'affermazione controllando le fonti originali.","5"],
+["Feedback immediato","Risposta che lo studente riceve subito dopo ogni tentativo, che riduce l'ansia e guida la correzione.","2"],
+["Few-shot","Tecnica di prompting in cui si forniscono uno o più esempi del risultato atteso.","1"],
+["Finestra di contesto","Quantità di testo che il modello considera in una conversazione. Oltre quel limite, dettagli si perdono.","1"],
+["Flashcard","Scheda con una domanda sul fronte e la risposta sul retro, per il richiamo attivo.","2, 4"],
+["Fonte","Materiale da cui si ricava un'informazione: libro, articolo, documento. La sua qualità determina quella della risposta.","3, 5"],
+["Formato","Elemento del prompt che stabilisce come presentare la risposta: tabella, elenco, sezioni.","1"],
+["Gamification","Uso di meccaniche di gioco (punteggi, livelli, indizi) per ingaggiare gli studenti.","2"],
+["Gem","Assistente personalizzato di Gemini, con istruzioni salvate che valgono per ogni conversazione.","1, 6"],
+["Gemini","Assistente di intelligenza artificiale di Google, usato nel corso per conversare, creare e cercare.","1"],
+["Gemini Storybook","Funzione di Gemini per creare storie illustrate con narrazione vocale. Opzionale nel corso.","Corso"],
+["Glossario (di NotebookLM)","Elenco di termini chiave estratti dalle fonti, con definizioni ancorate ad esse.","3"],
+["Google AI Studio","Ambiente di Google per sperimentare con i modelli: istruzioni di sistema, parametri e app più articolate.","2, 6"],
+["Guida allo studio","Riassunto strutturato con domande di verifica generato da NotebookLM.","3"],
+["Human-in-the-Loop","Principio per cui l'IA propone e la persona decide e verifica ogni output prima di usarlo.","Corso"],
+["Infografica","Rappresentazione visiva di dati e relazioni, generabile da NotebookLM.","3"],
+["Istruzioni di sistema (system instructions)","Regole permanenti che definiscono ruolo, metodo e limiti di un assistente.","6"],
+["Learning by Doing","Metodo che fa imparare facendo: ogni lezione è laboratoriale.","Corso"],
+["Learning path","Percorso di apprendimento in più tappe, ad esempio 5 giorni con quiz diagnostico, canvas di approfondimento e quiz finale.","2"],
+["LLM (modello linguistico di grandi dimensioni)","Sistema addestrato su enormi quantità di testo che genera linguaggio prevedendo il seguito più probabile.","1"],
+["Mappa mentale","Schema che rappresenta concetti e relazioni, generabile da NotebookLM.","3"],
+["Memoria episodica e semantica","Episodica: ricordare la sequenza di ciò che si è letto. Semantica: ricordare il significato. Per imparare servono entrambe.","4"],
+["Metacognizione","Pensare al proprio modo di pensare: sapere che cosa si sa e dove ci sono lacune.","4"],
+["Multimodale","Che lavora con più formati insieme: testo, immagini, audio.","1, 4"],
+["Non deterministico","Che a parità di domanda può dare risposte diverse.","1"],
+["NotebookLM","Strumento di Google che lavora sulle fonti caricate e le trasforma in risposte con citazioni, mappe, glossari e audio.","3"],
+["PDP (Piano Didattico Personalizzato)","Documento che stabilisce strumenti e misure compensative per uno studente. La scelta finale spetta al docente.","3"],
+["Pianificatore di Studio","Primo Gem del corso: organizza il lavoro scolastico in blocchi, giorni e sessioni.","1"],
+["Privacy","Tutela dei dati personali: non inserire nomi reali, valutazioni, diagnosi o elaborati identificabili nei prompt.","1"],
+["Prompt","La richiesta scritta al modello.","1"],
+["Prompt Engineering","Insieme delle tecniche per scrivere prompt efficaci: contesto, ruolo, compito, vincoli e formato.","1"],
+["Prompt Kit","Raccolta personale di prompt riutilizzabili, salvata in un documento.","1"],
+["Richiamo attivo (active recall)","Recuperare un'informazione dalla memoria senza guardare la risposta. È più efficace del rileggere.","4"],
+["Ripetizione dilazionata (spaced repetition)","Ripassare a intervalli crescenti, ad esempio il giorno stesso, dopo 3, 7 e 30 giorni.","4"],
+["Ruolo","Elemento del prompt che dice all'IA chi deve essere: tutor, coach, revisore.","1"],
+["Scaffolding","Supporto temporaneo che guida lo studente e si toglie man mano: passi piccoli, esempi, domande guida, rinforzo.","1, 2"],
+["Simulatore di ruolo","Attività in cui lo studente interpreta un ruolo e prende decisioni con conseguenze e punteggi.","2"],
+["Source-grounded","Che risponde a partire dalle fonti fornite e le cita, riducendo le allucinazioni.","3"],
+["Specchio metacognitivo","Prompt che aiuta lo studente ad analizzare come ha sbagliato e di che tipo è la sua lacuna.","4"],
+["Storia a bivio","Racconto interattivo in cui le scelte dello studente portano a conseguenze diverse.","2"],
+["Studente-tipo","Studente di riferimento usato nelle demo, «Marco»: personalizzato poi con studenti reali anonimizzati.","1"],
+["Studio multimodale","Studio con più canali: lettura, ascolto, quiz, schemi.","4"],
+["Temperatura","Parametro che regola la variabilità delle risposte: bassa per risposte coerenti, alta per più creatività.","1, 6"],
+["Tassonomia di Bloom","Scala di livelli cognitivi: ricordare, comprendere, applicare, analizzare, valutare, creare.","2"],
+["Token","Unità di testo in cui il modello divide parole e frasi.","1"],
+["Tutor socratico","Tutor virtuale che pone domande guida anziché dare le soluzioni.","1, 6"],
+["Tutor virtuale","Assistente configurato per accompagnare lo studente nello studio autonomo.","6"],
+["Vincoli","Elemento del prompt che stabilisce limiti e cosa non fare.","1"],
+["Zero-shot","Tecnica di prompting senza esempi: si chiede direttamente.","1"]
+];
+function ini(s){ var c = s.charAt(0).toUpperCase(); return c; }
+function render(filter){
+  var f = (filter || "").toLowerCase().trim();
+  var list = T.filter(function(t){ return !f || (t[0] + " " + t[1]).toLowerCase().indexOf(f) !== -1; });
+  var out = "", cur = "";
+  list.forEach(function(t){
+    var c = ini(t[0]);
+    if (c !== cur) { if (cur) out += "</dl>"; out += '<h2 id="l-' + c + '">' + c + "</h2><dl>"; cur = c; }
+    out += "<div><dt>" + t[0] + "<small>Lezione " + t[2] + "</small></dt><dd>" + t[1] + "</dd></div>";
+  });
+  if (cur) out += "</dl>";
+  document.getElementById("gl").innerHTML = out || "<p>Nessun termine trovato.</p>";
+  document.getElementById("cnt").textContent = list.length + " di " + T.length + " termini";
+  var letters = {};
+  list.forEach(function(t){ letters[ini(t[0])] = 1; });
+  document.getElementById("az").innerHTML = Object.keys(letters).map(function(l){ return '<a href="#l-' + l + '">' + l + "</a>"; }).join("");
+}
+document.getElementById("q").addEventListener("input", function(e){ render(e.target.value); });
+render("");
+</script>
+</body>
+</html>
