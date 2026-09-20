@@ -15,7 +15,7 @@
     <a class="btn" id="back" href="index.html" hidden style="border-color:var(--teal);color:var(--teal)"></a>
   </div>
   <h1 style="margin-top:20px">Glossario</h1>
-  <p class="lead mute" style="margin-top:8px">Tutti i termini usati nel corso, in ordine alfabetico, con la lezione in cui compaiono.</p>
+  <p class="lead mute" style="margin-top:8px">Tutti i termini usati nel corso, in ordine alfabetico, con la lezione in cui compaiono o come approfondimento.</p>
   <div class="gl-tools">
     <input id="q" type="search" placeholder="Cerca un termine" aria-label="Cerca un termine">
     <span class="note" id="cnt"></span>
@@ -26,6 +26,53 @@
 <footer class="sitefoot"><span>Pietro Votano Avolio</span><span>AI e Metodo di Studio</span></footer>
 <script>
 var T = [
+["Bias di rappresentazione","Gruppi, lingue o culture poco presenti nei dati di addestramento vengono trattati peggio dal modello.","1"],
+["Bias storico","I dati riflettono le disuguaglianze del passato e il modello le riproduce.","1"],
+["Bias di stereotipo","Associazioni ripetute nei dati (ad esempio professione e genere) che il modello ripropone nelle risposte.","1"],
+["Bias linguistico e culturale","Prevalenza dell'inglese e di riferimenti anglosassoni negli esempi e nelle risposte.","1"],
+["Bias di misurazione","Il criterio con cui si etichettano o si valutano i dati (che cosa è buono) introduce la visione di chi lo ha definito.","1"],
+["Bias di conferma","Tendenza a cercare e accettare ciò che conferma ciò che già si pensa. Con l'IA si traduce in domande orientate.","1"],
+["Bias di ancoraggio","La prima informazione ricevuta condiziona i giudizi successivi.","1"],
+["Antropomorfismo","Attribuire all'IA intenzioni, comprensione o emozioni umane.","1"],
+["Misinformazione","Informazione falsa o inesatta diffusa senza intenzione di ingannare.","5"],
+["Disinformazione","Informazione falsa creata o diffusa di proposito per ingannare o danneggiare.","5"],
+["Malinformazione","Informazione vera, usata fuori contesto o resa pubblica per fare danno.","5"],
+["Fake news","Espressione diffusa ma imprecisa: conviene distinguere misinformazione, disinformazione e malinformazione.","5"],
+["Pensiero critico","Capacità di valutare informazioni e argomenti chiedendosi fonte, prove, intenzioni e alternative.","5"],
+["Fonte primaria e secondaria","Primaria: il documento o il dato originale. Secondaria: chi lo commenta o lo riassume. Nel fact-checking si risale alla primaria.","5"],
+["Ricerca inversa delle immagini","Ricerca che parte da un'immagine per trovare dove e quando è comparsa per la prima volta.","5"],
+["Cheap fake","Manipolazione semplice di contenuti reali (taglio, cambio di didascalia o di contesto) senza ricorrere all'IA.","Approfondimento"],
+["Camera dell'eco","Ambiente in cui si incontrano soprattutto opinioni simili alle proprie, che si rafforzano a vicenda.","Approfondimento"],
+["Bolla di filtraggio (filter bubble)","Effetto della personalizzazione degli algoritmi, che mostrano contenuti simili a quelli già visti.","Approfondimento"],
+["Prebunking","Smontare in anticipo le tecniche di manipolazione, prima che gli studenti le incontrino.","Approfondimento"],
+["Debunking","Smentita di un'informazione falsa dopo che ha circolato.","Approfondimento"],
+["Alfabetizzazione mediatica (media literacy)","Capacità di accedere ai media, analizzarli criticamente e produrne in modo consapevole.","Approfondimento"],
+["Watermark (filigrana digitale)","Segno, visibile o nascosto, che aiuta a riconoscere un contenuto generato dall'IA. Non è sempre presente né infallibile.","Approfondimento"],
+["Rilevatore di testi generati dall'IA","Strumento che stima se un testo è stato scritto dall'IA. È poco affidabile e può accusare a torto: non va usato come unica prova.","Approfondimento"],
+["Plagio e integrità accademica","Presentare come proprio un lavoro altrui, o generato senza dichiararlo. Il rimedio è la dichiarazione trasparente dell'uso dell'IA.","Approfondimento"],
+["Dichiarazione d'uso dell'IA","Nota in cui lo studente o il docente indica quando e come ha usato l'IA in un lavoro.","Approfondimento"],
+["Apprendimento automatico (machine learning)","Insieme di tecniche con cui un sistema impara dagli esempi invece di essere programmato regola per regola.","Approfondimento"],
+["Apprendimento profondo (deep learning)","Apprendimento automatico con reti neurali a molti strati, alla base dei modelli attuali.","Approfondimento"],
+["Rete neurale","Modello matematico a strati di unità collegate, ispirato in modo molto semplificato al cervello.","Approfondimento"],
+["Transformer","Architettura di rete neurale, introdotta nel 2017, alla base dei modelli linguistici di grandi dimensioni.","Approfondimento"],
+["Parametri","Valori interni che il modello regola durante l'addestramento e che ne determinano il comportamento.","Approfondimento"],
+["Dataset","Insieme di dati usato per addestrare o valutare un modello.","Approfondimento"],
+["Inferenza","Fase in cui il modello già addestrato genera una risposta a una richiesta.","Approfondimento"],
+["Modello fondazionale (foundation model)","Modello addestrato su dati molto ampi, adattabile a molti compiti.","Approfondimento"],
+["Apprendimento con feedback umano (RLHF)","Fase di affinamento in cui valutazioni di persone orientano il modello verso risposte più utili e prudenti.","Approfondimento"],
+["Allineamento (alignment)","Insieme di tecniche per far sì che il comportamento del modello sia coerente con obiettivi e valori umani.","Approfondimento"],
+["Guardrail","Barriere di sicurezza che limitano ciò che un modello può dire o fare.","Approfondimento"],
+["Spiegabilità (explainability)","Capacità di spiegare perché un sistema ha dato una certa risposta. Nei grandi modelli è limitata.","Approfondimento"],
+["Trasparenza","Chiarezza su come è fatto uno strumento, con quali dati e con quali limiti, e su quando si usa l'IA.","Approfondimento"],
+["Dati sintetici","Dati generati artificialmente, ad esempio per addestrare o testare un modello.","Approfondimento"],
+["Modello aperto e modello proprietario","Aperto: i pesi o il codice sono accessibili. Proprietario: disponibile solo tramite il servizio del produttore.","Approfondimento"],
+["API","Interfaccia con cui un programma dialoga con un altro, anche con un modello di IA.","Approfondimento"],
+["IA ristretta e IA generale (AGI)","Ristretta: sistemi per compiti specifici, come quelli attuali. Generale: ipotetica IA con capacità paragonabili a quelle umane in ogni ambito.","Approfondimento"],
+["Discriminazione algoritmica","Trattamento sfavorevole di persone o gruppi causato da un sistema automatico che riproduce un bias.","Approfondimento"],
+["Equità (fairness)","Obiettivo di ridurre trattamenti ingiusti tra gruppi; si misura in modi diversi, non sempre compatibili.","Approfondimento"],
+["Anonimizzazione e pseudonimizzazione","Anonimizzare: rendere impossibile risalire alla persona. Pseudonimizzare: sostituire i dati identificativi con codici, ma restando in grado di risalire con informazioni aggiuntive.","Approfondimento"],
+["Minimizzazione dei dati","Principio del GDPR: usare solo i dati personali strettamente necessari allo scopo.","Approfondimento"],
+["Profilazione","Trattamento automatico di dati personali per valutare o prevedere aspetti di una persona.","Approfondimento"],
 ["Assistente IA","Programma che risponde a richieste in linguaggio naturale, una alla volta, e svolge compiti. Può essere generalista (Gemini) o specializzato (NotebookLM, un Gem). Diverso dall'agente, che persegue un obiettivo in più passi.","1"],
 ["Assistente generalista e specializzato","Generalista: adatto a molti compiti. Specializzato: configurato per uno scopo, come un tutor di Matematica o uno strumento che lavora solo sulle tue fonti.","1"],
 ["ChatGPT","Assistente generalista di OpenAI, con assistenti personalizzabili (GPT).","1"],
@@ -71,7 +118,7 @@ var T = [
 ["Audio Overview (panoramica audio)","Traccia audio generata da NotebookLM a partire dalle fonti caricate, in forma di conversazione o di ripasso guidato.","4"],
 ["Autovalutazione","Verifica che lo studente fa da solo sulla propria preparazione, con quiz, flashcard o domande di controllo.","4"],
 ["BES (Bisogni Educativi Speciali)","Situazioni che richiedono strategie didattiche personalizzate. Il materiale può essere adattato nella forma, non nei contenuti.","3"],
-["Bias","Squilibrio ereditato dai dati di addestramento che orienta le risposte, ad esempio stereotipi o prevalenza di certe fonti.","1"],
+["Bias","Squilibrio o scorciatoia che orienta le risposte. Si distinguono i bias del modello (rappresentazione, storico, stereotipo, lingua e cultura, misurazione) e quelli di chi lo usa (conferma, automazione, ancoraggio, antropomorfismo).","1"],
 ["Caccia all'errore","Attività in cui gli studenti cercano e classificano errori nascosti in un testo, per allenare il senso critico.","2, 5"],
 ["Canvas (Gemini Canvas)","Spazio dentro Gemini in cui la conversazione diventa un artefatto interattivo: quiz, giochi, flashcard, escape room.","2"],
 ["Chat","Modalità di conversazione con l'IA, a domanda e risposta, senza un artefatto interattivo.","1"],
@@ -142,7 +189,123 @@ try {
     back.hidden = false;
   }
 } catch (e) {}
+var LINK = {
+"Bias di rappresentazione":[1,29],
+"Bias storico":[1,29],
+"Bias di stereotipo":[1,19],
+"Bias linguistico e culturale":[1,29],
+"Bias di misurazione":[1,29],
+"Bias di conferma":[1,29],
+"Bias di ancoraggio":[1,29],
+"Antropomorfismo":[1,29],
+"Misinformazione":[5,5],
+"Disinformazione":[5,5],
+"Malinformazione":[5,5],
+"Fake news":[5,5],
+"Ricerca inversa delle immagini":[5,7],
+"Parametri":[1,33],
+"Assistente IA":[1,12],
+"Assistente generalista e specializzato":[1,12],
+"ChatGPT":[1,15],
+"Claude":[1,15],
+"Microsoft Copilot":[1,15],
+"Perplexity":[1,15],
+"Le Chat (Mistral)":[1,15],
+"Agente":[1,14],
+"Automation bias":[1,38],
+"Catena di pensiero (chain of thought)":[1,47],
+"Contenuto sintetico / deepfake":[5,7],
+"Data di addestramento (knowledge cutoff)":[1,9],
+"Delega cognitiva (cognitive offloading)":[1,40],
+"Difficoltà desiderabili":[4,5],
+"Effetto generazione":[4,5],
+"Fine-tuning":[3,5],
+"GDPR":[1,41],
+"Human-in-the-Loop":[1,5],
+"IA generativa":[1,11],
+"Illusione di padronanza":[4,5],
+"In / on / out of the loop":[1,38],
+"Interleaving":[4,5],
+"Jailbreak":[6,8],
+"Lettura laterale":[5,5],
+"Lost in the middle":[1,23],
+"Metaprompt":[1,47],
+"Pattern (schema)":[1,17],
+"Prompt chaining":[1,47],
+"Prompt injection":[6,8],
+"RAG (retrieval-augmented generation)":[3,5],
+"Regolamento europeo sull'IA (AI Act)":[1,41],
+"Sicofanzia (sycophancy)":[1,26],
+"Temperatura":[1,13],
+"Token":[1,20],
+"UDL (Universal Design for Learning)":[3,7],
+"Verifica incrociata":[5,5],
+"Zona di sviluppo prossimale":[1,53],
+"Addestramento":[1,9],
+"AI Literacy":[1,62],
+"Allucinazione":[1,25],
+"Audio Overview (panoramica audio)":[4,6],
+"Autovalutazione":[4,6],
+"BES (Bisogni Educativi Speciali)":[3,10],
+"Bias":[1,10],
+"Caccia all'errore":[2,6],
+"Canvas (Gemini Canvas)":[2,4],
+"Chat":[1,22],
+"Citazione (nelle fonti)":[3,4],
+"Collaudo":[6,7],
+"Compito":[1,13],
+"Contesto":[1,9],
+"Deep Research":[5,8],
+"Dialogo socratico":[6,3],
+"Distrattore":[4,7],
+"DSA (Disturbi Specifici dell'Apprendimento)":[3,10],
+"Ecosistema Gemini":[1,6],
+"Escape room didattica":[2,6],
+"Fact-checking":[5,10],
+"Feedback immediato":[2,4],
+"Few-shot":[1,19],
+"Finestra di contesto":[1,22],
+"Flashcard":[2,4],
+"Fonte":[3,4],
+"Formato":[1,45],
+"Gem":[1,6],
+"Gemini":[1,6],
+"Gemini Storybook":[1,6],
+"Glossario (di NotebookLM)":[3,9],
+"Google AI Studio":[2,14],
+"Guida allo studio":[3,6],
+"Infografica":[3,7],
+"Istruzioni di sistema (system instructions)":[6,3],
+"Learning by Doing":[1,5],
+"Learning path":[2,13],
+"LLM (modello linguistico di grandi dimensioni)":[1,11],
+"Mappa mentale":[3,7],
+"Metacognizione":[4,3],
+"Multimodale":[1,4],
+"Non deterministico":[1,33],
+"NotebookLM":[3,8],
+"PDP (Piano Didattico Personalizzato)":[3,10],
+"Pianificatore di Studio":[1,58],
+"Privacy":[1,39],
+"Prompt":[1,15],
+"Prompt Engineering":[1,62],
+"Prompt Kit":[1,59],
+"Richiamo attivo (active recall)":[4,4],
+"Ripetizione dilazionata (spaced repetition)":[4,4],
+"Ruolo":[1,6],
+"Scaffolding":[1,9],
+"Simulatore di ruolo":[2,17],
+"Source-grounded":[3,4],
+"Specchio metacognitivo":[4,8],
+"Storia a bivio":[2,16],
+"Studente-tipo":[1,7],
+"Tassonomia di Bloom":[2,10],
+"Tutor socratico":[6,5],
+"Vincoli":[1,22],
+"Zero-shot":[1,46],
+};
 T.sort(function(a,b){ return a[0].localeCompare(b[0], "it"); });
+function slug(s){ return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
 function ini(s){ var c = s.charAt(0).toUpperCase(); return c; }
 function render(filter){
   var f = (filter || "").toLowerCase().trim();
@@ -151,7 +314,9 @@ function render(filter){
   list.forEach(function(t){
     var c = ini(t[0]);
     if (c !== cur) { if (cur) out += "</dl>"; out += '<h2 id="l-' + c + '">' + c + "</h2><dl>"; cur = c; }
-    out += "<div><dt>" + t[0] + "<small>" + (t[2] === "Corso" ? "Corso" : "Lezione " + t[2]) + "</small></dt><dd>" + t[1] + "</dd></div>";
+    var id = slug(t[0]), ln = LINK[t[0]];
+    out += '<div id="t-' + id + '"><dt>' + t[0] + "<small>" + (t[2] === "Corso" || t[2] === "Approfondimento" ? t[2] : "Lezione " + t[2]) + "</small></dt><dd>" + t[1] +
+      (ln ? ' <a class="gl-go" data-t="' + id + '" data-n="' + t[0].replace(/"/g, "") + '" href="lezione-' + ln[0] + ".html#" + ln[1] + '">Vai alla slide: Lezione ' + ln[0] + ", slide " + ln[1] + " &rarr;</a>" : "") + "</dd></div>";
   });
   if (cur) out += "</dl>";
   document.getElementById("gl").innerHTML = out || "<p>Nessun termine trovato.</p>";
@@ -162,6 +327,18 @@ function render(filter){
 }
 document.getElementById("q").addEventListener("input", function(e){ render(e.target.value); });
 render("");
+document.getElementById("gl").addEventListener("click", function (e) {
+  var a = e.target.closest ? e.target.closest(".gl-go") : null;
+  if (!a) return;
+  try { sessionStorage.setItem("da", JSON.stringify({ t: a.getAttribute("data-t"), n: a.getAttribute("data-n") })); } catch (err) {}
+});
+(function () {
+  var h = (window.__glossHash || location.hash || "").replace("#", "");
+  try { sessionStorage.removeItem("da"); } catch (e) {}
+  if (!/^t-/.test(h)) return;
+  var el = document.getElementById(h);
+  if (el) { el.classList.add("hl"); el.scrollIntoView({ block: "center" }); }
+})();
 </script>
 </body>
 </html>

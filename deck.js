@@ -34,7 +34,19 @@ function startDeck() {
   g.href = "glossario.html";
   topR.appendChild(g);
   topR.appendChild(ovBtn);
-  top.appendChild(home);
+  var topL = el("div", "top-r");
+  topL.appendChild(home);
+  /* arrivo da una voce del glossario: pulsante per tornare a quella voce */
+  var da = null;
+  try { da = JSON.parse(sessionStorage.getItem("da") || "null"); } catch (e) {}
+  if (da && da.t) {
+    var toGl = el("a", "btn");
+    toGl.href = "glossario.html#t-" + da.t;
+    toGl.textContent = "← Torna alla voce «" + (da.n || "glossario") + "»";
+    toGl.style.borderColor = "var(--teal)";
+    topL.appendChild(toGl);
+  }
+  top.appendChild(topL);
   top.appendChild(topR);
 
   var prev = el("button", "nav", "&#8592;");

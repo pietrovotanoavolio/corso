@@ -198,3 +198,11 @@ a.row:not(.locked) .st{color:#fff;background:var(--teal);padding:4px 12px;border
 .page-nav{position:sticky;top:0;z-index:4;display:flex;gap:10px;flex-wrap:wrap;background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line)}
 .gl h2{scroll-margin-top:72px}
 .pcard{scroll-margin-top:72px}
+
+/* collegamento voce del glossario <-> slide */
+.gl-go{display:inline-block;margin-left:6px;font:600 14px var(--body);color:var(--teal);text-decoration:none;border:1px solid var(--line);border-radius:4px;padding:2px 9px;background:var(--panel);white-space:nowrap}
+.gl-go:hover{border-color:var(--teal)}
+.gl dl>div{scroll-margin-top:80px;padding:6px 10px;border-radius:4px}
+.gl dl>div.hl{background:var(--tint);outline:2px solid var(--teal)}
+.app.dark .top .btn[style*="teal"]{border-color:var(--coral)!important}
+@media (max-width:700px){.top{flex-wrap:wrap}}
