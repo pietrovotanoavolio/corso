@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400&display=swap">
 <link rel="stylesheet" href="style.css">
 <script src="stato.js"></script>
+<script src="accesso.js"></script>
 </head>
 <body>
 <main class="page">
@@ -28,13 +29,8 @@
 </main>
 <footer class="sitefoot"><span>Pietro Votano Avolio</span><span>AI e Metodo di Studio</span></footer>
 <script>
-(function () {
+(window.ANTEPRIMA || Promise.resolve(false)).then(function (preview) {
   var attive = (window.STATO && window.STATO.attive) || [];
-  var preview = /[?&]anteprima/.test(location.search);
-  try {
-    if (preview) sessionStorage.setItem("anteprima", "1");
-    else if (sessionStorage.getItem("anteprima") === "1") preview = true;
-  } catch (e) {}
   var rows = document.querySelectorAll(".row");
   Array.prototype.forEach.call(rows, function (r) {
     var n = r.getAttribute("data-n");
@@ -48,7 +44,7 @@
       st.textContent = "Non ancora disponibile";
     }
   });
-})();
+});
 </script>
 </body>
 </html>

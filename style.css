@@ -175,3 +175,7 @@ a.row:not(.locked){border-color:var(--teal)}
 a.row:not(.locked) .st{color:#fff;background:var(--teal);padding:4px 12px;border-radius:3px;letter-spacing:.06em}
 
 [hidden]{display:none!important}
+
+/* footer sempre visibile in basso, anche nel menu e nel glossario */
+.sitefoot{position:fixed;left:0;right:0;bottom:0;z-index:5;padding-bottom:max(14px,env(safe-area-inset-bottom))}
+.page{padding-bottom:88px}

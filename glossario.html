@@ -133,10 +133,6 @@ var T = [
 ["Zero-shot","Tecnica di prompting senza esempi: si chiede direttamente.","1"]
 ];
 try {
-  if (/[?&]anteprima/.test(location.search)) sessionStorage.setItem("anteprima", "1");
-  if (sessionStorage.getItem("anteprima") === "1") document.getElementById("menu").href = "index.html?anteprima";
-} catch (e) {}
-try {
   var pos = JSON.parse(sessionStorage.getItem("posizione") || "null");
   if (pos && pos.l && pos.s) {
     var back = document.getElementById("back");

@@ -1,5 +1,5 @@
 /* Navigazione orizzontale delle slide: pulsanti, tastiera, swipe, panoramica. */
-(function () {
+function startDeck() {
   var track = document.getElementById("deck");
   if (!track) return;
 
@@ -21,16 +21,8 @@
   var viewport = el("div", "viewport");
   var foot = el("footer", "foot");
 
-  /* l'anteprima (?anteprima sul menu) resta attiva finché la scheda è aperta */
-  var anteprima = /[?&]anteprima/.test(location.search);
-  try {
-    if (anteprima) sessionStorage.setItem("anteprima", "1");
-    else anteprima = sessionStorage.getItem("anteprima") === "1";
-  } catch (e) {}
-  var qs = anteprima ? "?anteprima" : "";
-
   var home = el("a", "btn", "&#8962; Menu");
-  home.href = "index.html" + qs;
+  home.href = "index.html";
   home.title = "Torna al menu delle lezioni (Esc dalla panoramica)";
   var ovBtn = el("button", "btn", "Panoramica <kbd>O</kbd>");
   ovBtn.type = "button";
@@ -214,4 +206,22 @@
   var start = parseInt((location.hash || "").replace("#", ""), 10);
   if (window.__deckStart) { start = window.__deckStart; window.__deckStart = null; }
   go(isNaN(start) ? 0 : start - 1);
+}
+
+/* Accesso: la lezione si apre solo se è attiva in stato.js (o in anteprima docente). */
+(function () {
+  var track = document.getElementById("deck");
+  if (!track) return;
+  var n = parseInt(track.getAttribute("data-lesson"), 10);
+  var attive = (window.STATO && window.STATO.attive) || [];
+  (window.ANTEPRIMA || Promise.resolve(false)).then(function (anteprima) {
+    if (anteprima || attive.indexOf(n) !== -1) { startDeck(); return; }
+    document.documentElement.classList.remove("deckpage");
+    document.body.innerHTML =
+      '<main class="page"><div class="eyebrow">Lezione ' + n + '</div>' +
+      '<h1>Non ancora disponibile</h1>' +
+      '<p class="lead mute" style="margin-top:12px">Questa lezione viene attivata dopo l\'incontro.</p>' +
+      '<p style="margin-top:20px"><a class="btn" href="index.html">&#8962; Torna al menu</a></p></main>' +
+      '<footer class="sitefoot"><span>Pietro Votano Avolio</span><span>AI e Metodo di Studio</span></footer>';
+  });
 })();
