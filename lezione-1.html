@@ -27,7 +27,7 @@
     <div><b>1:20–1:30</b><span>Privacy: quali dati non inserire</span><span class="m">10'</span></div>
     <div><b>1:30–1:45</b><span>Pausa</span><span class="m">15'</span></div>
     <div><b>1:45–2:10</b><span>Scaffolding cognitivo</span><span class="m">25'</span></div>
-    <div class="hl"><b>2:10–2:50</b><span>Laboratorio integrato: un tutor personalizzato</span><span class="m">40'</span></div>
+    <div><b>2:10–2:50</b><span>Laboratorio integrato: un tutor personalizzato</span><span class="m">40'</span></div>
     <div><b>2:50–3:00</b><span>Chiusura e anticipazione</span><span class="m">10'</span></div>
   </div>
 </section>
@@ -112,6 +112,7 @@
   <div class="eyebrow">Cronaca, settembre 2026</div>
   <h2>Persino chi la costruisce chiede di rallentare</h2>
   <p class="lead">Il 12 settembre 2026 il CEO di Anthropic ha pubblicato un saggio in cui chiede a tutto il settore di rallentare lo sviluppo dei modelli più avanzati. Nel giro di poche ore, altri tre dirigenti di aziende concorrenti gli hanno dato pubblicamente ragione: un fatto raro tra chi normalmente si fa concorrenza diretta.</p>
+  <p class="note">Nella foto: Dario Amodei (CEO di Anthropic, l'azienda di Claude), Sam Altman (CEO di OpenAI, l'azienda di ChatGPT), Elon Musk (fondatore di xAI, l'azienda di Grok) e Demis Hassabis (CEO di Google DeepMind, che sviluppa Gemini) — cioè i responsabili delle principali aziende di intelligenza artificiale al mondo, normalmente in diretta concorrenza tra loro.</p>
   <img src="ia-umanita-rischio.webp" alt="Dario Amodei, Sam Altman, Elon Musk e Demis Hassabis" style="width:100%;border-radius:12px;margin:10px 0" />
   <p class="note">Non tutti hanno letto questo gesto allo stesso modo: c'è chi lo ha preso sul serio e chi lo ha visto come una mossa di immagine. Restano un fatto: il dibattito è vero, attuale, e riguarda anche l'aula.</p>
 </section>
@@ -127,10 +128,21 @@
   <p class="note">Il commento è arrivato in risposta diretta al saggio di Amodei della slide precedente. Nello stesso periodo lo speaker della Camera USA ha rinviato una legge federale sull'IA, mentre California, Maryland e New York procedono con regole proprie.</p>
 </section>
 
+<section class="slide">
+  <div class="eyebrow">Cronaca, settembre 2026</div>
+  <h2>«Basta staccare la spina»: perché non è così semplice</h2>
+  <p class="lead">Negli Stati Uniti si discute seriamente di un "kill switch": un interruttore capace di spegnere rapidamente un modello di IA diventato pericoloso. OpenAI sta sviluppando "automated shutdown capabilities" — capacità di sorvegliare non solo le risposte di un agente, ma le sue azioni, e interromperlo in automatico se il comportamento è a rischio. Alla Camera USA è in esame un "AI Kill Switch Act", che darebbe alle autorità federali il potere di ordinare lo spegnimento di sistemi troppo rischiosi.</p>
+  <div class="grid g2">
+    <div class="box"><h3>Il problema tecnico</h3><p>Un agente avanzato può operare su più server, strumenti e piattaforme insieme: non esiste un unico pulsante da premere. Serve un interruttore che l'IA non possa aggirare.</p></div>
+    <div class="box"><h3>I numeri dai test</h3><p>In una serie di 40 tentativi simulati di aggirare i controlli, solo 8 sono stati individuati in modo affidabile.</p></div>
+  </div>
+  <p class="note">Anche Anthropic lavora sullo stesso problema, combinando sorveglianza automatica e supervisione umana: riconoscere un comportamento intenzionalmente nascosto resta molto difficile.</p>
+</section>
+
 <section class="slide dark">
   <div class="eyebrow">Il punto di partenza del corso</div>
   <h2>In un mondo che cambia, quale valore umano portiamo in aula?</h2>
-  <p class="mute lead">Non è la paura a doverci guidare, ma la scelta consapevole di come usare questi strumenti. È il filo di tutte le prossime sei lezioni.</p>
+  <p class="mute lead">Non è la paura a doverci guidare, ma la scelta consapevole di come usare questi strumenti.</p>
 </section>
 
 <section class="slide">
@@ -589,8 +601,8 @@ Tre prove: azzurro / grigio / un affresco</pre></div>
     <tr><td>altro</td><td>0%</td><td>4%</td><td>10%</td></tr>
   </table></div>
   <div class="grid g2">
-    <div class="box"><h3>Sotto 1</h3><p>Le differenze si accentuano: la parola più probabile domina.</p></div>
-    <div class="box"><h3>Sopra 1</h3><p>Le differenze si attenuano: anche le parole rare hanno una possibilità.</p></div>
+    <div class="box"><h3>Temperatura sotto 1</h3><p>Le differenze di probabilità si accentuano: la parola già più probabile diventa ancora più dominante (nella tabella sopra, 87% invece di 60%).</p></div>
+    <div class="box"><h3>Temperatura sopra 1</h3><p>Le differenze si appiattiscono: anche le parole rare guadagnano peso, e il distacco dalla parola più probabile si riduce (39% invece di 60%).</p></div>
   </div>
   <p class="note">Le probabilità sono un esempio inventato per spiegare il meccanismo, non dati reali di un modello.</p>
 </section>
@@ -635,6 +647,19 @@ Tre prove: azzurro / grigio / un affresco</pre></div>
     <div class="box"><h3>Lunghezza massima</h3><p>Numero massimo di token della risposta: non cambia la qualità, ma può interromperla.</p></div>
   </div>
   <p class="note">Di solito basta regolare la temperatura. Cambiare più parametri insieme rende difficile capire che cosa produce l'effetto. I valori predefiniti e gli intervalli dipendono dal modello.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy · Procedura</div>
+  <h2>Dove si regolano, dentro Google AI Studio</h2>
+  <div class="path">
+    <div><b>1</b>Apri una conversazione in AI Studio (aistudio.google.com)<small>Non nell'app Gemini normale</small></div>
+    <div><b>2</b>Nel pannello a destra trovi i cursori "Temperature", "Top P" e "Top K"<small>Sotto le impostazioni del modello</small></div>
+    <div><b>3</b>Temperature: di solito da 0 a 2, default intorno a 1<small>Basso = prevedibile, alto = vario</small></div>
+    <div><b>4</b>Top P: da 0 a 1, default intorno a 0,95<small>Restringe alle parole più sicure</small></div>
+    <div><b>5</b>Top K: un numero intero, default intorno a 40<small>Restringe il numero di parole candidate</small></div>
+  </div>
+  <p class="note">Nella maggior parte dei casi in classe basta la temperatura. Top-p e top-k si toccano solo come regolazione fine, quando cambiare solo la temperatura non basta.</p>
 </section>
 
 <section class="slide">
