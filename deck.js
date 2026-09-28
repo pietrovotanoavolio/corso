@@ -63,7 +63,7 @@ function startDeck() {
   var fl = el("span", "f-l", "Pietro Votano Avolio");
   var fc = el("div", "f-c");
   fc.appendChild(prev); fc.appendChild(counter); fc.appendChild(next);
-  var fr = el("span", "f-r", "AI e Metodo di Studio");
+  var fr = el("span", "f-r", "IA e Metodo di Studio");
   foot.appendChild(fl); foot.appendChild(fc); foot.appendChild(fr);
 
   track.parentNode.insertBefore(app, track);
@@ -241,6 +241,6 @@ function startDeck() {
       '<h1>Non ancora disponibile</h1>' +
       '<p class="lead mute" style="margin-top:12px">Questa lezione viene attivata dopo l\'incontro.</p>' +
       '<p style="margin-top:20px"><a class="btn" href="index.html">&#8962; Torna al menu</a></p></main>' +
-      '<footer class="sitefoot"><span>Pietro Votano Avolio</span><span>AI e Metodo di Studio</span></footer>';
+      '<footer class="sitefoot"><span>Pietro Votano Avolio</span><span>IA e Metodo di Studio</span></footer>';
   });
 })();

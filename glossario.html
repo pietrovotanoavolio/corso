@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Glossario · AI e Metodo di Studio</title>
+<title>Glossario · IA e Metodo di Studio</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -24,7 +24,7 @@
   <nav class="az" id="az" aria-label="Indice alfabetico"></nav>
   <div class="gl" id="gl"></div>
 </main>
-<footer class="sitefoot"><span>Pietro Votano Avolio</span><span>AI e Metodo di Studio</span></footer>
+<footer class="sitefoot"><span>Pietro Votano Avolio</span><span>IA e Metodo di Studio</span></footer>
 <script>
 var T = [
 ["AUP (Acceptable Use Policy)","Politica di uso accettabile: il documento con cui l'istituto stabilisce usi consentiti, vietati, dati, ruoli e responsabilità nell'uso di strumenti digitali e di IA.","Normativa"],
@@ -119,7 +119,7 @@ var T = [
 ["Difficoltà desiderabili","Un po' di sforzo durante lo studio rende l'apprendimento più duraturo.","4"],
 ["Effetto generazione","Si ricorda meglio ciò che si è provato a produrre prima di vedere la risposta.","4"],
 ["Fine-tuning","Riaddestramento di un modello su dati aggiuntivi. Non serve per l'uso didattico quotidiano.","3"],
-["GDPR","Regolamento europeo sulla protezione dei dati personali: richiede particolare cautela con i dati degli studenti.","1"],
+["GDPR (General Data Protection Regulation)","Regolamento europeo sulla protezione dei dati personali, letteralmente «regolamento generale sulla protezione dei dati»: richiede particolare cautela con i dati degli studenti.","1"],
 ["Human-in-the-Loop","Principio per cui una persona resta nel ciclo di lavoro: guida, verifica e decide prima che un output venga usato.","1"],
 ["IA generativa","Sistemi che creano contenuti nuovi: testi, immagini, audio, codice.","1"],
 ["Illusione di padronanza","Sensazione di sapere già una cosa perché il testo è chiaro e scorrevole. Si smaschera richiamando senza guardare.","4"],
@@ -165,7 +165,7 @@ var T = [
 ["Escape room didattica","Attività a stanze in cui ogni enigma è un concetto della materia, con indizi progressivi.","2"],
 ["Fact-checking","Verifica dell'esattezza di un'affermazione controllando le fonti originali.","5"],
 ["Feedback immediato","Risposta che lo studente riceve subito dopo ogni tentativo, che riduce l'ansia e guida la correzione.","2"],
-["Few-shot","Tecnica di prompting in cui si forniscono uno o più esempi del risultato atteso.","1"],
+["Few-shot","Tecnica di prompting in cui si forniscono due o più esempi del risultato atteso.","1"],
 ["Finestra di contesto","Quantità di testo che il modello considera in una conversazione. Oltre quel limite, dettagli si perdono.","1"],
 ["Flashcard","Scheda con una domanda sul fronte e la risposta sul retro, per il richiamo attivo.","2, 4"],
 ["Fonte","Materiale da cui si ricava un'informazione: libro, articolo, documento. La sua qualità determina quella della risposta.","3, 5"],
@@ -208,6 +208,7 @@ var T = [
 ["Tutor socratico","Tutor virtuale che pone domande guida anziché dare le soluzioni.","1, 6"],
 ["Tutor virtuale","Assistente configurato per accompagnare lo studente nello studio autonomo.","6"],
 ["Vincoli","Elemento del prompt che stabilisce limiti e cosa non fare.","1"],
+["One-shot","Tecnica di prompting in cui si fornisce un solo esempio del risultato atteso.","1"],
 ["Zero-shot","Tecnica di prompting senza esempi: si chiede direttamente.","1"]
 ];
 try {
@@ -272,14 +273,14 @@ var LINK = {
 "Le Chat (Mistral)":[1,15],
 "Agente":[1,14],
 "Automation bias":[1,49],
-"Catena di pensiero (chain of thought)":[1,57],
+"Catena di pensiero (chain of thought)":[1,58],
 "Contenuto sintetico / deepfake":[5,7],
 "Data di addestramento (knowledge cutoff)":[1,9],
 "Delega cognitiva (cognitive offloading)":[1,51],
 "Difficoltà desiderabili":[4,5],
 "Effetto generazione":[4,5],
 "Fine-tuning":[3,5],
-"GDPR":["normativa",3],
+"GDPR (General Data Protection Regulation)":["normativa",3],
 "Human-in-the-Loop":[1,5],
 "IA generativa":[1,11],
 "Illusione di padronanza":[4,5],
@@ -288,9 +289,9 @@ var LINK = {
 "Jailbreak":[6,8],
 "Lettura laterale":[5,5],
 "Lost in the middle":[1,23],
-"Metaprompt":[1,57],
+"Metaprompt":[1,58],
 "Pattern (schema)":[1,17],
-"Prompt chaining":[1,57],
+"Prompt chaining":[1,58],
 "Prompt injection":[6,8],
 "RAG (retrieval-augmented generation)":[3,5],
 "Regolamento europeo sull'IA (AI Act)":["normativa",4],
@@ -299,9 +300,9 @@ var LINK = {
 "Token":[1,20],
 "UDL (Universal Design for Learning)":[3,7],
 "Verifica incrociata":[5,5],
-"Zona di sviluppo prossimale":[1,63],
+"Zona di sviluppo prossimale":[1,64],
 "Addestramento":[1,9],
-"AI Literacy":[1,72],
+"AI Literacy":[1,73],
 "Allucinazione":[1,25],
 "Audio Overview (panoramica audio)":[4,6],
 "Autovalutazione":[4,6],
@@ -322,11 +323,11 @@ var LINK = {
 "Escape room didattica":[2,6],
 "Fact-checking":[5,10],
 "Feedback immediato":[2,4],
-"Few-shot":[1,19],
+"Few-shot":[1,57],
 "Finestra di contesto":[1,22],
 "Flashcard":[2,4],
 "Fonte":[3,4],
-"Formato":[1,55],
+"Formato":[1,56],
 "Gem":[1,6],
 "Gemini":[1,6],
 "Gemini Storybook":[1,6],
@@ -344,11 +345,11 @@ var LINK = {
 "Non deterministico":[1,37],
 "NotebookLM":[3,8],
 "PDP (Piano Didattico Personalizzato)":[3,10],
-"Pianificatore di Studio":[1,68],
+"Pianificatore di Studio":[1,69],
 "Privacy":[1,50],
 "Prompt":[1,15],
-"Prompt Engineering":[1,72],
-"Prompt Kit":[1,69],
+"Prompt Engineering":[1,73],
+"Prompt Kit":[1,70],
 "Richiamo attivo (active recall)":[4,4],
 "Ripetizione dilazionata (spaced repetition)":[4,4],
 "Ruolo":[1,6],
@@ -361,7 +362,8 @@ var LINK = {
 "Tassonomia di Bloom":[2,10],
 "Tutor socratico":[6,5],
 "Vincoli":[1,22],
-"Zero-shot":[1,56],
+"One-shot":[1,57],
+"Zero-shot":[1,57],
 };
 T.sort(function(a,b){ return a[0].localeCompare(b[0], "it"); });
 function slug(s){ return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
