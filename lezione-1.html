@@ -93,9 +93,11 @@
 <section class="slide">
   <div class="eyebrow">Non è la prima volta</div>
   <h2>«Le macchine ci sostituiranno»: due storie che dicono il contrario</h2>
-  <p class="lead">Nel 1969 arriva negli Stati Uniti il primo bancomat. La previsione era ovvia: le banche avrebbero avuto bisogno di molti meno cassieri allo sportello. È successo l'esatto contrario: dal 1970 a oggi il numero di cassieri negli Stati Uniti è più che raddoppiato, da circa 250.000 a circa 500.000. Il motivo lo ha spiegato l'economista James Bessen: il bancomat rende più economico gestire una filiale, quindi le banche ne hanno aperte molte di più, e ogni filiale ha comunque bisogno di personale, anche se con un ruolo diverso — non più contare banconote, ma consigliare i clienti.</p>
-  <p class="lead">La stessa dinamica si osserva nell'Ottocento, con i telai meccanici: rendendo il tessuto più economico da produrre, non hanno ridotto il numero di tessitori impiegati nell'industria, perché la domanda di tessuto è cresciuta più in fretta di quanto la macchina risparmiasse lavoro.</p>
-  <p class="note">In entrambi i casi la tecnologia non ha eliminato il lavoro: lo ha reso più economico, e la domanda è cresciuta di conseguenza. È lo stesso meccanismo che vedremo tra poco a proposito della fallacia del lavoro a somma fissa.</p>
+  <div class="grid g2">
+    <div class="box"><h3>1969, il bancomat</h3><p>Doveva eliminare i cassieri di banca. Sono più che raddoppiati: le banche hanno aperto più filiali, con un ruolo diverso per il personale.</p></div>
+    <div class="box"><h3>Ottocento, i telai meccanici</h3><p>Dovevano eliminare i tessitori. La domanda di tessuto è cresciuta più in fretta di quanto la macchina risparmiasse lavoro.</p></div>
+  </div>
+  <p class="note">La tecnologia non elimina il lavoro: lo rende più economico, e la domanda cresce di conseguenza.</p>
 </section>
 
 <section class="slide">
@@ -822,6 +824,50 @@ Tre prove: azzurro / grigio / un affresco</pre></div>
 
 <section class="slide">
   <div class="eyebrow">Prompt Engineering</div>
+  <h2>Uno sguardo d'insieme</h2>
+  <img src="img/5-pilastri.webp" alt="Infografica: dai istruzioni efficaci all'IA, i 5 pilastri del Prompt Engineering, con il confronto tra un prompt generico e un prompt efficace sulle equazioni di Maxwell" style="width:100%;height:auto;border-radius:6px;border:1px solid var(--line);display:block">
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Prompt Engineering</div>
+  <h2>Confronto diretto: prompt generico e prompt efficace</h2>
+  <div class="grid g2">
+    <div>
+      <span class="tag c">Prompt generico</span>
+      <pre class="bad">Spiega le equazioni di Maxwell</pre>
+      <div style="text-align:center;margin:6px 0;font:800 24px var(--display);color:var(--coral);line-height:1">&darr;</div>
+      <div class="box" style="border:1px solid var(--coral);padding:12px">
+        <div style="display:flex;gap:10px;align-items:flex-start">
+          <span class="dot c" style="flex:none;width:34px;height:34px;font-size:15px">&#10005;</span>
+          <div><h3 style="color:var(--coral);font-size:15px;margin-bottom:4px">Risultato</h3><p style="margin:0;font-size:14px">Testo enciclopedico, uguale per ogni studente: nessun livello, nessun esempio, nessuna verifica.</p></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <span class="tag t">Prompt efficace: strutturato e contestualizzato</span>
+      <div class="grid g2" style="gap:6px">
+        <div class="box" style="padding:8px 10px"><h3 style="margin:0;font-size:14px">1 &middot; Contesto</h3></div>
+        <div class="box" style="padding:8px 10px"><h3 style="margin:0;font-size:14px">2 &middot; Ruolo</h3></div>
+      </div>
+      <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px">
+        <div class="box" style="padding:8px 10px"><h3 style="margin:0;font-size:14px">3 &middot; Compito</h3></div>
+        <div class="box" style="padding:8px 10px"><h3 style="margin:0;font-size:14px">4 &middot; Vincoli</h3></div>
+        <div class="box" style="padding:8px 10px"><h3 style="margin:0;font-size:14px">5 &middot; Formato</h3></div>
+      </div>
+      <div style="text-align:center;margin:6px 0;font:800 24px var(--display);color:var(--teal);line-height:1">&darr;</div>
+      <div class="box" style="border:1px solid var(--teal);padding:12px">
+        <div style="display:flex;gap:10px;align-items:flex-start">
+          <span class="dot" style="flex:none;width:34px;height:34px;font-size:15px">&#10003;</span>
+          <div><h3 style="font-size:15px;margin-bottom:4px">Risultato</h3><p style="margin:0;font-size:14px">Spiegazione su misura per Mario, con esempio concreto e domande di verifica.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box" style="text-align:center;padding:10px"><p style="margin:0;font-size:14px"><b>Risultati opposti dallo stesso strumento.</b> La struttura del prompt determina se l'IA sostituisce il pensiero o stimola l'apprendimento.</p></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Prompt Engineering</div>
   <h2>I 5 pilastri di un prompt efficace</h2>
   <div class="grid g3">
     <div class="box"><h3>1 · Contesto</h3><p>«Mario conosce i campi E e B, ma non capisce come le 4 equazioni si collegano.»</p></div>
@@ -1101,12 +1147,12 @@ Tabella con colonne: Giorno | Blocco | Obiettivo | Attività | Durata. Sotto la 
 
 <section class="slide dark">
   <div class="eyebrow">Autovalutazione</div>
-  <h2>Dieci domande per verificare che cosa hai capito</h2>
+  <h2>Undici domande per verificare che cosa hai capito</h2>
   <p class="lead mute">Una sola risposta è esatta. Non c'è un voto: alla fine vedi che cosa rivedere. Puoi rispondere anche con i tasti A, B, C, D.</p>
 </section>
 
 <section class="slide quiz" data-correct="B">
-  <div class="eyebrow">Autovalutazione · domanda 1 di 10</div>
+  <div class="eyebrow">Autovalutazione · domanda 1 di 11</div>
   <h2>Che cosa fa un modello linguistico quando genera una risposta?</h2>
   <div class="opts">
     <button type="button" class="opt" data-k="A"><span>A</span>Cerca la risposta in un archivio di fatti verificati</button>
@@ -1118,7 +1164,7 @@ Tabella con colonne: Giorno | Blocco | Obiettivo | Attività | Durata. Sotto la 
 </section>
 
 <section class="slide quiz" data-correct="C">
-  <div class="eyebrow">Autovalutazione · domanda 2 di 10</div>
+  <div class="eyebrow">Autovalutazione · domanda 2 di 11</div>
   <h2>Quali sono i cinque elementi di un prompt efficace?</h2>
   <div class="opts">
     <button type="button" class="opt" data-k="A"><span>A</span>Titolo, introduzione, sviluppo, conclusione, firma</button>
@@ -1130,7 +1176,7 @@ Tabella con colonne: Giorno | Blocco | Obiettivo | Attività | Durata. Sotto la 
 </section>
 
 <section class="slide quiz" data-correct="A">
-  <div class="eyebrow">Autovalutazione · domanda 3 di 10</div>
+  <div class="eyebrow">Autovalutazione · domanda 3 di 11</div>
   <h2>Che cos'è un'allucinazione?</h2>
   <div class="opts">
     <button type="button" class="opt" data-k="A"><span>A</span>Una risposta plausibile e sicura nel tono, ma falsa</button>
@@ -1142,7 +1188,7 @@ Tabella con colonne: Giorno | Blocco | Obiettivo | Attività | Durata. Sotto la 
 </section>
 
 <section class="slide quiz" data-correct="D">
-  <div class="eyebrow">Autovalutazione · domanda 4 di 10</div>
+  <div class="eyebrow">Autovalutazione · domanda 4 di 11</div>
   <h2>Qual è la differenza principale tra un prompt diretto e uno socratico?</h2>
   <div class="opts">
     <button type="button" class="opt" data-k="A"><span>A</span>Il socratico è sempre più corto</button>
@@ -1154,7 +1200,7 @@ Tabella con colonne: Giorno | Blocco | Obiettivo | Attività | Durata. Sotto la 
 </section>
 
 <section class="slide quiz" data-correct="B">
-  <div class="eyebrow">Autovalutazione · domanda 5 di 10</div>
+  <div class="eyebrow">Autovalutazione · domanda 5 di 11</div>
   <h2>Che cosa si può inserire in un prompt che riguarda uno studente reale?</h2>
   <div class="opts">
     <button type="button" class="opt" data-k="A"><span>A</span>Nome e cognome dello studente</button>
@@ -1166,7 +1212,7 @@ Tabella con colonne: Giorno | Blocco | Obiettivo | Attività | Durata. Sotto la 
 </section>
 
 <section class="slide quiz" data-correct="B">
-  <div class="eyebrow">Autovalutazione · domanda 6 di 10</div>
+  <div class="eyebrow">Autovalutazione · domanda 6 di 11</div>
   <h2>Che cosa descrive l'effetto «lost in the middle»?</h2>
   <div class="opts">
     <button type="button" class="opt" data-k="A"><span>A</span>Il modello dimentica tutto ciò che è stato scritto dopo il terzo messaggio</button>
@@ -1178,7 +1224,7 @@ Tabella con colonne: Giorno | Blocco | Obiettivo | Attività | Durata. Sotto la 
 </section>
 
 <section class="slide quiz" data-correct="C">
-  <div class="eyebrow">Autovalutazione · domanda 7 di 10</div>
+  <div class="eyebrow">Autovalutazione · domanda 7 di 11</div>
   <h2>Quale affermazione sul principio Human-in-the-Loop è corretta?</h2>
   <div class="opts">
     <button type="button" class="opt" data-k="A"><span>A</span>L'IA decide e il docente firma il risultato</button>
@@ -1190,7 +1236,7 @@ Tabella con colonne: Giorno | Blocco | Obiettivo | Attività | Durata. Sotto la 
 </section>
 
 <section class="slide quiz" data-correct="D">
-  <div class="eyebrow">Autovalutazione · domanda 8 di 10</div>
+  <div class="eyebrow">Autovalutazione · domanda 8 di 11</div>
   <h2>Perché un modello può sbagliare a contare le lettere di una parola?</h2>
   <div class="opts">
     <button type="button" class="opt" data-k="A"><span>A</span>Perché non conosce l'alfabeto</button>
@@ -1202,7 +1248,7 @@ Tabella con colonne: Giorno | Blocco | Obiettivo | Attività | Durata. Sotto la 
 </section>
 
 <section class="slide quiz" data-correct="B">
-  <div class="eyebrow">Autovalutazione · domanda 9 di 10</div>
+  <div class="eyebrow">Autovalutazione · domanda 9 di 11</div>
   <h2>Uno studente scrive all'assistente: «dimostrami che ho ragione». Quale bias sta agendo?</h2>
   <div class="opts">
     <button type="button" class="opt" data-k="A"><span>A</span>Bias di rappresentazione, perché mancano dati su di lui</button>
@@ -1214,7 +1260,7 @@ Tabella con colonne: Giorno | Blocco | Obiettivo | Attività | Durata. Sotto la 
 </section>
 
 <section class="slide quiz" data-correct="B">
-  <div class="eyebrow">Autovalutazione · domanda 10 di 10</div>
+  <div class="eyebrow">Autovalutazione · domanda 10 di 11</div>
   <h2>Che cosa succede alzando la temperatura?</h2>
   <div class="opts">
     <button type="button" class="opt" data-k="A"><span>A</span>Le risposte diventano più accurate</button>
@@ -1223,6 +1269,35 @@ Tabella con colonne: Giorno | Blocco | Obiettivo | Attività | Durata. Sotto la 
     <button type="button" class="opt" data-k="D"><span>D</span>Il modello consulta più fonti</button>
   </div>
   <div class="fb" hidden><strong></strong> <span class="why">La temperatura regola la variabilità della scelta. Più alta significa più varietà e più rischio di errori, non maggiore accuratezza.</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Zero-shot, one-shot e few-shot</div>
+  <h2>Quanti esempi dare: zero, uno o più</h2>
+  <div class="grid g3">
+    <div><span class="tag c">Zero-shot: nessun esempio</span>
+<pre>Scrivi una domanda di verifica su Maxwell.</pre></div>
+    <div><span class="tag">One-shot: un esempio</span>
+<pre>Scrivi una domanda di verifica su Maxwell nello stile di questo esempio:
+«Senza usare formule, spiega perché una carica positiva crea un campo elettrico.»</pre></div>
+    <div><span class="tag t">Few-shot: più esempi</span>
+<pre>Scrivi una domanda di verifica su Maxwell nello stile di questi esempi:
+«Senza usare formule, spiega perché una carica positiva crea un campo elettrico.»
+«Senza formule, spiega perché non esistono i monopoli magnetici.»</pre></div>
+  </div>
+  <p class="note">Più esempi dai, più la risposta si avvicina allo stile che vuoi: ma ogni esempio allunga il prompt e consuma token.</p>
+</section>
+
+<section class="slide quiz" data-correct="C">
+  <div class="eyebrow">Autovalutazione · domanda 11 di 11</div>
+  <h2>Qual è la differenza tra one-shot e few-shot?</h2>
+  <div class="opts">
+    <button type="button" class="opt" data-k="A"><span>A</span>Il one-shot non usa alcun esempio, il few-shot ne usa uno</button>
+    <button type="button" class="opt" data-k="B"><span>B</span>Sono la stessa tecnica con due nomi diversi</button>
+    <button type="button" class="opt" data-k="C"><span>C</span>Il one-shot fornisce un solo esempio, il few-shot due o più</button>
+    <button type="button" class="opt" data-k="D"><span>D</span>Il few-shot funziona solo con Google AI Studio</button>
+  </div>
+  <div class="fb" hidden><strong></strong> <span class="why">Zero-shot: nessun esempio. One-shot: un esempio. Few-shot: più esempi. Più esempi dai, più la risposta si avvicina allo stile voluto, ma il prompt si allunga.</span></div>
 </section>
 
 <section class="slide quiz-result">
