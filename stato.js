@@ -13,4 +13,4 @@
   (lezione-3.html) può comunque aprirlo. Per tenere davvero riservata una lezione,
   carica il suo file su GitHub solo dopo l'incontro.
 */
-window.STATO = { attive: [] };
+window.STATO = { attive: [1] };
