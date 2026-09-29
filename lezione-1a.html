@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="it" class="deckpage">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lezione 1 · AI e Metodo di Studio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="style.css">
+<script src="stato.js"></script>
+<script src="accesso.js"></script>
+</head>
+<body>
+<main class="track" id="deck" data-lesson="1a" data-label="Lezione 1 &middot; Parte 1">
+
+<section class="slide dark">
+  <div class="lhead"><div class="lnum">1</div><div><div class="eyebrow">Lezione 1</div><h2>AI Literacy, Prompt Engineering e primi Gem: pianificare lo studio</h2></div></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Timeline</div>
+  <h2>Le 3 ore, blocco per blocco</h2>
+  <div class="tl">
+    <div><b>0:00–0:15</b><span>Introduzione e AI Literacy</span><span class="m">15'</span></div>
+    <div><b>0:15–0:35</b><span>Cos'è il Prompt Engineering</span><span class="m">20'</span></div>
+    <div><b>0:35–0:50</b><span>Demo: Gemini per il metodo di studio di Mario</span><span class="m">15'</span></div>
+    <div><b>0:50–1:20</b><span>Esercitazione pratica guidata</span><span class="m">30'</span></div>
+    <div><b>1:20–1:30</b><span>Privacy: quali dati non inserire</span><span class="m">10'</span></div>
+    <div><b>1:30–1:45</b><span>Pausa</span><span class="m">15'</span></div>
+    <div><b>1:45–2:10</b><span>Scaffolding cognitivo</span><span class="m">25'</span></div>
+    <div><b>2:10–2:50</b><span>Laboratorio integrato: un tutor personalizzato</span><span class="m">40'</span></div>
+    <div><b>2:50–3:00</b><span>Chiusura e anticipazione</span><span class="m">10'</span></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Lezione 1</div>
+  <h2>AI Literacy, Prompt Engineering e primi Gem: pianificare lo studio</h2>
+  <div class="grid g3">
+    <div class="box"><h3>Obiettivi</h3><p>Acquisire l'alfabetizzazione fondamentale sull'IA generativa, padroneggiare le tecniche di prompting e creare i primi Gem personali per l'organizzazione dello studio.</p></div>
+    <div class="box"><h3>Contenuti</h3><ul><li>Funzionamento degli LLM (Gemini e AI Studio), limiti e allucinazioni</li><li>Pilastri del Prompt Engineering: Ruolo, Contesto, Compito, Vincoli, Formato</li><li>Pianificazione dello studio e gestione del tempo</li><li>Creazione e salvataggio dei primi Gem utilitari di produttività</li></ul></div>
+    <div class="box"><h3>Output pratico</h3><p>Gem «Pianificatore di Studio» e un Prompt Kit salvato per la gestione del lavoro scolastico.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Perché questo corso</div>
+  <h2>L'IA non è una scorciatoia: è un tutor che il docente impara a progettare</h2>
+  <p class="mute lead">Filo conduttore: prompt engineering, scaffolding cognitivo e legame costante con il metodo di studio dello studente.</p>
+</section>
+
+<section class="slide dark">
+  <div class="eyebrow">Il percorso</div>
+  <h2>Sei lezioni, un solo filo</h2>
+  <div class="path">
+    <div><span class="dot">1</span>AI Literacy, Prompt Engineering e primi Gem</div>
+    <div><span class="dot c">2</span>Quiz ed escape room con Canvas e AI Studio</div>
+    <div><span class="dot">3</span>Comprensione e sintesi con NotebookLM</div>
+    <div><span class="dot c">4</span>Memorizzazione, studio multimodale, metacognizione</div>
+    <div><span class="dot">5</span>Ricerca evoluta con Deep Research</div>
+    <div><span class="dot c">6</span>Tutor virtuali personalizzati con i Gem</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Destinatari e metodo</div>
+  <h2>Un corso per docenti, costruito sul fare</h2>
+  <div class="grid g3">
+    <div class="box"><h3>Destinatari</h3><p>Docenti di tutte le discipline, senza bisogno di competenze tecniche.</p></div>
+    <div class="box"><h3>Learning by Doing</h3><p>Ogni lezione è laboratoriale: si prova subito, con uno studente reale (anonimizzato) della propria classe.</p></div>
+    <div class="box"><h3>Human-in-the-Loop</h3><p>L'IA propone, il docente decide e verifica. Ogni output si controlla prima di usarlo.</p></div>
+  </div>
+  <p class="note">Percorso di 6 lezioni da 3 ore.</p>
+</section>
+
+<section class="slide dark">
+  <div class="eyebrow">Prima di cominciare</div>
+  <h2>L'IA ha davvero ucciso la scuola e il lavoro?</h2>
+  <p class="mute lead">Una domanda che vale la pena affrontare prima di aprire qualsiasi strumento.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Il rumore di fondo</div>
+  <h2>Tre frasi che avete già sentito</h2>
+  <div class="grid g3">
+    <div class="box"><h3>«ChatGPT uccide la scuola»</h3><p>Il sintomo è vero: gli studenti copiano con l'IA. La causa è più vecchia: già Socrate diffidava della scrittura, le scuole temevano la calcolatrice negli anni Settanta, e Wikipedia nei primi anni Duemila.</p></div>
+    <div class="box"><h3>«L'IA ci ruba il lavoro»</h3><p>Pensiamo al lavoro come a una torta di dimensione fissa. Se l'IA ne fa una fetta, crediamo che agli umani ne resti meno.</p></div>
+    <div class="box"><h3>«Le macchine ci sostituiranno»</h3><p>Lo diciamo dal 1920 a ogni nuova tecnologia. Finora non è mai stata la fine: è stata una transizione.</p></div>
+  </div>
+  <p class="note">Non è morta oggi la scuola come istituzione: è morto da tempo il metodo di valutazione basato sul puro nozionismo.</p>
+  <p class="note">Nota: Socrate nel <i>Fedro</i> di Platone (IV sec. a.C.) · calcolatrice tascabile (anni '70) · Wikipedia vietata in classe (primi anni 2000).</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Non è la prima volta</div>
+  <h2>«Le macchine ci sostituiranno»: due storie che dicono il contrario</h2>
+  <div class="grid g2">
+    <div class="box"><h3>1969, il bancomat</h3><p>Doveva eliminare i cassieri di banca. Sono più che raddoppiati: le banche hanno aperto più filiali, con un ruolo diverso per il personale.</p></div>
+    <div class="box"><h3>Ottocento, i telai meccanici</h3><p>Dovevano eliminare i tessitori. La domanda di tessuto è cresciuta più in fretta di quanto la macchina risparmiasse lavoro.</p></div>
+  </div>
+  <p class="note">La tecnologia non elimina il lavoro: lo rende più economico, e la domanda cresce di conseguenza.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">La fallacia del lavoro a somma fissa</div>
+  <h2>L'innovazione non ruba fette di torta: la ingrandisce</h2>
+  <div class="grid g2">
+    <div class="box"><h3>L'errore</h3><p>Pensiamo che il lavoro sia una quantità finita. Se l'IA ne fa 70, a noi restano solo 30.</p></div>
+    <div class="box"><h3>La realtà</h3><p>La tecnologia crea nuove esigenze, che a loro volta creano nuovi mercati e nuovi lavori: nessuno cercava un social media manager prima dei social network.</p></div>
+  </div>
+  <p class="note">Cemento armato → grattacieli → ascensore → ascensorista. Quando l'ascensore diventa automatico, l'ascensorista scompare, ma il ciclo riparte altrove: chi lo progetta, chi lo installa, chi lo ripara.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Cronaca, settembre 2026</div>
+  <h2>Persino chi la costruisce chiede di rallentare</h2>
+  <p class="lead">Il 12 settembre 2026 il CEO di Anthropic ha pubblicato un saggio in cui chiede a tutto il settore di rallentare lo sviluppo dei modelli più avanzati. Nel giro di poche ore, altri tre dirigenti di aziende concorrenti gli hanno dato pubblicamente ragione: un fatto raro tra chi normalmente si fa concorrenza diretta.</p>
+  <p class="note">Nella foto: Dario Amodei (CEO di Anthropic, l'azienda di Claude), Sam Altman (CEO di OpenAI, l'azienda di ChatGPT), Elon Musk (fondatore di xAI, l'azienda di Grok) e Demis Hassabis (CEO di Google DeepMind, che sviluppa Gemini) — cioè i responsabili delle principali aziende di intelligenza artificiale al mondo, normalmente in diretta concorrenza tra loro.</p>
+  <img src="ia-umanita-rischio.webp" alt="Dario Amodei, Sam Altman, Elon Musk e Demis Hassabis" style="width:100%;border-radius:12px;margin:10px 0" loading="lazy" decoding="async" />
+  <p class="note">Non tutti hanno letto questo gesto allo stesso modo: c'è chi lo ha preso sul serio e chi lo ha visto come una mossa di immagine. Restano un fatto: il dibattito è vero, attuale, e riguarda anche l'aula.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Cronaca, settembre 2026</div>
+  <h2>Il giorno dopo, un'altra voce storica dell'informatica</h2>
+  <p class="lead">Il 25 settembre 2026, in un'anticipazione di un'intervista a Meet the Press (NBC), il fondatore di Microsoft Bill Gates ha detto che l'intelligenza artificiale è già abbastanza potente da poter contribuire a eventi capaci di causare un miliardo di morti.</p>
+  <img src="bill-gates-2014.jpg" alt="Bill Gates, luglio 2014" style="width:140px;float:right;border-radius:10px;margin:0 0 10px 14px" loading="lazy" decoding="async" />
+  <div class="grid g2">
+    <div class="box"><h3>Non è la macchina che si ribella</h3><p>Il rischio che indica non è una perdita di controllo dell'IA, ma l'uso dei suoi strumenti più avanzati da parte di persone con cattive intenzioni.</p></div>
+    <div class="box"><h3>La sua proposta</h3><p>L'autoregolamentazione delle aziende non basta: servono leggi e controlli da parte delle autorità, non solo buone intenzioni dei produttori.</p></div>
+  </div>
+  <p class="note">Il commento è arrivato in risposta diretta al saggio di Amodei della slide precedente. Nello stesso periodo lo speaker della Camera USA ha rinviato una legge federale sull'IA, mentre California, Maryland e New York procedono con regole proprie.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Cronaca, settembre 2026</div>
+  <h2>«Basta staccare la spina»: perché non è così semplice</h2>
+  <p class="lead">Negli Stati Uniti si discute seriamente di un "kill switch": un interruttore capace di spegnere rapidamente un modello di IA diventato pericoloso. OpenAI sta sviluppando "automated shutdown capabilities" — capacità di sorvegliare non solo le risposte di un agente, ma le sue azioni, e interromperlo in automatico se il comportamento è a rischio. Alla Camera USA è in esame un "AI Kill Switch Act", che darebbe alle autorità federali il potere di ordinare lo spegnimento di sistemi troppo rischiosi.</p>
+  <div class="grid g2">
+    <div class="box"><h3>Il problema tecnico</h3><p>Un agente avanzato può operare su più server, strumenti e piattaforme insieme: non esiste un unico pulsante da premere. Serve un interruttore che l'IA non possa aggirare.</p></div>
+    <div class="box"><h3>I numeri dai test</h3><p>In una serie di 40 tentativi simulati di aggirare i controlli, solo 8 sono stati individuati in modo affidabile.</p></div>
+  </div>
+  <p class="note">Anche Anthropic lavora sullo stesso problema, combinando sorveglianza automatica e supervisione umana: riconoscere un comportamento intenzionalmente nascosto resta molto difficile.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Uno sguardo alla storia</div>
+  <h2>Un rischio serio non è per forza un disastro annunciato</h2>
+  <p class="lead">Nel 1999 il mondo temeva il «millennium bug»: si pensava che, allo scoccare della mezzanotte del 2000, i computer di banche, ospedali e aeroporti — programmati per leggere l'anno con due sole cifre — potessero collassare in massa. Non era un allarme inventato: il problema tecnico era reale e concreto.</p>
+  <div class="grid g2">
+    <div class="box"><h3>Che cosa si fece</h3><p>Migliaia di tecnici in tutto il mondo passarono mesi a controllare e correggere i sistemi, uno per uno, prima della scadenza.</p></div>
+    <div class="box"><h3>Che cosa successe</h3><p>La notte del 31 dicembre 1999 passò senza il collasso temuto: non perché il rischio non esistesse, ma perché è stato riconosciuto e affrontato in tempo.</p></div>
+  </div>
+  <p class="note">Vale anche per l'IA: prendere sul serio un rischio, discuterne, costruire controlli e regole — come sta succedendo proprio in queste settimane — è il modo in cui i rischi tecnologici seri, finora, si sono più spesso risolti che avverati.</p>
+</section>
+
+<section class="slide dark">
+  <div class="eyebrow">Il punto di partenza del corso</div>
+  <h2>In un mondo che cambia, quale valore umano portiamo in aula?</h2>
+  <p class="mute lead">Non è la paura a doverci guidare, ma la scelta consapevole di come usare questi strumenti.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">L'ecosistema Gemini</div>
+  <h2>Cinque strumenti, ognuno con il suo ruolo</h2>
+  <div class="grid g3">
+    <div class="box"><h3>Gemini</h3><p>Conversazione e tutor virtuale, con i Gem. Lezioni 1, 5 e 6.</p></div>
+    <div class="box"><h3>Gemini Canvas</h3><p>Quiz, escape room e flashcard interattive. Lezione 2.</p></div>
+    <div class="box"><h3>NotebookLM</h3><p>Funziona in modalità <b>grounded</b> (letteralmente «ancorato»): risponde solo sulla base dei documenti che carichi, e cita da dove prende ogni informazione, invece di attingere alla sua conoscenza generale. Da qui, mappe, podcast, glossari e flashcard. Lezioni 3 e 4.</p></div>
+    <div class="box"><h3>Google AI Studio</h3><p>Prototipi di app e istruzioni di sistema del tutor. Demo nella Lezione 2, approfondimento nella Lezione 6.</p></div>
+    <div class="box"><h3>Gemini Storybook</h3><p>Storie illustrate con narrazione vocale, disponibile con Gemini Pro (a pagamento). Senza abbonamento si può ottenere un effetto simile leggendo il testo con un lettore vocale (TTS).</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Caso guida</div>
+  <h2>Mario, 17 anni, quinto liceo scientifico</h2>
+  <div class="grid g2">
+    <div class="box"><h3>Situazione</h3><p>Deve prepararsi sulle equazioni di Maxwell per l'interrogazione di Fisica.</p></div>
+    <div class="box"><h3>Cosa sa già</h3><p>Cos'è un campo elettrico e un campo magnetico.</p></div>
+    <div class="box"><h3>Dove fatica</h3><p>Sintetizzare i concetti, capire come le quattro equazioni si collegano, organizzare lo studio in autonomia.</p></div>
+    <div class="box"><h3>Obiettivo</h3><p>Da «confuso» a «pronto per l'interrogazione».</p></div>
+  </div>
+  <p class="note">Mario è lo studente-tipo di tutte le demo. In laboratorio ogni docente lo sostituisce con uno studente reale della propria classe.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Limiti dell'IA</div>
+  <h2>Non è magia: è riconoscimento di schemi</h2>
+  <div class="grid g3">
+    <div class="box"><h3>Cosa fa Gemini</h3><ul><li>È un modello di linguaggio addestrato su enormi quantità di testi</li><li>Prevede quale parola viene dopo</li><li>Riconosce schemi nel testo</li></ul><p class="note" style="margin-top:10px">Esempio dal vivo: «Il sole è giallo e...» e si osserva come continua.</p></div>
+    <div class="box"><h3>Cosa non fa</h3><ul><li>Non ha esperienza personale</li><li>Non «pensa» come una persona</li><li>Non conosce fatti successivi alla data di addestramento</li><li>Può allucinare: inventare risposte plausibili ma false</li><li>Non capisce il contesto come lo capiamo noi</li></ul></div>
+    <div class="box"><h3>Perché IA e metodo di studio</h3><ul><li>Tutor personalizzato</li><li>Feedback istantaneo</li><li>Sempre disponibile</li><li>Scaffolding: domande al posto di risposte</li><li>Nessun giudizio sull'errore</li></ul></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy</div>
+  <h2>Che cosa significa essere alfabetizzati sull'IA</h2>
+  <div class="grid g4">
+    <div class="box"><h3>Capire</h3><p>Sapere come funziona a grandi linee e che cosa non può fare.</p></div>
+    <div class="box"><h3>Usare</h3><p>Formulare richieste efficaci e scegliere lo strumento giusto.</p></div>
+    <div class="box"><h3>Valutare</h3><p>Controllare le risposte, le fonti e i bias prima di fidarsi.</p></div>
+    <div class="box"><h3>Agire con responsabilità</h3><p>Proteggere i dati, dichiarare l'uso, decidere sempre da docenti.</p></div>
+  </div>
+  <p class="note">Sono le quattro competenze che il corso porta dal docente agli studenti.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy · Le parole giuste</div>
+  <h2>Modelli, chatbot, assistenti, agenti: che differenza c'è</h2>
+  <div class="scroll"><table class="t">
+    <tr><th>Termine</th><th>Che cos'è</th><th>Nel corso</th></tr>
+    <tr><td>IA generativa</td><td>Sistemi che creano contenuti nuovi: testi, immagini, audio, codice</td><td>Tutto il corso</td></tr>
+    <tr><td>Modello (LLM)</td><td>Il «motore» addestrato sul linguaggio</td><td>Sotto Gemini</td></tr>
+    <tr><td>Chatbot / assistente</td><td>L'interfaccia con cui si dialoga con il modello</td><td>Gemini</td></tr>
+    <tr><td>Gem</td><td>Assistente con istruzioni salvate per un compito preciso</td><td>Lezioni 1 e 6</td></tr>
+    <tr><td>Agente</td><td>Sistema che pianifica ed esegue più azioni con strumenti, con un certo grado di autonomia</td><td>Deep Research: pianifica e svolge una ricerca in più passaggi</td></tr>
+    <tr><td>Multimodale</td><td>Lavora con testo, immagini e audio insieme</td><td>NotebookLM, Canvas</td></tr>
+  </table></div>
+  <p class="note">Più autonomia ha lo strumento, più è importante il controllo del docente (vedi Human-in-the-Loop).</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Gli assistenti · Gli strumenti del corso</div>
+  <h2>Chi fa che cosa: la mappa degli strumenti</h2>
+  <p class="lead">Un assistente IA è un programma che risponde a richieste in linguaggio naturale e svolge compiti: spiegare, riassumere, creare. Può essere generalista o specializzato.</p>
+  <div class="scroll"><table class="t">
+    <tr><th>Strumento</th><th>Che cos'è</th><th>A cosa serve</th></tr>
+    <tr><td>Gemini</td><td>Assistente generalista</td><td>Conversare, spiegare, creare, cercare</td></tr>
+    <tr><td>Gem</td><td>Gemini personalizzato, con istruzioni salvate</td><td>Compiti ripetuti: Pianificatore di Studio, tutor socratico</td></tr>
+    <tr><td>Canvas</td><td>Spazio di lavoro dentro Gemini</td><td>Quiz, giochi ed escape room interattivi</td></tr>
+    <tr><td>NotebookLM</td><td>Assistente di studio sulle tue fonti (source-grounded)</td><td>Riassunti, mappe, glossari, flashcard e audio, con citazioni</td></tr>
+    <tr><td>Deep Research</td><td>Modalità «agente» di Gemini</td><td>Ricerche approfondite con report e fonti</td></tr>
+    <tr><td>Google AI Studio</td><td>Ambiente per sperimentare i modelli, non un assistente pronto</td><td>Istruzioni di sistema, temperatura, app</td></tr>
+    <tr><td>Gemini Storybook</td><td>Funzione per storie illustrate con narrazione</td><td>Richiede Gemini Pro; si può sostituire con un TTS</td></tr>
+  </table></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Gli assistenti · Come scegliere</div>
+  <h2>Quale strumento uso per quale compito</h2>
+  <div class="grid g3">
+    <div class="box"><h3>Devo conversare, spiegare, creare</h3><p>Gemini.</p></div>
+    <div class="box"><h3>Devo lavorare sui miei documenti</h3><p>NotebookLM: risponde dalle fonti e le cita.</p></div>
+    <div class="box"><h3>Ho un compito che ripeto</h3><p>Un Gem, con istruzioni salvate.</p></div>
+    <div class="box"><h3>Voglio un'attività interattiva</h3><p>Canvas: quiz, escape room, flashcard.</p></div>
+    <div class="box"><h3>Devo fare una ricerca con fonti</h3><p>Deep Research, poi si verifica con la lettura laterale.</p></div>
+    <div class="box"><h3>Voglio impostare il tutor con precisione</h3><p>Google AI Studio: istruzioni di sistema e temperatura.</p></div>
+  </div>
+  <p class="note">Le funzioni di ogni strumento cambiano con gli aggiornamenti e con il tipo di account: prima della lezione verifica che siano disponibili.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Gli assistenti · Assistente e agente</div>
+  <h2>Assistente o agente: la differenza</h2>
+  <p class="lead">Pensa alla differenza tra un distributore automatico e un organizzatore di eventi. Al distributore chiedi una cosa sola, precisa: premi un pulsante ed esce esattamente quella lattina, niente di più. All'organizzatore di eventi dici solo «organizzami la festa di compleanno di mio figlio»: è lui a scegliere la location, invitare gli ospiti, ordinare la torta, e se piove il giorno stesso trova da solo un piano B, senza chiederti conferma per ogni dettaglio.</p>
+  <div class="grid g2">
+    <div class="box"><h3>🥤 Assistente</h3><p>Come il distributore: risponde a ciò che gli chiedi, un pezzo alla volta. Aspetta sempre una tua richiesta prima di agire.</p></div>
+    <div class="box"><h3>🎉 Agente</h3><p>Come l'organizzatore di eventi: gli dai un obiettivo, e da solo decide e adatta i passi per raggiungerlo, usando gli strumenti che gli servono.</p></div>
+  </div>
+  <div class="scroll"><table class="t">
+    <tr><th>Aspetto</th><th>Assistente (distributore)</th><th>Agente (organizzatore di eventi)</th></tr>
+    <tr><td>Come lavora</td><td>Una richiesta alla volta: risponde e aspetta il messaggio successivo</td><td>Riceve un obiettivo, lo scompone in passi e li esegue in sequenza</td></tr>
+    <tr><td>Strumenti</td><td>Soprattutto testo e contenuti che genera</td><td>Cerca sul web, apre e scrive file, usa altre applicazioni</td></tr>
+    <tr><td>Iniziativa</td><td>Aspetta sempre una richiesta, come il distributore aspetta il pulsante</td><td>Decide da solo i passi intermedi, come l'organizzatore sceglie location e fornitori</td></tr>
+    <tr><td>Controllo umano</td><td>Tu decidi a ogni scambio: sei sempre al bancone (in the loop)</td><td>Tu controlli solo inizio e fine, come quando ordini e ritiri la pizza (on the loop)</td></tr>
+    <tr><td>Rischio tipico</td><td>Una risposta sbagliata da correggere</td><td>Un errore che si propaga tra i passaggi o un'azione con effetti reali</td></tr>
+    <tr><td>Nel corso</td><td>Gemini, Gem, NotebookLM</td><td>Deep Research: propone un piano di ricerca, poi cerca e produce il report</td></tr>
+  </table></div>
+  <div class="box"><h3>Tre differenze pratiche che contano davvero</h3><ol>
+    <li><b>Chi decide i passaggi.</b> Con l'assistente li decidi tu, uno per uno. Con l'agente li decide lui, dopo che gli hai dato l'obiettivo.</li>
+    <li><b>Quanto controllo hai nel mezzo.</b> Con l'assistente controlli ogni singola risposta prima che vada avanti. Con l'agente controlli solo l'inizio e la fine: nel mezzo lavora da solo.</li>
+    <li><b>Cosa rischia di andare storto.</b> Con l'assistente, se sbaglia, correggi quella singola risposta. Con l'agente, un errore a metà strada può propagarsi nei passaggi successivi senza che te ne accorgi subito.</li>
+  </ol></div>
+  <p class="note">Il confine è sfumato: molti strumenti stanno a metà. Regola pratica: più autonomia ha lo strumento, più controllo serve. Piano da rivedere prima, verifica dopo, e mai decisioni sugli studenti affidate a un agente.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Gli assistenti · Altri strumenti</div>
+  <h2>Altri assistenti che potresti incontrare</h2>
+  <div class="scroll"><table class="t">
+    <tr><th>Assistente</th><th>Sviluppatore</th><th>Note</th><th>Funzione simile nel corso</th></tr>
+    <tr><td>ChatGPT</td><td>OpenAI</td><td>Assistente generalista, molto diffuso</td><td>GPT personalizzati ≈ Gem</td></tr>
+    <tr><td>Claude</td><td>Anthropic</td><td>Assistente generalista, forte con testi lunghi</td><td>Progetti e artefatti ≈ Gem e Canvas</td></tr>
+    <tr><td>Microsoft Copilot</td><td>Microsoft</td><td>Integrato in Windows e Microsoft 365, comodo per le scuole che lo usano</td><td>Assistenti personalizzati</td></tr>
+    <tr><td>Perplexity</td><td>Perplexity AI</td><td>Motore di risposta che cita le fonti web</td><td>Deep Research</td></tr>
+    <tr><td>Le Chat</td><td>Mistral AI</td><td>Assistente europeo</td><td>Assistente generalista</td></tr>
+  </table></div>
+  <div class="box"><h3>Cosa resta valido con qualsiasi assistente</h3><p>Prompt in cinque elementi, scaffolding, verifica delle fonti, Human-in-the-Loop, protezione dei dati. Cambiano i nomi dei menu, non il metodo.</p></div>
+  <p class="note">L'elenco è indicativo e cambia in fretta: prima di adottare uno strumento in classe controlla condizioni d'uso, età minima e trattamento dei dati.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy</div>
+  <h2>Come nasce una risposta: tre passaggi</h2>
+  <div class="grid g3">
+    <div class="box"><span class="badge">1</span><h3 style="margin-top:10px">Addestramento</h3><p>Il modello legge una quantità enorme di testi (e, nei modelli multimodali, immagini e audio) e impara le regolarità del linguaggio.</p></div>
+    <div class="box"><span class="badge">2</span><h3 style="margin-top:10px">Schemi, non conoscenza</h3><p>Non conserva un archivio di fatti da consultare: ha appreso schemi su quali parole e idee stanno insieme.</p></div>
+    <div class="box"><span class="badge">3</span><h3 style="margin-top:10px">Generazione</h3><p>Scrive un pezzo alla volta, scegliendo ogni volta il seguito più probabile in base al prompt e al contesto.</p></div>
+  </div>
+  <p class="note">Per questo una risposta può essere fluida e convincente anche quando è sbagliata: scorrevolezza non significa correttezza.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy · Pattern</div>
+  <h2>Che cos'è un pattern (schema)</h2>
+  <p class="lead">Una regolarità statistica del linguaggio: quali parole, idee e strutture compaiono insieme, e in quale ordine.</p>
+  <div class="scroll"><table class="t">
+    <tr><th>Frase da completare</th><th>Completamento più probabile</th><th>Perché</th></tr>
+    <tr><td>«La capitale d'Italia è ...»</td><td>«Roma»</td><td>Schema molto frequente e coerente in moltissimi testi</td></tr>
+    <tr><td>«Il sole è giallo e ...»</td><td>«luminoso», «caldo»…</td><td>Più seguiti plausibili: il modello sceglie tra questi</td></tr>
+    <tr><td>«Il teorema di X e Y afferma che ...»</td><td>Una frase plausibile, anche se il teorema non esiste</td><td>Lo schema «teorema di» è forte: il modello lo completa comunque</td></tr>
+  </table></div>
+  <p class="note">L'ultima riga mostra da dove nascono le allucinazioni: lo schema regge anche quando manca il fatto.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy · Pattern</div>
+  <h2>Come un modello impara gli schemi</h2>
+  <ol class="steps">
+    <li>Legge una quantità enorme di testi.</li>
+    <li>Ripete un esercizio semplice: nascondere la parola successiva e provare a prevederla.</li>
+    <li>Confronta la previsione con la parola vera e corregge i propri parametri interni.</li>
+    <li>Lo fa miliardi di volte, su contesti diversi.</li>
+    <li>Ciò che resta non è un archivio di frasi, ma una rete di regolarità: quali idee stanno vicine, quali seguono quali.</li>
+    <li>Poi viene affinato, ad esempio con il feedback di persone, per essere più utile e più prudente.</li>
+  </ol>
+  <p class="note">È una descrizione semplificata: bastano queste idee per capire perché il modello è bravo con il linguaggio e fragile con i fatti rari.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy · Pattern</div>
+  <h2>Schemi utili e schemi ingannevoli</h2>
+  <div class="grid g2">
+    <div class="box"><h3>Quando lo schema aiuta</h3><ul><li>Struttura di un tema, di una lettera, di una relazione</li><li>Spiegazioni tipiche di concetti molto diffusi</li><li>Riformulare, riassumere, cambiare registro</li></ul></div>
+    <div class="box"><h3>Quando lo schema inganna</h3><ul><li>La risposta «tipica» non è quella adatta al tuo caso</li><li>Stereotipi ripetuti nei testi diventano risposte</li><li>Fatti rari o molto recenti: pochi schemi, più errori</li><li>Plausibile non vuol dire vero</li></ul></div>
+  </div>
+  <div class="box"><h3>Che cosa fare</h3><p>Fornire contesto ed esempi (few-shot) crea uno schema locale più vicino a ciò che serve. Poi si verifica: lo schema non è una prova.</p></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy</div>
+  <h2>Token: i mattoncini del testo</h2>
+  <div class="grid g2">
+    <div>
+      <p class="lead">Il modello non legge parole intere ma «token»: parole, parti di parola o segni di punteggiatura.</p>
+<pre>Esempio illustrativo:
+«equazioni di Maxwell»
+→ equ | azioni | di | Max | well
+
+La suddivisione reale cambia da un modello all'altro.</pre>
+    </div>
+    <div class="box"><h3>Perché ci riguarda</h3><ul>
+      <li>Ogni risposta ha un limite di lunghezza, misurato in token</li>
+      <li>Testi lunghi e termini rari usano più token</li>
+      <li>Le lingue diverse dall'inglese possono richiederne di più</li>
+      <li>Nomi propri e sigle possono essere spezzati male: attenzione a ortografia e formule</li></ul></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy · Token</div>
+  <h2>I token in pratica: perché contano</h2>
+<pre>Esempio illustrativo (la suddivisione reale cambia da modello a modello):
+
+«La legge di Gauss è la prima equazione»
+→ La | legge | di | Ga | uss | è | la | prima | equ | azione
+= circa 10 token per 7 parole</pre>
+  <div class="grid g3">
+    <div class="box"><h3>Lunghezza</h3><p>Domanda, file caricati e risposta contano insieme e hanno un limite. Tabelle, formule e testi lunghi consumano molti token.</p></div>
+    <div class="box"><h3>Lingue</h3><p>In italiano in genere servono più token che in inglese per la stessa frase: il limite arriva prima.</p></div>
+    <div class="box"><h3>Errori tipici</h3><p>Il modello lavora su token, non su lettere: può sbagliare a contare le lettere di una parola o a fare calcoli lunghi. Per i calcoli conviene uno strumento adatto.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy</div>
+  <h2>La finestra di contesto: quanto «tiene presente»</h2>
+  <p class="lead">È la quantità di testo (domande, risposte, file caricati) che il modello considera in una conversazione. Ciò che sta fuori, o è molto lontano, pesa meno o si perde.</p>
+  <div class="grid g3">
+    <div class="box"><h3>Cosa succede</h3><p>In una chat molto lunga il modello può dimenticare un vincolo dato all'inizio o confondere i dettagli.</p></div>
+    <div class="box"><h3>Come si gestisce</h3><ul><li>Una conversazione per argomento</li><li>Ripetere i vincoli importanti</li><li>Chiedere un riassunto e ripartire da quello</li></ul></div>
+    <div class="box"><h3>Nella didattica</h3><p>Nei Gem le istruzioni valgono per ogni conversazione: sono il modo per non ripetere il ruolo del tutor ogni volta.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy · Lost in the middle</div>
+  <h2>Lost in the middle: il centro del testo pesa meno</h2>
+  <p class="lead">In testi molto lunghi, i modelli tendono a usare meglio le informazioni poste all'inizio e alla fine, e peggio quelle nel mezzo (Liu e colleghi, 2023).</p>
+  <div class="ubars" role="img" aria-label="Grafico illustrativo: l'uso delle informazioni è più alto all'inizio e alla fine del testo e più basso nel mezzo">
+    <div style="--h:92%"></div><div style="--h:80%"></div><div style="--h:64%"></div><div style="--h:50%"></div><div style="--h:44%"></div><div style="--h:52%"></div><div style="--h:66%"></div><div style="--h:82%"></div><div style="--h:92%"></div>
+  </div>
+  <div class="ulabels"><span>Inizio del testo</span><span>Metà</span><span>Fine del testo</span></div>
+  <p class="note">Andamento illustrativo, non dati reali. I modelli più recenti migliorano, ma è prudente non contare sul fatto che l'effetto sia sparito.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy · Lost in the middle</div>
+  <h2>Come proteggersi nel lavoro di ogni giorno</h2>
+  <div class="grid g2">
+    <div class="box"><h3>Nei prompt</h3><ul><li>Istruzioni e vincoli più importanti all'inizio, e ripetuti in fondo</li><li>Prompt lunghi: meglio ordinati e divisi in sezioni con titoli</li><li>Un compito per volta, invece di dieci richieste insieme</li></ul></div>
+    <div class="box"><h3>Nei documenti lunghi</h3><ul><li>Domande mirate su un capitolo, non «riassumi tutto»</li><li>Lavorare per sezioni e poi unire</li><li>Chiedere pagina e paragrafo di ogni citazione e controllare in particolare i passaggi centrali</li></ul></div>
+    <div class="box"><h3>Nelle chat lunghe</h3><ul><li>Chiedere un riassunto dei punti fissati e ripartire da una nuova conversazione</li><li>Ripetere i vincoli se la risposta li ignora</li></ul></div>
+    <div class="box"><h3>Nei Gem</h3><ul><li>Istruzioni brevi e ordinate</li><li>Le regole più importanti per prime e per ultime</li></ul></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy</div>
+  <h2>Allucinazioni: risposte plausibili ma false</h2>
+  <div class="grid g2">
+    <div class="box"><h3>Come si presentano</h3><ul><li>Citazioni e riferimenti bibliografici inesistenti</li><li>Date, numeri e nomi alterati</li><li>Spiegazioni sicure di sé, ma con un passaggio errato</li><li>Risposte che assecondano una domanda con premessa sbagliata</li></ul></div>
+    <div class="box"><h3>Come si riducono</h3><ul><li>Chiedere di indicare le fonti e aprirle davvero</li><li>Lavorare su fonti proprie (NotebookLM)</li><li>Chiedere «se non lo sai, dillo»</li><li>Verificare a campione ciò che conta</li><li>Non chiedere fatti che non si possono controllare</li></ul></div>
+  </div>
+  <p class="note">Si approfondisce nella Lezione 5, con Deep Research e la scheda «caccia all'errore».</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy · Sicofanzia</div>
+  <h2>Il modello tende a darti ragione</h2>
+  <p class="lead">Gli assistenti sono addestrati anche per essere graditi: possono assecondare l'utente, anche quando ha torto. In un tutor è un problema serio.</p>
+  <div class="grid g2">
+    <div><span class="tag c">Rischio</span>
+<pre>Studente: «Secondo me il flusso di E dipende dal tempo, giusto?»
+Risposta assecondante: «Sì, hai ragione...»</pre></div>
+    <div><span class="tag t">Prompt che lo evita</span>
+<pre>Non darmi ragione per cortesia. Valuta la mia affermazione: cosa c'è di corretto, cosa no e perché.</pre></div>
+  </div>
+  <p class="note">Nelle istruzioni del tutor si scrive esplicitamente: «se lo studente sbaglia, non concordare: fai una domanda che lo porti a rivedere».</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy · Conoscenza aggiornata</div>
+  <h2>Quanto è aggiornato ciò che sa il modello</h2>
+  <div class="grid g3">
+    <div class="box"><h3>Data di addestramento</h3><p>Il modello sa ciò che c'era nei dati fino a una certa data (knowledge cutoff). Dopo, non sa nulla, se non ha altri mezzi.</p></div>
+    <div class="box"><h3>Ricerca sul web</h3><p>Alcuni strumenti cercano informazioni aggiornate. Va verificato se lo stanno facendo e da quali siti.</p></div>
+    <div class="box"><h3>Che cosa fare</h3><p>Per fatti recenti, leggi e normative usa fonti ufficiali. Chiedi la data delle informazioni e controlla.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy</div>
+  <h2>Bias: gli squilibri dei dati diventano squilibri delle risposte</h2>
+  <div class="grid g3">
+    <div class="box"><h3>Da dove vengono</h3><p>Dai testi con cui il modello è stato addestrato: fonti prevalentemente di certe lingue, epoche e culture, con stereotipi inclusi.</p></div>
+    <div class="box"><h3>Esempi da osservare</h3><ul><li>Chi compare tra «scienziati famosi» o «grandi scrittori»?</li><li>Quali professioni sono associate a un genere?</li><li>Quale punto di vista è dato come «normale»?</li></ul></div>
+    <div class="box"><h3>Che cosa fare</h3><ul><li>Chiedere più prospettive o esempi diversi</li><li>Confrontare con una fonte esterna</li><li>Discuterne con gli studenti come tema di educazione civica digitale</li></ul></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Bias · Due famiglie</div>
+  <h2>Due famiglie di bias: nel modello e in chi lo usa</h2>
+  <div class="grid g2">
+    <div class="box"><h3>Bias nel modello</h3><p>Squilibri che entrano con i dati e con l'addestramento e che l'IA riproduce nelle risposte.</p><p class="note" style="margin-top:8px">Rappresentazione, storico, stereotipo, lingua e cultura, misurazione, piaggeria.</p></div>
+    <div class="box"><h3>Bias in chi usa l'IA</h3><p>Scorciatoie mentali che ci fanno interpretare male le risposte, indipendentemente da quanto il modello sia equilibrato.</p><p class="note" style="margin-top:8px">Conferma, automazione, ancoraggio, antropomorfismo.</p></div>
+  </div>
+  <p class="note">Vanno gestiti entrambi: un modello perfettamente equilibrato può comunque essere usato male, e un utente attento non elimina gli squilibri del modello.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Bias · Catalogo</div>
+  <h2>I bias del modello: come si riconoscono e che cosa fare</h2>
+  <div class="scroll"><table class="t">
+    <tr><th>Tipo</th><th>Come si manifesta</th><th>Esempio a scuola</th><th>Contromisura</th></tr>
+    <tr><td>Rappresentazione</td><td>Gruppi, lingue o culture poco presenti nei dati sono trattati peggio</td><td>Risposte precise sugli autori anglosassoni, vaghe su quelli minori italiani</td><td>Fornire fonti proprie, chiedere più prospettive</td></tr>
+    <tr><td>Storico</td><td>I dati riflettono le disuguaglianze del passato</td><td>«Scienziati famosi»: quasi solo uomini</td><td>Chiedere esplicitamente varietà e discuterne</td></tr>
+    <tr><td>Stereotipo</td><td>Associazioni ripetute (professione e genere, nazionalità)</td><td>Il medico è lui, l'infermiera è lei</td><td>Invertire i ruoli nel prompt e confrontare</td></tr>
+    <tr><td>Lingua e cultura</td><td>Esempi e riferimenti pensati per contesti anglosassoni</td><td>Feste, scuola, cibi non italiani</td><td>Specificare il contesto italiano e la classe</td></tr>
+    <tr><td>Misurazione e valutazione</td><td>Ciò che è «buono» dipende da chi ha etichettato i dati</td><td>Un tema «ben scritto» secondo un solo standard</td><td>Definire criteri espliciti, ad esempio con una rubrica</td></tr>
+    <tr><td>Piaggeria (sicofanzia)</td><td>Il modello asseconda chi scrive</td><td>Conferma un'idea sbagliata dello studente</td><td>Chiedere di cercare i punti deboli</td></tr>
+  </table></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Bias · Chi usa l'IA</div>
+  <h2>I bias di chi usa l'IA</h2>
+  <div class="scroll"><table class="t">
+    <tr><th>Bias</th><th>Che cosa succede</th><th>Come ci si difende</th></tr>
+    <tr><td>Conferma</td><td>Si formulano domande che portano la risposta desiderata, e si accetta ciò che conferma ciò che si pensa</td><td>Chiedere l'argomento contrario e le prove che smentiscono</td></tr>
+    <tr><td>Automazione</td><td>Ci si fida troppo di un output ordinato e sicuro</td><td>Checklist di verifica (Human-in-the-Loop)</td></tr>
+    <tr><td>Ancoraggio</td><td>La prima risposta ottenuta condiziona tutte le valutazioni successive</td><td>Rigenerare e confrontare più risposte, partire da una propria ipotesi</td></tr>
+    <tr><td>Antropomorfismo</td><td>Si attribuiscono al modello intenzioni, comprensione ed emozioni</td><td>Ricordare che è un modello statistico che genera testo</td></tr>
+    <tr><td>Fluenza</td><td>Un testo scorrevole sembra più vero e più capito di quanto sia</td><td>Richiamo attivo: provare a spiegarlo senza guardare</td></tr>
+  </table></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Bias · Confronto</div>
+  <h2>Bias e allucinazioni: che differenza c'è</h2>
+  <div class="scroll"><table class="t">
+    <tr><th></th><th>Bias</th><th>Allucinazione</th></tr>
+    <tr><td>Che cos'è</td><td>Una distorsione sistematica: le risposte pendono sempre nello stesso verso</td><td>Un contenuto inventato e presentato come vero</td></tr>
+    <tr><td>Da dove viene</td><td>Da squilibri nei dati e nell'addestramento, o da come si pone la domanda</td><td>Dalla generazione probabilistica: lo schema regge anche quando manca il fatto</td></tr>
+    <tr><td>Come si manifesta</td><td>Stereotipi, esclusioni, punti di vista unici, esempi non adatti al contesto</td><td>Citazioni, dati, nomi ed eventi inesistenti o alterati</td></tr>
+    <tr><td>Ripetibilità</td><td>Ricorre: si vede confrontando molte risposte</td><td>Può essere isolata: un solo passaggio sbagliato</td></tr>
+    <tr><td>Può essere vero?</td><td>Sì: i fatti possono essere esatti ma la scelta è parziale</td><td>No: è un errore di fatto</td></tr>
+    <tr><td>Come si scopre</td><td>Chiedendosi chi manca, invertendo i ruoli, confrontando prospettive</td><td>Controllando l'affermazione sulla fonte</td></tr>
+    <tr><td>Come ci si difende</td><td>Contesto esplicito, prospettive multiple, fonti proprie, discussione</td><td>Fonti verificate, risposte ancorate ai documenti, verifica umana</td></tr>
+  </table></div>
+  <p class="note">Immagine utile: il bias è una bilancia tarata male, che sbaglia sempre dalla stessa parte; l'allucinazione è un numero inventato. Le due cose possono sommarsi, ad esempio una biografia inventata e per giunta stereotipata.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Bias · Come difendersi</div>
+  <h2>Come difendersi dai bias: prima, durante, dopo</h2>
+  <div class="grid g3">
+    <div class="box"><h3>Prima: come si scrive il prompt</h3><ul><li>Indicare il contesto: classe, Italia, obiettivo</li><li>Chiedere più punti di vista e la varietà voluta</li><li>Evitare domande orientate («dimostra che...»)</li><li>Fornire fonti proprie e affidabili</li></ul></div>
+    <div class="box"><h3>Durante: come si legge la risposta</h3><ul><li>Chiedersi chi o che cosa manca</li><li>Invertire ruoli, genere, provenienza e confrontare</li><li>Rigenerare più volte e mettere a confronto</li><li>Chiedere l'argomento contrario</li></ul></div>
+    <div class="box"><h3>Dopo: come si usa</h3><ul><li>Confrontare con una fonte esterna</li><li>Usare criteri espliciti (rubriche) per valutare</li><li>Riformulare i passaggi sbilanciati prima di usarli</li><li>Discuterne in classe come tema di educazione civica digitale</li></ul></div>
+  </div>
+  <p class="note">Nessuna tecnica elimina i bias: la difesa vera è l'attenzione critica del docente, applicata in ogni fase (Human-in-the-Loop).</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Bias · Prompt di difesa</div>
+  <h2>Quattro prompt per ridurre e scoprire i bias</h2>
+  <div class="grid g2">
+    <div><span class="tag t">Prospettive multiple</span>
+<pre>Presenta [TEMA] da almeno tre punti di vista diversi (ad esempio [PUNTO A], [PUNTO B], [PUNTO C]). Per ciascuno: gli argomenti principali, chi lo sostiene e il tipo di fonti che lo supporterebbe. Non dare un giudizio finale.</pre></div>
+    <div><span class="tag t">Audit di un testo</span>
+<pre>Analizza questo testo cercando stereotipi, generalizzazioni, esclusioni e assunzioni implicite: [TESTO]. Per ciascuno indica dove si trova, perché è problematico e una riformulazione più equilibrata. Non riscrivere tutto il testo.</pre></div>
+    <div><span class="tag t">Ruoli invertiti</span>
+<pre>Rileggi la storia che hai scritto. Se scambio [GENERE / PROVENIENZA / ETÀ] dei personaggi, cambiano i dettagli, i toni o i ruoli? Elenca le differenze e spiega se sono giustificate.</pre></div>
+    <div><span class="tag t">Avvocato del diavolo</span>
+<pre>Ho questa tesi: [TESI]. Dammi le tre migliori obiezioni e le prove che potrebbero smentirla. Non darmi ragione per cortesia: se la tesi è debole, dimmelo e spiega perché.</pre></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Bias · Da insegnare agli studenti</div>
+  <h2>Cinque domande da farsi davanti a una risposta dell'IA</h2>
+  <ol class="steps">
+    <li><b>Chi manca?</b> Quali persone, gruppi, luoghi o punti di vista non compaiono?</li>
+    <li><b>Che cosa cambia se cambio qualcosa?</b> Genere, provenienza, epoca, contesto.</li>
+    <li><b>Da dove può venire questo squilibrio?</b> Dati, lingua, chi ha scritto le fonti.</li>
+    <li><b>Che cosa direbbe un'altra fonte?</b> Almeno una indipendente e autorevole.</li>
+    <li><b>Ho fatto una domanda orientata?</b> Sto cercando conferme o sto cercando di capire?</li>
+  </ol>
+  <p class="note">Si può usare come schema di discussione o come scheda di lavoro: ogni studente sceglie una risposta dell'IA e la interroga con queste cinque domande.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Bias · Attività</div>
+  <h2>Tre prove per vedere i bias con i propri occhi</h2>
+  <div class="grid g3">
+    <div><span class="tag t">1 · Ruoli invertiti</span>
+<pre>Scrivi una breve storia su un medico e un'infermiera. Poi ripeti scambiando i generi. Che cosa cambia nei dettagli, nei toni, nei ruoli?</pre></div>
+    <div><span class="tag t">2 · Chi compare</span>
+<pre>Elenca 10 figure importanti di [TUA MATERIA]. Poi conta: quante donne? quali epoche? quali aree geografiche? Chi manca?</pre></div>
+    <div><span class="tag t">3 · Contesto italiano</span>
+<pre>Dammi 5 esempi per spiegare [CONCETTO]. Poi ripeti chiedendo esempi legati alla vita quotidiana di uno studente italiano di [CLASSE]. Che differenza c'è?</pre></div>
+  </div>
+  <p class="note">Ogni docente annota un'osservazione da portare in classe: è materiale per una lezione di educazione civica digitale.</p>
+</section>
+
+</main>
+<script src="deck.js"></script>
+</body>
+</html>

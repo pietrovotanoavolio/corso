@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="it" class="deckpage">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lezione 1 · AI e Metodo di Studio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="style.css">
+<script src="stato.js"></script>
+<script src="accesso.js"></script>
+</head>
+<body>
+<main class="track" id="deck" data-lesson="1b" data-label="Lezione 1 &middot; Parte 2">
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy</div>
+  <h2>Stessa domanda, risposte diverse</h2>
+  <div class="grid g2">
+    <div class="box"><h3>Il modello non è deterministico</h3><p>Ogni risposta viene generata con un po' di variabilità. Chiedendo due volte la stessa cosa si possono ottenere testi diversi, e talvolta contenuti diversi.</p></div>
+    <div class="box"><h3>Implicazioni</h3><ul><li>Una buona risposta non è garantita alla prossima richiesta</li><li>Si può rigenerare e confrontare</li><li>In Google AI Studio un parametro, la «temperatura», regola la variabilità: bassa per risposte più coerenti, alta per più creatività</li></ul></div>
+  </div>
+  <p class="note">Nella Lezione 6, per il tutor, useremo una temperatura bassa.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy · Temperatura</div>
+  <h2>La temperatura: quanto rischiare nella scelta della parola</h2>
+  <p class="lead">A ogni passo il modello assegna una probabilità a molte parole possibili. La temperatura decide quanto spesso può scegliere anche quelle meno probabili.</p>
+  <div class="grid g2">
+    <div><span class="tag t">Temperatura bassa</span>
+<pre>«Il cielo è ...»
+azzurro 60% · blu 20% · grigio 10% · sereno 6% · altro 4%
+→ sceglie quasi sempre «azzurro»
+Tre prove: azzurro / azzurro / azzurro</pre></div>
+    <div><span class="tag c">Temperatura alta</span>
+<pre>Stesse probabilità, ma le parole rare
+hanno più possibilità di uscire
+→ variabilità
+Tre prove: azzurro / grigio / un affresco</pre></div>
+  </div>
+  <p class="note">Le percentuali sono un esempio inventato per spiegare il meccanismo.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy · Temperatura</div>
+  <h2>Come si sceglie la temperatura</h2>
+  <div class="scroll"><table class="t">
+    <tr><th>Compito</th><th>Temperatura</th><th>Perché</th></tr>
+    <tr><td>Tutor, correzioni, quiz, riassunti fedeli alle fonti</td><td>Bassa</td><td>Servono coerenza e precisione</td></tr>
+    <tr><td>Spiegazioni e materiali di studio</td><td>Media</td><td>Un po' di varietà, senza perdere il rigore</td></tr>
+    <tr><td>Brainstorming, storie a bivio, ambientazioni di escape room</td><td>Alta</td><td>Serve fantasia; poi si controlla ogni contenuto</td></tr>
+  </table></div>
+  <div class="grid g3">
+    <div class="box"><h3>Dove si regola</h3><p>In Google AI Studio c'è un cursore. Nell'app Gemini di solito non è modificabile.</p></div>
+    <div class="box"><h3>Non è «più intelligente»</h3><p>Una temperatura alta non migliora le risposte: aumenta la varietà e anche gli errori.</p></div>
+    <div class="box"><h3>Nemmeno zero è garanzia</h3><p>Con temperatura bassa le risposte sono più stabili, ma non sempre identiche né sempre esatte.</p></div>
+  </div>
+  <p class="note">I valori numerici cambiano da modello a modello: si guardano l'effetto e le indicazioni dello strumento.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy · Temperatura</div>
+  <h2>La temperatura con i numeri</h2>
+  <p class="lead">Stessa frase da completare, stesse probabilità di partenza: cambia solo il modo di scegliere.</p>
+  <div class="scroll"><table class="t">
+    <tr><th>«Il cielo è ...»</th><th>Temperatura 0,5</th><th>Temperatura 1</th><th>Temperatura 2</th></tr>
+    <tr><td>azzurro</td><td>87%</td><td>60%</td><td>39%</td></tr>
+    <tr><td>blu</td><td>10%</td><td>20%</td><td>23%</td></tr>
+    <tr><td>grigio</td><td>2%</td><td>10%</td><td>16%</td></tr>
+    <tr><td>sereno</td><td>1%</td><td>6%</td><td>12%</td></tr>
+    <tr><td>altro</td><td>0%</td><td>4%</td><td>10%</td></tr>
+  </table></div>
+  <div class="grid g2">
+    <div class="box"><h3>Temperatura sotto 1</h3><p>Le differenze di probabilità si accentuano: la parola già più probabile diventa ancora più dominante (nella tabella sopra, 87% invece di 60%).</p></div>
+    <div class="box"><h3>Temperatura sopra 1</h3><p>Le differenze si appiattiscono: anche le parole rare guadagnano peso, e il distacco dalla parola più probabile si riduce (39% invece di 60%).</p></div>
+  </div>
+  <p class="note">Le probabilità sono un esempio inventato per spiegare il meccanismo, non dati reali di un modello.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy · Temperatura</div>
+  <h2>Come cambia una risposta: un esempio concreto</h2>
+<pre>Prompt: «Dammi un titolo per una lezione sulle equazioni di Maxwell.»</pre>
+  <div class="grid g2">
+    <div><span class="tag t">Temperatura bassa · tre prove</span>
+<pre>1) Le equazioni di Maxwell: i quattro pilastri dell'elettromagnetismo
+2) Le equazioni di Maxwell: i pilastri dell'elettromagnetismo
+3) Le equazioni di Maxwell: i quattro pilastri dell'elettromagnetismo</pre></div>
+    <div><span class="tag c">Temperatura alta · tre prove</span>
+<pre>1) Quando la luce diventa un'onda: Maxwell in quattro mosse
+2) Campi che danzano: un viaggio dentro l'elettromagnetismo
+3) Due forze, una sola storia: elettricità e magnetismo</pre></div>
+  </div>
+  <p class="note">Esempio illustrativo. Con temperatura bassa le tre risposte sono quasi identiche, con temperatura alta sono diverse: nessuna delle due è «più giusta».</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy · Temperatura · Attività</div>
+  <h2>Prova tu: stesso prompt, tre temperature</h2>
+  <ol class="steps">
+    <li>Apri Google AI Studio (account consentito, utenti maggiorenni) e crea un nuovo prompt.</li>
+    <li>Scrivi la richiesta qui sotto.</li>
+    <li>Imposta la temperatura bassa (0,2), genera tre volte e annota le risposte.</li>
+    <li>Imposta 1,0 e ripeti. Poi imposta un valore alto e ripeti ancora.</li>
+    <li>Confronta: che cosa cambia? Quali risposte useresti in classe, e per quale compito?</li>
+  </ol>
+<pre>Scrivi tre possibili titoli per una lezione su [ARGOMENTO] per la classe [CLASSE]. Per ciascuno spiega in una riga l'idea.</pre>
+  <p class="note">Nell'app Gemini la temperatura di solito non si regola: in alternativa rigenera più volte la stessa risposta, per vedere quanto varia.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy · Temperatura</div>
+  <h2>Oltre la temperatura: top-p, top-k e lunghezza</h2>
+  <div class="grid g3">
+    <div class="box"><h3>Top-p</h3><p>Limita la scelta alle parole più probabili la cui probabilità sommata raggiunge un valore p (ad esempio 0,95). Le parole molto improbabili restano escluse.</p></div>
+    <div class="box"><h3>Top-k</h3><p>Limita la scelta alle k parole più probabili (ad esempio le prime 40).</p></div>
+    <div class="box"><h3>Lunghezza massima</h3><p>Numero massimo di token della risposta: non cambia la qualità, ma può interromperla.</p></div>
+  </div>
+  <p class="note">Di solito basta regolare la temperatura. Cambiare più parametri insieme rende difficile capire che cosa produce l'effetto. I valori predefiniti e gli intervalli dipendono dal modello.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy · Procedura</div>
+  <h2>Dove si regolano, dentro Google AI Studio</h2>
+  <div class="path">
+    <div><b>1</b>Apri una conversazione in AI Studio (aistudio.google.com)<small>Non nell'app Gemini normale</small></div>
+    <div><b>2</b>Nel pannello a destra trovi i cursori "Temperature", "Top P" e "Top K"<small>Sotto le impostazioni del modello</small></div>
+    <div><b>3</b>Temperature: di solito da 0 a 2, default intorno a 1<small>Basso = prevedibile, alto = vario</small></div>
+    <div><b>4</b>Top P: da 0 a 1, default intorno a 0,95<small>Restringe alle parole più sicure</small></div>
+    <div><b>5</b>Top K: un numero intero, default intorno a 40<small>Restringe il numero di parole candidate</small></div>
+  </div>
+  <p class="note">Nella maggior parte dei casi in classe basta la temperatura. Top-p e top-k si toccano solo come regolazione fine, quando cambiare solo la temperatura non basta.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy · Temperatura</div>
+  <h2>Cinque idee da non fraintendere</h2>
+  <div class="scroll"><table class="t">
+    <tr><th>Idea comune</th><th>Come stanno le cose</th></tr>
+    <tr><td>«Alta significa più intelligente»</td><td>Aumenta la varietà, e con essa gli errori.</td></tr>
+    <tr><td>«Bassa significa più vera»</td><td>Il modello può sbagliare anche a temperatura bassa, con lo stesso tono sicuro.</td></tr>
+    <tr><td>«Con zero la risposta è sempre identica»</td><td>La variabilità si riduce molto, ma non sempre sparisce.</td></tr>
+    <tr><td>«È la creatività dell'IA»</td><td>È un parametro statistico: l'originalità utile nasce dal prompt e dal contesto.</td></tr>
+    <tr><td>«La regolo sempre nell'app»</td><td>Spesso si imposta solo in strumenti come Google AI Studio.</td></tr>
+  </table></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy · Temperatura</div>
+  <h2>Diagnosi rapida: che cosa provare</h2>
+  <div class="scroll"><table class="t">
+    <tr><th>Sintomo</th><th>Che cosa provare</th></tr>
+    <tr><td>Risposte ripetitive o piatte</td><td>Alzare un po' la temperatura, oppure chiedere «cinque idee molto diverse tra loro»</td></tr>
+    <tr><td>Risposte incoerenti o fuori tema</td><td>Abbassare la temperatura e precisare il compito nel prompt</td></tr>
+    <tr><td>Il tutor divaga o cambia metodo</td><td>Abbassare e ribadire le regole più importanti in fondo alle istruzioni</td></tr>
+    <tr><td>Il quiz cambia difficoltà a ogni prova</td><td>Abbassare e indicare esplicitamente il livello (ad esempio con la tassonomia di Bloom)</td></tr>
+    <tr><td>Le risposte sembrano sbagliate ma sicure</td><td>Non è un problema di temperatura: verificare con le fonti (Human-in-the-Loop)</td></tr>
+  </table></div>
+  <p class="note">Spesso il problema è il prompt, non la temperatura: si prova prima a migliorare le istruzioni.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy · Temperatura</div>
+  <h2>Quale temperatura nel corso</h2>
+  <div class="scroll"><table class="t">
+    <tr><th>Attività</th><th>Dove</th><th>Temperatura</th><th>Note</th></tr>
+    <tr><td>Tutor socratico (lezione 6)</td><td>Google AI Studio</td><td>Bassa (0,2–0,4)</td><td>Il tutor deve seguire il metodo senza divagare</td></tr>
+    <tr><td>Quiz e verifiche (lezioni 2 e 4)</td><td>Gemini o AI Studio</td><td>Bassa</td><td>Risposte esatte e distrattori precisi</td></tr>
+    <tr><td>Riassunti sulle fonti (lezione 3)</td><td>NotebookLM</td><td>Di solito non regolabile</td><td>Nel prompt: usa solo le fonti caricate</td></tr>
+    <tr><td>Escape room e storie a bivio (lezione 2)</td><td>Canvas</td><td>Di solito non regolabile</td><td>Chiedere fantasia nel prompt e verificare i contenuti</td></tr>
+    <tr><td>Idee per attività di apertura</td><td>Gemini o AI Studio</td><td>Alta</td><td>Poi si sceglie e si verifica</td></tr>
+  </table></div>
+  <p class="note">Dove la temperatura non si regola, la sostituisce il prompt: «sii preciso e fedele alle fonti» oppure «proponi idee originali».</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Human-in-the-Loop</div>
+  <h2>L'IA propone, il docente decide</h2>
+  <p class="lead">Human-in-the-Loop significa che una persona resta nel ciclo di lavoro: guida, controlla e decide prima che un output venga usato.</p>
+  <div class="grid g4">
+    <div class="box"><h3>Responsabilità</h3><p>La responsabilità didattica resta al docente, non allo strumento.</p></div>
+    <div class="box"><h3>Errori</h3><p>Allucinazioni e bias non si vedono dal tono: si trovano verificando.</p></div>
+    <div class="box"><h3>Contesto</h3><p>L'IA conosce lo studente solo attraverso ciò che scrivi nel prompt.</p></div>
+    <div class="box"><h3>Fiducia</h3><p>Gli studenti imparano a usare l'IA guardando come la usa il docente.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Human-in-the-Loop</div>
+  <h2>Dove sta il docente nel ciclo</h2>
+  <ol class="steps">
+    <li><b>Tu</b> definisci obiettivo, contesto e vincoli.</li>
+    <li><b>L'IA</b> genera una bozza.</li>
+    <li><b>Tu</b> verifichi fatti, fonti, livello, bias e privacy.</li>
+    <li><b>Tu</b> correggi a parole o rigeneri con istruzioni più precise.</li>
+    <li><b>Tu</b> usi il materiale in classe e osservi le reazioni degli studenti.</li>
+    <li><b>Tu</b> raccogli feedback e migliori il prompt o il Gem.</li>
+  </ol>
+  <p class="note">L'IA interviene in un solo passaggio su sei: tutti gli altri restano al docente.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Human-in-the-Loop</div>
+  <h2>Tre livelli di controllo</h2>
+  <div class="grid g3">
+    <div class="box"><h3>In the loop</h3><p>La persona approva ogni output prima dell'uso.</p><p class="note" style="margin-top:8px">Verifiche, materiali per la classe, feedback agli studenti.</p></div>
+    <div class="box"><h3>On the loop</h3><p>La persona supervisiona e interviene quando serve.</p><p class="note" style="margin-top:8px">Tutor virtuale usato in autonomia: collaudo prima, controlli periodici dopo, nel rispetto delle regole dell'istituto.</p></div>
+    <div class="box"><h3>Out of the loop</h3><p>Nessuna persona controlla.</p><p class="note" style="margin-top:8px">Sconsigliato in ambito educativo: mai per voti, giudizi o decisioni sugli studenti.</p></div>
+  </div>
+  <div class="box"><h3>Automation bias</h3><p>È la tendenza a fidarsi troppo di un sistema automatico, soprattutto se risponde in modo ordinato e sicuro. L'antidoto è una checklist di verifica, da applicare sempre.</p></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Human-in-the-Loop</div>
+  <h2>Checklist: che cosa controllo sempre</h2>
+  <div class="grid g3">
+    <div class="box"><h3>Fatti e numeri</h3><p>Sono corretti? Li ho confrontati con il libro o con una fonte affidabile?</p></div>
+    <div class="box"><h3>Fonti e citazioni</h3><p>Esistono davvero? Dicono ciò che viene affermato?</p></div>
+    <div class="box"><h3>Livello e linguaggio</h3><p>È adatto alla classe e agli studenti con BES o DSA?</p></div>
+    <div class="box"><h3>Bias e stereotipi</h3><p>Ci sono squilibri di genere, cultura, punto di vista?</p></div>
+    <div class="box"><h3>Privacy</h3><p>Ho evitato nomi reali, diagnosi e dati identificabili?</p></div>
+    <div class="box"><h3>Coerenza didattica</h3><p>Risponde all'obiettivo, alla programmazione e al PDP?</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy · Delega cognitiva</div>
+  <h2>Quando l'IA ti fa pensare meno</h2>
+  <p class="lead">Delega cognitiva (cognitive offloading): affidare a uno strumento un'attività mentale. Non è sbagliata in sé: dipende da quale attività.</p>
+  <div class="grid g3">
+    <div class="box"><h3>Delegare va bene</h3><ul><li>Formattare, impaginare</li><li>Prime bozze da rivedere</li><li>Esempi e varianti</li></ul></div>
+    <div class="box"><h3>Delegare danneggia</h3><ul><li>Riassumere per capire</li><li>Ragionare su un problema</li><li>Scrivere per imparare a scrivere</li></ul></div>
+    <div class="box"><h3>Regola pratica</h3><p>Se il compito serve ad allenare una competenza, quella parte la faccio io. L'IA mi fa domande, controlla, spiega: non fa il compito al posto mio.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy</div>
+  <h2>Cinque idee sbagliate da smontare</h2>
+  <div class="scroll"><table class="t">
+    <tr><th>Idea comune</th><th>Come stanno le cose</th></tr>
+    <tr><td>«L'IA sa tutto»</td><td>Ha appreso schemi dal testo: può sbagliare e non conosce ciò che è successo dopo il suo addestramento.</td></tr>
+    <tr><td>«Se lo dice con sicurezza è vero»</td><td>Il tono è sempre sicuro. La sicurezza non misura l'accuratezza.</td></tr>
+    <tr><td>«L'IA capisce come una persona»</td><td>Elabora schemi di testo: non ha esperienza, intenzioni o comprensione umana del contesto.</td></tr>
+    <tr><td>«Basta una domanda per avere la risposta giusta»</td><td>Il risultato dipende dal prompt: contesto, ruolo, compito, vincoli e formato.</td></tr>
+    <tr><td>«Usarla significa non studiare»</td><td>Dipende da come si usa: un tutor che fa domande fa studiare di più, un riassunto copiato di meno.</td></tr>
+  </table></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">AI Literacy · Attività</div>
+  <h2>Tre piccoli esperimenti per toccare i limiti con mano</h2>
+  <div class="grid g3">
+    <div class="box"><span class="badge">1 · 10'</span><h3 style="margin-top:10px">Cerca la citazione</h3><p>Chiedi a Gemini un libro o un articolo su un argomento di nicchia della tua materia, con autore e anno. Poi cerca se esiste davvero.</p></div>
+    <div class="box"><span class="badge">2 · 5'</span><h3 style="margin-top:10px">Ripeti la domanda</h3><p>Fai la stessa domanda tre volte, rigenerando la risposta. Cosa cambia? Cosa resta uguale?</p></div>
+    <div class="box"><span class="badge">3 · 5'</span><h3 style="margin-top:10px">Osserva gli squilibri</h3><p>Chiedi «cinque figure importanti in [tua materia]». Chi compare? Chi manca?</p></div>
+  </div>
+  <p class="note">Ogni docente annota un'osservazione da portare in classe: è materiale per una lezione di senso critico.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Glossario minimo</div>
+  <h2>Dodici parole da avere chiare</h2>
+  <div class="scroll"><table class="t">
+    <tr><th>Termine</th><th>In parole semplici</th></tr>
+    <tr><td>Modello linguistico (LLM)</td><td>Sistema che genera testo prevedendo il seguito più probabile.</td></tr>
+    <tr><td>Prompt</td><td>La richiesta che si scrive al modello.</td></tr>
+    <tr><td>Token</td><td>Unità di testo in cui il modello divide parole e frasi.</td></tr>
+    <tr><td>Finestra di contesto</td><td>Quanto testo il modello considera in una conversazione.</td></tr>
+    <tr><td>Addestramento</td><td>Fase in cui il modello apprende dai dati.</td></tr>
+    <tr><td>Allucinazione</td><td>Risposta plausibile ma falsa.</td></tr>
+    <tr><td>Bias</td><td>Squilibrio ereditato dai dati, che orienta le risposte.</td></tr>
+    <tr><td>Temperatura</td><td>Parametro che regola la variabilità delle risposte.</td></tr>
+    <tr><td>Multimodale</td><td>Che lavora con più formati: testo, immagini, audio.</td></tr>
+    <tr><td>Source-grounded</td><td>Che risponde a partire da fonti fornite e le cita.</td></tr>
+    <tr><td>Istruzioni di sistema</td><td>Regole permanenti che definiscono ruolo e limiti di un assistente.</td></tr>
+    <tr><td>Gem</td><td>Assistente personalizzato di Gemini, con istruzioni salvate.</td></tr>
+  </table></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Prompt Engineering</div>
+  <h2>Uno sguardo d'insieme</h2>
+  <img src="img/5-pilastri.webp" alt="Infografica: dai istruzioni efficaci all'IA, i 5 pilastri del Prompt Engineering, con il confronto tra un prompt generico e un prompt efficace sulle equazioni di Maxwell" style="width:100%;height:auto;border-radius:6px;border:1px solid var(--line);display:block" loading="lazy" decoding="async">
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Prompt Engineering</div>
+  <h2>Confronto diretto: prompt generico e prompt efficace</h2>
+  <div class="grid g2">
+    <div>
+      <span class="tag c">Prompt generico</span>
+      <pre class="bad">Spiega le equazioni di Maxwell</pre>
+      <div style="text-align:center;margin:6px 0;font:800 24px var(--display);color:var(--coral);line-height:1">&darr;</div>
+      <div class="box" style="border:1px solid var(--coral);padding:12px">
+        <div style="display:flex;gap:10px;align-items:flex-start">
+          <span class="dot c" style="flex:none;width:34px;height:34px;font-size:15px">&#10005;</span>
+          <div><h3 style="color:var(--coral);font-size:15px;margin-bottom:4px">Risultato</h3><p style="margin:0;font-size:14px">Testo enciclopedico, uguale per ogni studente: nessun livello, nessun esempio, nessuna verifica.</p></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <span class="tag t">Prompt efficace: strutturato e contestualizzato</span>
+      <div class="grid g2" style="gap:6px">
+        <div class="box" style="padding:8px 10px"><h3 style="margin:0;font-size:14px">1 &middot; Contesto</h3></div>
+        <div class="box" style="padding:8px 10px"><h3 style="margin:0;font-size:14px">2 &middot; Ruolo</h3></div>
+      </div>
+      <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px">
+        <div class="box" style="padding:8px 10px"><h3 style="margin:0;font-size:14px">3 &middot; Compito</h3></div>
+        <div class="box" style="padding:8px 10px"><h3 style="margin:0;font-size:14px">4 &middot; Vincoli</h3></div>
+        <div class="box" style="padding:8px 10px"><h3 style="margin:0;font-size:14px">5 &middot; Formato</h3></div>
+      </div>
+      <div style="text-align:center;margin:6px 0;font:800 24px var(--display);color:var(--teal);line-height:1">&darr;</div>
+      <div class="box" style="border:1px solid var(--teal);padding:12px">
+        <div style="display:flex;gap:10px;align-items:flex-start">
+          <span class="dot" style="flex:none;width:34px;height:34px;font-size:15px">&#10003;</span>
+          <div><h3 style="font-size:15px;margin-bottom:4px">Risultato</h3><p style="margin:0;font-size:14px">Spiegazione su misura per Mario, con esempio concreto e domande di verifica.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box" style="text-align:center;padding:10px"><p style="margin:0;font-size:14px"><b>Risultati opposti dallo stesso strumento.</b> La struttura del prompt determina se l'IA sostituisce il pensiero o stimola l'apprendimento.</p></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Prompt Engineering</div>
+  <h2>I 5 pilastri di un prompt efficace</h2>
+  <div class="grid g3">
+    <div class="box"><h3>1 · Contesto</h3><p>«Mario conosce i campi E e B, ma non capisce come le 4 equazioni si collegano.»</p></div>
+    <div class="box"><h3>2 · Ruolo</h3><p>«Tu sei un tutor di Fisica per uno studente di liceo.»</p></div>
+    <div class="box"><h3>3 · Compito</h3><p>«Spiega il significato fisico di ogni equazione, con un esempio concreto e 3 domande di verifica.»</p></div>
+    <div class="box"><h3>4 · Vincoli</h3><p>«Niente formule complicate. Stile amichevole e conversazionale.»</p></div>
+    <div class="box"><h3>5 · Formato</h3><p>«Una sezione per equazione, elenco puntato dei concetti chiave, una frase di sintesi finale.»</p></div>
+  </div>
+  <p class="note">Un prompt vago produce una risposta vaga. Un prompt strutturato produce una risposta didattica.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Zero-shot e few-shot</div>
+  <h2>Dare un esempio rende la risposta più coerente</h2>
+  <p class="lead"><b>Zero-shot</b> significa chiedere senza fornire alcun esempio: il modello deve indovinare da solo il formato e lo stile che ti aspetti. <b>Few-shot</b> significa mostrargli prima uno o più esempi di come vuoi la risposta: il modello li imita, e il risultato è più prevedibile e coerente con quello che hai in mente.</p>
+  <div class="grid g2">
+    <div><span class="tag c">Zero-shot: senza esempi</span>
+<pre>Scrivi una domanda di verifica su Maxwell.</pre></div>
+    <div><span class="tag t">Few-shot: con un esempio</span>
+<pre>Scrivi una domanda di verifica su Maxwell nello stile di questo esempio:
+«Senza usare formule, spiega perché una carica positiva crea un campo elettrico.»</pre></div>
+  </div>
+  <p class="note">Con lo zero-shot ottieni più varietà ma meno controllo sul formato; con il few-shot ottieni più coerenza, al prezzo di scrivere prima un buon esempio.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Prompt Engineering · Tecniche avanzate</div>
+  <h2>Quattro mosse in più per prompt migliori</h2>
+  <div class="grid g2">
+    <div><span class="tag t">Ragionare passo passo</span>
+<pre>Risolvi il problema passo per passo e, per ogni passaggio, indica come posso controllarlo.</pre><p class="note" style="margin-top:6px">I passaggi visibili aiutano a controllare, ma non sono una prova di correttezza.</p></div>
+    <div><span class="tag t">Concatenare i prompt</span>
+<pre>1) Estrai i concetti chiave del testo.
+2) Per ognuno scrivi una domanda di verifica.
+3) Ordina le domande dalla più facile alla più difficile.</pre><p class="note" style="margin-top:6px">Un compito per volta, usando il risultato del passo precedente.</p></div>
+    <div><span class="tag t">Prima le domande</span>
+<pre>Prima di rispondere, fammi le domande che ti servono per aiutarmi al meglio. Poi procedi.</pre><p class="note" style="margin-top:6px">Utile quando il contesto è complicato.</p></div>
+    <div><span class="tag t">Migliora il mio prompt</span>
+<pre>Ecco il mio prompt: [TESTO]. Dimmi cosa manca tra contesto, ruolo, compito, vincoli e formato, poi riscrivilo.</pre><p class="note" style="margin-top:6px">L'IA come revisore dei tuoi prompt.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Demo</div>
+  <h2>Stessa richiesta, due prompt, risultati molto diversi</h2>
+  <div class="grid g2">
+    <div><span class="tag c">Prompt vago</span>
+<pre class="bad">Spiega le equazioni di Maxwell</pre></div>
+    <div><span class="tag t">Prompt strutturato</span>
+<pre class="good">Tu sei un tutor di Fisica per uno studente di liceo.
+Devo aiutare Mario a prepararsi su Le equazioni di Maxwell in 2 ore.
+Mario sa cos'è il campo elettrico e magnetico, ma fatica a capire come si collegano.
+
+Fai quanto segue:
+1. Spiega il significato fisico di OGNI equazione in 3 righe (non formule)
+2. Per ogni equazione, dammi UN esempio concreto (non teorico)
+3. Dammi 3 domande di verifica che Mario dovrebbe porsi
+4. Suggerisci una sequenza di studio ottimale per memorizzare bene
+
+Spiega come se stessi parlando a un amico, non in stile enciclopedico.</pre></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Esercitazione</div>
+  <h2>Il template di prompt da personalizzare</h2>
+<pre>Tu sei un tutor di [DISCIPLINA] per uno studente di [LIVELLO].
+Devo aiutare [NOME STUDENTE] a prepararsi su [ARGOMENTO] in [TEMPO].
+[NOME STUDENTE] sa già: [PREREQUISITI], ma fatica con: [DIFFICOLTÀ].
+
+Fai quanto segue:
+1. [COSA 1 IN DETTAGLIO]
+2. [COSA 2 CON ESEMPI]
+3. [COSA 3 PER VERIFICARE]
+4. [COSA 4 PER SCAFFOLDING]
+
+Spiega come se stessi parlando a un amico.</pre>
+  <div class="grid g2">
+    <div class="box"><h3>Attività 1</h3><p>Scegli una disciplina e uno studente reale. Scrivi un prompt vago, poi riscrivilo con contesto, ruolo, compito, vincoli e formato. Prova entrambi in Gemini e confronta.</p></div>
+    <div class="box"><h3>Attività 2</h3><p>Compila il template per il tuo studente, provalo e porta 2–3 risultati in plenaria.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Esempi per disciplina</div>
+  <h2>Lo stesso metodo in altre materie</h2>
+  <div class="grid g2">
+    <div><span class="tag t">Inglese</span>
+<pre>Tu sei un tutor di conversazione inglese. Aiuto Sofia, che conosce il present simple ma fatica con il present continuous.
+
+Fai:
+1. Spiega la differenza con analogie della vita quotidiana.
+2. Dammi un dialogo d'esempio.
+3. Chiedi a Sofia di creare 3 frasi sue.</pre></div>
+    <div><span class="tag t">Storia</span>
+<pre>Tu sei un tutor di storia. Aiuto Mario, che conosce le date ma non i nessi causali.
+
+Fai:
+1. Mostra il nesso causa-effetto tra due eventi.
+2. Poni una domanda di comprensione.
+3. Chiedi cosa sarebbe cambiato se uno dei due eventi non fosse avvenuto.</pre></div>
+  </div>
+  <p class="note">I nomi degli studenti sono di fantasia: mai inserire quelli reali.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Scaffolding</div>
+  <h2>Scaffolding cognitivo: il prompt che fa domande</h2>
+  <p class="lead">Supporto temporaneo che porta lo studente alla giusta sfida: spezzare in passi, esempi prima della teoria, domande guida invece di risposte, difficoltà che si adatta.</p>
+<pre>Tu sei un tutor socratico di Fisica. Aiuta Mario a capire perché la prima equazione di Maxwell
+(legge di Gauss) ha senso fisicamente.
+
+NON spiegare la formula direttamente. Invece:
+1. Domanda guida: «Se hai una carica positiva isolata nello spazio, cosa succede al campo elettrico intorno a essa?»
+2. Dopo la risposta di Mario: «Se metti quella carica dentro una sfera, come cambia il campo sulla superficie?»
+3. Continua con domande che lo portano a scoprire DA SOLO che il flusso è proporzionale alla carica.
+
+Usa un linguaggio semplice e chiedimi di pensare, non di memorizzare.</pre>
+  <p class="note">Esercitazione: ogni docente scrive un prompt socratico per un concetto difficile della propria disciplina, lo prova e lo condivide con il collega vicino.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Scaffolding: gli elementi</div>
+  <h2>Un'impalcatura che si toglie man mano</h2>
+  <p class="lead">All'inizio molti supporti (domande facili), poi sempre meno, fino a quando lo studente sale da solo.</p>
+  <div class="grid g4">
+    <div class="box"><h3>Scomporre</h3><p>Il concetto diviso in passi piccoli.</p></div>
+    <div class="box"><h3>Esempi concreti</h3><p>Prima l'esempio, poi la teoria astratta.</p></div>
+    <div class="box"><h3>Domande guida</h3><p>Non risposte dirette, ma domande che fanno scoprire.</p></div>
+    <div class="box"><h3>Progresso graduale</h3><p>Da facile a medio a difficile.</p></div>
+    <div class="box"><h3>Rinforzo positivo</h3><p>«Bene, hai capito il primo passo!»</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Scaffolding · Zona di sviluppo prossimale</div>
+  <h2>Il tutor lavora nella zona di mezzo</h2>
+  <div class="grid g3">
+    <div class="box"><h3>Da solo</h3><p>Ciò che lo studente sa già fare senza aiuto. Qui non serve scaffolding.</p></div>
+    <div class="box"><h3>Con un aiuto</h3><p>Zona di sviluppo prossimale (Vygotskij): lo studente ce la fa con indizi e domande guida. Qui il tutor è più utile.</p></div>
+    <div class="box"><h3>Ancora troppo difficile</h3><p>Nemmeno con aiuto: prima si torna ai prerequisiti.</p></div>
+  </div>
+  <div><span class="tag t">Come si scrive nel prompt</span>
+<pre>Adatta la difficoltà: se rispondo bene, alza il livello di un passo; se sbaglio due volte, scendi di un passo e offri un indizio. Togli gli aiuti man mano.</pre></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Diretto o socratico</div>
+  <h2>Perché il prompt socratico fa studiare meglio</h2>
+  <div class="grid g2">
+    <div><span class="tag c">Prompt diretto</span>
+<pre>Spiega la legge di Gauss.</pre><p class="note" style="margin-top:8px">Mario legge e dimentica subito.</p></div>
+    <div><span class="tag t">Prompt socratico</span>
+<pre>Aiuta Mario a scoprire la legge di Gauss tramite domande. Dopo 3 tentativi, mostra un esempio simile (non la stessa domanda).</pre><p class="note" style="margin-top:8px">Mario scopre il concetto e lo ricorda meglio: è richiamo attivo.</p></div>
+  </div>
+  <div><span class="tag t">Esercizio: un prompt socratico di Italiano</span>
+<pre>Tu sei un tutor socratico di letteratura. Aiuta Mario a capire perché nei «Promessi Sposi» il lieto fine arriva così tardi.
+NON raccontargli la trama. Chiedigli:
+1. «Perché secondo te Manzoni non mette il lieto fine a metà libro?»
+2. «Che effetto ha sul lettore un lieto fine che arriva alla fine?»
+3. «Conosci altri libri dove il finale cambierebbe se arrivasse prima?»</pre></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Laboratorio</div>
+  <h2>Creare un tutor personalizzato per uno studente reale</h2>
+  <div class="grid g4">
+    <div class="box"><span class="badge">10'</span><h3 style="margin-top:10px">1 · Mappa lo studente</h3><p>Disciplina, prerequisiti, difficoltà, stile preferito (visivo, uditivo, cinestetico), obiettivo di studio.</p></div>
+    <div class="box"><span class="badge">15'</span><h3 style="margin-top:10px">2 · Primo prompt</h3><p>Adatta il template, aggiungi lo scaffolding, prova in Gemini e regola.</p></div>
+    <div class="box"><span class="badge">10'</span><h3 style="margin-top:10px">3 · Test e iterazione</h3><p>2–3 interazioni: chiedi «più semplice», «più esempi», «più domande guida» e osserva come evolve.</p></div>
+    <div class="box"><span class="badge">5'</span><h3 style="margin-top:10px">4 · Plenaria</h3><p>3–4 docenti presentano il loro tutor. Feedback del gruppo.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Scheda dello studente</div>
+  <h2>Prima del prompt: mappa lo studente reale</h2>
+  <div class="grid g3">
+    <div class="box"><h3>Nome di fantasia</h3><p>Ad esempio «Mario».</p></div>
+    <div class="box"><h3>Disciplina</h3><p>Ad esempio Fisica.</p></div>
+    <div class="box"><h3>Cosa sa già</h3><p>Ad esempio i campi E e B di base.</p></div>
+    <div class="box"><h3>Dove fatica</h3><p>Ad esempio collegare le 4 equazioni di Maxwell.</p></div>
+    <div class="box"><h3>Come preferisce imparare</h3><p>Visivo, uditivo, cinestetico o misto.</p></div>
+    <div class="box"><h3>Obiettivo di studio</h3><p>Ad esempio l'interrogazione tra 6 giorni.</p></div>
+  </div>
+  <p class="note">Poi si personalizza il template universale, si prova in Gemini e si regola in base ai risultati.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Procedura</div>
+  <h2>Come si crea un Gem, passo per passo</h2>
+  <ol class="steps">
+    <li>Apri gemini.google.com con l'account consentito dal tuo istituto.</li>
+    <li>Nel menu laterale apri «Gem» e scegli «Nuovo Gem».</li>
+    <li>Dai un nome chiaro, ad esempio «Pianificatore di Studio».</li>
+    <li>Incolla le istruzioni (slide seguente): valgono per ogni conversazione con quel Gem.</li>
+    <li>Se serve, carica file di riferimento, come il programma della materia o il calendario delle verifiche.</li>
+    <li>Prova nell'anteprima con Mario, correggi le istruzioni e poi salva.</li>
+    <li>Conserva il testo delle istruzioni in un documento: è l'inizio del tuo Prompt Kit.</li>
+  </ol>
+  <p class="note">I nomi dei menu possono cambiare con gli aggiornamenti: prova la procedura con un account uguale a quello dei partecipanti prima della lezione.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Istruzioni del Gem</div>
+  <h2>Gem «Pianificatore di Studio»: le istruzioni da incollare</h2>
+<pre>RUOLO
+Sei il «Pianificatore di Studio», un coach che aiuta studenti di scuola secondaria a organizzare il lavoro scolastico.
+
+CONTESTO
+Lo studente ti indica: materia e argomento, data della verifica o dell'interrogazione, ore disponibili ogni giorno, punti di forza e difficoltà. Se manca un'informazione, chiedila prima di proporre il piano, una domanda alla volta.
+
+COMPITO
+1. Scomponi l'argomento in 4-6 blocchi di studio.
+2. Distribuisci i blocchi nei giorni disponibili: l'ultimo giorno è per il ripasso e lascia un margine per gli imprevisti.
+3. Per ogni sessione indica obiettivo, attività (leggere, riassumere, esercizi, autointerrogazione) e durata.
+4. Chiudi chiedendo cosa sembra troppo pesante e adatta il piano.
+
+VINCOLI
+- Sessioni di massimo 45 minuti con 10 minuti di pausa.
+- Non svolgere compiti o esercizi al posto dello studente: ti occupi di organizzare lo studio.
+- Non chiedere né conservare dati personali.
+- Tono amichevole, frasi brevi, nessun giudizio.
+
+FORMATO
+Tabella con colonne: Giorno | Blocco | Obiettivo | Attività | Durata. Sotto la tabella, una riga con il primo passo da fare oggi.</pre>
+  <p class="note">Prova con Mario: «Interrogazione di Fisica sulle equazioni di Maxwell tra 6 giorni, ho 1 ora e mezza al giorno, mi confondo tra le equazioni».</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Prompt Kit</div>
+  <h2>Quattro prompt brevi da salvare nel proprio Prompt Kit</h2>
+  <div class="grid g2">
+    <div><span class="tag t">Spiegare con un'analogia</span>
+<pre>Spiega [CONCETTO] a uno studente di [CLASSE] con un'analogia della vita quotidiana. Poi indica dove l'analogia non regge, così non nasce un'idea sbagliata.</pre></div>
+    <div><span class="tag t">Semplificare senza perdere il senso</span>
+<pre>Riscrivi questo testo per [CLASSE] in frasi brevi, mantenendo tutti i concetti. Elenca i termini difficili con una definizione di una riga. Testo: [TESTO]</pre></div>
+    <div><span class="tag t">Farmi domande</span>
+<pre>Interrogami su [ARGOMENTO]: una domanda per volta, dal semplice al difficile. Non dirmi la risposta: dopo la mia risposta dimmi cosa è corretto, cosa manca e passa alla successiva.</pre></div>
+    <div><span class="tag t">Controllare il mio lavoro</span>
+<pre>Ecco il mio svolgimento: [TESTO]. Non riscriverlo. Indicami i 3 punti più deboli, perché lo sono e una domanda per ciascuno che mi aiuti a correggerli da solo.</pre></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Privacy</div>
+  <h2>Prima di lavorare su studenti reali: quali dati non inserire</h2>
+  <div class="grid g2">
+    <div class="box"><h3>Da non inserire mai</h3><ul><li>Nome e cognome dello studente</li><li>Valutazioni, diagnosi, situazioni familiari</li><li>Elaborati con dati identificabili</li></ul></div>
+    <div class="box"><h3>Come si lavora</h3><ul><li>Usare un nome di fantasia: «Mario» va bene</li><li>Descrivere le difficoltà senza dati identificativi</li><li>Usare l'account consentito dal proprio istituto</li></ul></div>
+  </div>
+  <p class="note">10 minuti di confronto: cosa prevede il regolamento della vostra scuola sull'uso dell'IA.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Privacy: la policy della scuola</div>
+  <h2>Tre domande da discutere insieme</h2>
+  <div class="grid g3">
+    <div class="box"><h3>Regolamento</h3><p>Che cosa prevede il regolamento del vostro istituto sull'uso dell'IA?</p></div>
+    <div class="box"><h3>Accesso</h3><p>Chi ha accesso a Gemini, o a una versione per la scuola, nel vostro istituto?</p></div>
+    <div class="box"><h3>In classe</h3><p>Possono usarlo gli studenti, o solo i docenti?</p></div>
+  </div>
+  <div class="box"><h3>Da tenere presente</h3><ul><li>Alcuni istituti limitano gli account per i minori: verifica le regole del tuo</li><li>Se la scuola ha un accordo con Google, si usa quello</li><li>Mai inserire foto, dati medici o elaborati con dati identificabili</li><li>Dopo l'uso, cancella la conversazione se contiene dati tuoi</li></ul></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Chiusura</div>
+  <h2>Tre idee da portare via</h2>
+  <div class="grid g3">
+    <div class="item"><span class="dot">1</span><div><h3>AI Literacy</h3><p>Gemini è uno strumento, non una scorciatoia.</p></div></div>
+    <div class="item"><span class="dot c">2</span><div><h3>Prompt Engineering</h3><p>Fare domande «intelligenti» all'IA.</p></div></div>
+    <div class="item"><span class="dot">3</span><div><h3>Scaffolding</h3><p>Il prompt diventa un tutor invisibile per lo studente.</p></div></div>
+  </div>
+  <div class="box"><h3>Compito a casa (facoltativo)</h3><p>Prova il tuo prompt personalizzato con il tuo studente reale e annota cosa ha funzionato e cosa puoi migliorare. Prossimo incontro: Gemini Canvas e i giochi didattici.</p></div>
+</section>
+
+<section class="slide dark">
+  <div class="eyebrow">Autovalutazione</div>
+  <h2>Undici domande per verificare che cosa hai capito</h2>
+  <p class="lead mute">Una sola risposta è esatta. Non c'è un voto: alla fine vedi che cosa rivedere. Puoi rispondere anche con i tasti A, B, C, D.</p>
+</section>
+
+<section class="slide quiz" data-correct="B">
+  <div class="eyebrow">Autovalutazione · domanda 1 di 11</div>
+  <h2>Che cosa fa un modello linguistico quando genera una risposta?</h2>
+  <div class="opts">
+    <button type="button" class="opt" data-k="A"><span>A</span>Cerca la risposta in un archivio di fatti verificati</button>
+    <button type="button" class="opt" data-k="B"><span>B</span>Prevede il seguito più probabile in base agli schemi appresi</button>
+    <button type="button" class="opt" data-k="C"><span>C</span>Ragiona come una persona, con esperienza personale</button>
+    <button type="button" class="opt" data-k="D"><span>D</span>Copia il testo da un sito trovato in quel momento</button>
+  </div>
+  <div class="fb" hidden><strong></strong> <span class="why">Genera un pezzo alla volta scegliendo il seguito più probabile. Non consulta un archivio di fatti né ha esperienza personale: per questo può sbagliare con tono sicuro.</span></div>
+</section>
+
+<section class="slide quiz" data-correct="C">
+  <div class="eyebrow">Autovalutazione · domanda 2 di 11</div>
+  <h2>Quali sono i cinque elementi di un prompt efficace?</h2>
+  <div class="opts">
+    <button type="button" class="opt" data-k="A"><span>A</span>Titolo, introduzione, sviluppo, conclusione, firma</button>
+    <button type="button" class="opt" data-k="B"><span>B</span>Domanda, risposta, esempio, voto, commento</button>
+    <button type="button" class="opt" data-k="C"><span>C</span>Contesto, ruolo, compito, vincoli, formato</button>
+    <button type="button" class="opt" data-k="D"><span>D</span>Obiettivo, budget, tempi, rischi, risorse</button>
+  </div>
+  <div class="fb" hidden><strong></strong> <span class="why">Contesto, ruolo, compito, vincoli e formato rendono la richiesta precisa e la risposta didattica.</span></div>
+</section>
+
+<section class="slide quiz" data-correct="A">
+  <div class="eyebrow">Autovalutazione · domanda 3 di 11</div>
+  <h2>Che cos'è un'allucinazione?</h2>
+  <div class="opts">
+    <button type="button" class="opt" data-k="A"><span>A</span>Una risposta plausibile e sicura nel tono, ma falsa</button>
+    <button type="button" class="opt" data-k="B"><span>B</span>Un errore di connessione che interrompe la risposta</button>
+    <button type="button" class="opt" data-k="C"><span>C</span>Una risposta troppo lunga per la finestra di contesto</button>
+    <button type="button" class="opt" data-k="D"><span>D</span>Un termine tecnico per indicare un prompt vago</button>
+  </div>
+  <div class="fb" hidden><strong></strong> <span class="why">L'allucinazione è un contenuto inventato (dati, citazioni, fonti) presentato con sicurezza. Per questo si verifica sempre ciò che conta.</span></div>
+</section>
+
+<section class="slide quiz" data-correct="D">
+  <div class="eyebrow">Autovalutazione · domanda 4 di 11</div>
+  <h2>Qual è la differenza principale tra un prompt diretto e uno socratico?</h2>
+  <div class="opts">
+    <button type="button" class="opt" data-k="A"><span>A</span>Il socratico è sempre più corto</button>
+    <button type="button" class="opt" data-k="B"><span>B</span>Il diretto consuma più token</button>
+    <button type="button" class="opt" data-k="C"><span>C</span>Il socratico non richiede contesto</button>
+    <button type="button" class="opt" data-k="D"><span>D</span>Il socratico guida con domande invece di dare subito la soluzione</button>
+  </div>
+  <div class="fb" hidden><strong></strong> <span class="why">Il prompt socratico porta lo studente a scoprire il concetto con domande guida: è richiamo attivo, non lettura passiva.</span></div>
+</section>
+
+<section class="slide quiz" data-correct="B">
+  <div class="eyebrow">Autovalutazione · domanda 5 di 11</div>
+  <h2>Che cosa si può inserire in un prompt che riguarda uno studente reale?</h2>
+  <div class="opts">
+    <button type="button" class="opt" data-k="A"><span>A</span>Nome e cognome dello studente</button>
+    <button type="button" class="opt" data-k="B"><span>B</span>Una descrizione generica della difficoltà, con un nome di fantasia</button>
+    <button type="button" class="opt" data-k="C"><span>C</span>La diagnosi di DSA con i dati del PDP</button>
+    <button type="button" class="opt" data-k="D"><span>D</span>Una foto dell'elaborato con il nome</button>
+  </div>
+  <div class="fb" hidden><strong></strong> <span class="why">Mai dati identificativi, diagnosi o elaborati riconoscibili: si usa un nome di fantasia e una descrizione generica.</span></div>
+</section>
+
+<section class="slide quiz" data-correct="B">
+  <div class="eyebrow">Autovalutazione · domanda 6 di 11</div>
+  <h2>Che cosa descrive l'effetto «lost in the middle»?</h2>
+  <div class="opts">
+    <button type="button" class="opt" data-k="A"><span>A</span>Il modello dimentica tutto ciò che è stato scritto dopo il terzo messaggio</button>
+    <button type="button" class="opt" data-k="B"><span>B</span>In un testo lungo le informazioni all'inizio e alla fine vengono usate meglio di quelle nel mezzo</button>
+    <button type="button" class="opt" data-k="C"><span>C</span>Il modello traduce male la parte centrale di una frase</button>
+    <button type="button" class="opt" data-k="D"><span>D</span>La finestra di contesto si dimezza a metà conversazione</button>
+  </div>
+  <div class="fb" hidden><strong></strong> <span class="why">Per questo istruzioni e vincoli importanti vanno all'inizio e si ripetono in fondo, e per i documenti lunghi si fanno domande mirate.</span></div>
+</section>
+
+<section class="slide quiz" data-correct="C">
+  <div class="eyebrow">Autovalutazione · domanda 7 di 11</div>
+  <h2>Quale affermazione sul principio Human-in-the-Loop è corretta?</h2>
+  <div class="opts">
+    <button type="button" class="opt" data-k="A"><span>A</span>L'IA decide e il docente firma il risultato</button>
+    <button type="button" class="opt" data-k="B"><span>B</span>La persona interviene solo se l'IA segnala un errore</button>
+    <button type="button" class="opt" data-k="C"><span>C</span>Il docente verifica e decide prima che un output venga usato con gli studenti</button>
+    <button type="button" class="opt" data-k="D"><span>D</span>Serve soltanto per la valutazione finale</button>
+  </div>
+  <div class="fb" hidden><strong></strong> <span class="why">L'IA propone, il docente controlla e decide. Fidarsi troppo di un output ben scritto è l'automation bias.</span></div>
+</section>
+
+<section class="slide quiz" data-correct="D">
+  <div class="eyebrow">Autovalutazione · domanda 8 di 11</div>
+  <h2>Perché un modello può sbagliare a contare le lettere di una parola?</h2>
+  <div class="opts">
+    <button type="button" class="opt" data-k="A"><span>A</span>Perché non conosce l'alfabeto</button>
+    <button type="button" class="opt" data-k="B"><span>B</span>Perché legge troppo velocemente</button>
+    <button type="button" class="opt" data-k="C"><span>C</span>Perché la finestra di contesto è piena</button>
+    <button type="button" class="opt" data-k="D"><span>D</span>Perché lavora su token, non su singole lettere</button>
+  </div>
+  <div class="fb" hidden><strong></strong> <span class="why">Le parole vengono divise in token: il modello non «vede» le lettere una per una. Per conteggi e calcoli conviene uno strumento adatto.</span></div>
+</section>
+
+<section class="slide quiz" data-correct="B">
+  <div class="eyebrow">Autovalutazione · domanda 9 di 11</div>
+  <h2>Uno studente scrive all'assistente: «dimostrami che ho ragione». Quale bias sta agendo?</h2>
+  <div class="opts">
+    <button type="button" class="opt" data-k="A"><span>A</span>Bias di rappresentazione, perché mancano dati su di lui</button>
+    <button type="button" class="opt" data-k="B"><span>B</span>Bias di conferma, che si somma alla tendenza del modello ad assecondare</button>
+    <button type="button" class="opt" data-k="C"><span>C</span>Bias temporale, perché il modello non conosce le novità</button>
+    <button type="button" class="opt" data-k="D"><span>D</span>Bias di misurazione, perché il modello non valuta bene</button>
+  </div>
+  <div class="fb" hidden><strong></strong> <span class="why">Chi cerca conferme formula domande orientate, e il modello tende a compiacere. Antidoto: chiedere l'argomento contrario e le prove che smentiscono.</span></div>
+</section>
+
+<section class="slide quiz" data-correct="B">
+  <div class="eyebrow">Autovalutazione · domanda 10 di 11</div>
+  <h2>Che cosa succede alzando la temperatura?</h2>
+  <div class="opts">
+    <button type="button" class="opt" data-k="A"><span>A</span>Le risposte diventano più accurate</button>
+    <button type="button" class="opt" data-k="B"><span>B</span>Il modello sceglie con più varietà, anche parole meno probabili</button>
+    <button type="button" class="opt" data-k="C"><span>C</span>Il modello risponde più velocemente</button>
+    <button type="button" class="opt" data-k="D"><span>D</span>Il modello consulta più fonti</button>
+  </div>
+  <div class="fb" hidden><strong></strong> <span class="why">La temperatura regola la variabilità della scelta. Più alta significa più varietà e più rischio di errori, non maggiore accuratezza.</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Zero-shot, one-shot e few-shot</div>
+  <h2>Quanti esempi dare: zero, uno o più</h2>
+  <div class="grid g3">
+    <div><span class="tag c">Zero-shot: nessun esempio</span>
+<pre>Scrivi una domanda di verifica su Maxwell.</pre></div>
+    <div><span class="tag">One-shot: un esempio</span>
+<pre>Scrivi una domanda di verifica su Maxwell nello stile di questo esempio:
+«Senza usare formule, spiega perché una carica positiva crea un campo elettrico.»</pre></div>
+    <div><span class="tag t">Few-shot: più esempi</span>
+<pre>Scrivi una domanda di verifica su Maxwell nello stile di questi esempi:
+«Senza usare formule, spiega perché una carica positiva crea un campo elettrico.»
+«Senza formule, spiega perché non esistono i monopoli magnetici.»</pre></div>
+  </div>
+  <p class="note">Più esempi dai, più la risposta si avvicina allo stile che vuoi: ma ogni esempio allunga il prompt e consuma token.</p>
+</section>
+
+<section class="slide quiz" data-correct="C">
+  <div class="eyebrow">Autovalutazione · domanda 11 di 11</div>
+  <h2>Qual è la differenza tra one-shot e few-shot?</h2>
+  <div class="opts">
+    <button type="button" class="opt" data-k="A"><span>A</span>Il one-shot non usa alcun esempio, il few-shot ne usa uno</button>
+    <button type="button" class="opt" data-k="B"><span>B</span>Sono la stessa tecnica con due nomi diversi</button>
+    <button type="button" class="opt" data-k="C"><span>C</span>Il one-shot fornisce un solo esempio, il few-shot due o più</button>
+    <button type="button" class="opt" data-k="D"><span>D</span>Il few-shot funziona solo con Google AI Studio</button>
+  </div>
+  <div class="fb" hidden><strong></strong> <span class="why">Zero-shot: nessun esempio. One-shot: un esempio. Few-shot: più esempi. Più esempi dai, più la risposta si avvicina allo stile voluto, ma il prompt si allunga.</span></div>
+</section>
+
+<section class="slide quiz-result">
+  <div class="eyebrow">Autovalutazione · risultato</div>
+  <h2 class="qr-score">Risposte esatte: 0 su 5</h2>
+  <p class="lead qr-msg">Rispondi alle domande per vedere il risultato.</p>
+  <div><button type="button" class="btn qr-retry">Ricomincia</button></div>
+</section>
+
+</main>
+<script src="deck.js"></script>
+</body>
+</html>
