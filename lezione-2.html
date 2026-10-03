@@ -73,6 +73,7 @@ Requisiti:
 - Alla fine dai un punteggio e suggerisci cosa studiare di più
 - Stile: amichevole, incoraggiante, come un tutor vero</pre>
   <p class="note">Si mostra il Canvas risultante e si risponde in tempo reale per far vedere come funziona il feedback.</p>
+  <p class="note">Per una versione adattiva: dopo 2 errori consecutivi sullo stesso concetto, chiedi a Canvas una domanda più semplice; dopo 3 corrette di fila, una più difficile. Controllo qualità: chiedi a Gemini di indicare, per ogni domanda, soluzione e ragionamento, e verifica a campione i calcoli.</p>
 </section>
 
 <section class="slide">
@@ -104,6 +105,51 @@ Requisiti:
     <tr><td>Esplorare un fenomeno</td><td>Simulatore interattivo</td><td>Fisica, Chimica</td></tr>
     <tr><td>Comprendere una struttura</td><td>Mappa cliccabile</td><td>Anatomia, Geografia</td></tr>
   </table></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Prompt pronto</div>
+  <h2>Flashcard interattive</h2>
+<pre>Crea in Canvas un mazzo di 20 flashcard su "Formule e definizioni dell'elettrostatica". Fronte: domanda o nome della grandezza. Retro: definizione, formula e unità di misura. Al clic la carta si gira con animazione.
+
+Sotto due pulsanti: "La sapevo" e "Non la sapevo". Le carte non sapute tornano in coda al mazzo. Contatore delle carte rimaste e schermata finale con le carte più difficili.</pre>
+  <p class="note">Il mazzo si riduce man mano; le carte sbagliate ricompaiono finché non vengono superate. In chiusura, l'elenco di quelle sbagliate più volte dice cosa ripassare.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Prompt pronto</div>
+  <h2>Sfide progressive</h2>
+<pre>Crea in Canvas una sfida a 3 livelli sul "Teorema di Gauss". Livello 1: 5 domande di riconoscimento (definizioni, simmetrie). Livello 2: 5 esercizi numerici guidati. Livello 3: 3 problemi completi con ragionamento.
+
+Il livello successivo si sblocca con almeno l'80% di risposte corrette. Mostra un badge per ogni livello superato e permetti di rigiocare i livelli falliti con domande diverse.</pre>
+  <p class="note">Nel menu i livelli 2 e 3 restano «con lucchetto» finché non si supera il precedente: la difficoltà cresce solo quando lo studente è pronto.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Prompt pronto</div>
+  <h2>Caccia all'errore</h2>
+<pre>Crea in Canvas un'attività "Caccia all'errore" su "Induzione elettromagnetica". Scrivi un testo di circa 150 parole, simile a una risposta di un'IA, con 4 errori concettuali o di formula nascosti (per esempio segno sbagliato nella legge di Lenz, unità errata).
+
+Lo studente clicca sulle frasi che ritiene sbagliate. Alla fine l'app svela gli errori, spiega la correzione e mostra quanti ne sono stati trovati e quante frasi corrette sono state segnalate per sbaglio.</pre>
+  <p class="note">Uso in classe: chiedi prima agli studenti di far generare a un'IA un testo sull'argomento, poi di cercare gli errori da soli e confrontarsi. Allena l'uso critico dell'IA, non solo la materia.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Prompt pronto</div>
+  <h2>Abbinamento e ordinamento</h2>
+<pre>Crea in Canvas un'attività in due parti su "Storia dell'elettromagnetismo". Parte A, abbinamento: 8 scienziati da collegare alla loro scoperta. Parte B, ordinamento: 6 eventi da disporre in ordine cronologico.
+
+Dopo la verifica mostra quali coppie e quali posizioni sono corrette, con una riga di spiegazione per ciascuna. Pulsante per ricominciare con elementi mescolati.</pre>
+  <p class="note">Varianti: abbinare formula e grandezza, ordinare le fasi di un ciclo, collegare causa ed effetto.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Prompt pronto</div>
+  <h2>Mappe cliccabili</h2>
+<pre>Crea in Canvas una mappa concettuale cliccabile sulle "Equazioni di Maxwell". Al centro il nodo "Campo elettromagnetico"; intorno 4 nodi, uno per equazione (Gauss elettrico, Gauss magnetico, Faraday-Lenz, Ampère-Maxwell).
+
+Al clic su un nodo si apre un pannello con: enunciato a parole, formula, significato fisico, un esempio quotidiano. Le frecce indicano i collegamenti tra equazioni. Segna come "visitati" i nodi già aperti.</pre>
+  <p class="note">Variante: aggiungi a ogni nodo una domanda di controllo che appare dopo la lettura, così la mappa diventa anche una piccola verifica.</p>
 </section>
 
 <section class="slide">
@@ -218,6 +264,41 @@ Requisiti:
     <li>Per funzioni più avanzate (salvataggi, più livelli) ricrea la stessa idea su Google AI Studio: in questa lezione è una demo.</li>
   </ol>
   <p class="note">Regole del gioco da dichiarare nel prompt: punteggi, numero di tentativi, indizi disponibili e feedback dopo ogni risposta.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Condivisione</div>
+  <h2>Condividere l'attività su Google Classroom</h2>
+  <p class="note">Da giugno 2026 Gemini permette di allegare un'attività creata in Canvas direttamente a un compito o a un post di Classroom, senza esportare file.</p>
+  <ol class="steps">
+    <li>Nel Canvas funzionante, tocca «Condividi».</li>
+    <li>Scegli «Condividi su Classroom».</li>
+    <li>Seleziona la classe e il compito o post a cui allegarla.</li>
+    <li>In Classroom completa titolo, istruzioni, scadenza e punti, poi Assegna (o Pubblica se è un materiale).</li>
+    <li>Apri il compito dal punto di vista di uno studente (anteprima o account di prova) e verifica che l'attività si apra e funzioni su smartphone.</li>
+  </ol>
+  <div class="scroll"><table class="t">
+    <tr><th>Requisito</th><th>Dettaglio</th></tr>
+    <tr><td>Amministratore</td><td>L'opzione è attiva di default ed è gestita da un'impostazione nella Console di amministrazione</td></tr>
+    <tr><td>Gemini attivo</td><td>Docenti e studenti devono stare in un gruppo o unità organizzativa con Gemini attivato</td></tr>
+    <tr><td>Criteri Drive</td><td>La condivisione segue le regole di condivisione di Drive dell'istituto</td></tr>
+    <tr><td>Edizioni</td><td>Education Fundamentals, Standard e Plus</td></tr>
+  </table></div>
+  <p class="note">Se il pulsante «Condividi su Classroom» non compare, la causa più probabile è una di queste impostazioni: chiedi all'amministratore dell'istituto (animatore digitale o referente Workspace).</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Attenzione</div>
+  <h2>Se devi usare un account diverso da quello dell'istituto</h2>
+  <p class="note">Capita di lavorare con l'account Gemini personale e poi dover condividere il risultato nella Classroom collegata invece all'account istituzionale. In questo caso «Condividi su Classroom» non compare, perché Classroom vede solo le classi dell'account con cui sei entrato in Canvas.</p>
+  <ol class="steps">
+    <li>Nel Canvas funzionante, con l'account con cui l'hai creato: tocca «Condividi» e scegli «Copia link», non «Esporta» o «Scarica HTML».</li>
+    <li>Cambia account nel browser, passando a quello collegato alla Classroom dell'istituto.</li>
+    <li>Entra nella Classroom della classe giusta e incolla il link copiato nel compito, come Link, non come file allegato.</li>
+    <li>Verifica aprendo il compito da uno studente di prova: deve aprirsi l'attività interattiva, non una pagina di codice.</li>
+  </ol>
+  <div class="box"><h3>Errore comune da evitare</h3><p>Se invece di «Copia link» si scarica o si incolla il file HTML, allo studente può arrivare il codice sorgente come testo grezzo invece della pagina funzionante. Usa sempre il link di condivisione generato da Canvas, mai il file HTML esportato.</p></div>
+  <div class="box"><h3>Controlli finali, prima di assegnare</h3><ul><li>Verifica a campione almeno il 20% delle domande o degli enigmi</li><li>Prova l'attività su smartphone, in verticale</li><li>Controlla l'italiano e l'assenza di riferimenti a dati personali</li><li>Tieni un Gem per tipo di attività, oppure uno solo che inizi chiedendo «Quale formato vuoi?»</li></ul></div>
 </section>
 
 <section class="slide">
