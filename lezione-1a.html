@@ -54,7 +54,7 @@
   <div class="path">
     <div><span class="dot">1</span>AI Literacy, Prompt Engineering e primi Gem</div>
     <div><span class="dot c">2</span>Quiz ed escape room con Canvas e AI Studio</div>
-    <div><span class="dot">3</span>Comprensione e sintesi con NotebookLM</div>
+    <div><span class="dot">3</span>Comprensione e sintesi con Gemini Notebook (ex NotebookLM)</div>
     <div><span class="dot c">4</span>Memorizzazione, studio multimodale, metacognizione</div>
     <div><span class="dot">5</span>Ricerca evoluta con Deep Research</div>
     <div><span class="dot c">6</span>Tutor virtuali personalizzati con i Gem</div>
@@ -165,7 +165,7 @@
   <div class="grid g3">
     <div class="box"><h3>Gemini</h3><p>Conversazione e tutor virtuale, con i Gem. Lezioni 1, 5 e 6.</p></div>
     <div class="box"><h3>Gemini Canvas</h3><p>Quiz, escape room e flashcard interattive. Lezione 2.</p></div>
-    <div class="box"><h3>NotebookLM</h3><p>Funziona in modalità <b>grounded</b> (letteralmente «ancorato»): risponde solo sulla base dei documenti che carichi, e cita da dove prende ogni informazione, invece di attingere alla sua conoscenza generale. Da qui, mappe, podcast, glossari e flashcard. Lezioni 3 e 4.</p></div>
+    <div class="box"><h3>Gemini Notebook</h3><p>Funziona in modalità <b>grounded</b> (letteralmente «ancorato»): risponde solo sulla base dei documenti che carichi, e cita da dove prende ogni informazione, invece di attingere alla sua conoscenza generale. Da qui, mappe, podcast, glossari e flashcard. Lezioni 3 e 4.</p></div>
     <div class="box"><h3>Google AI Studio</h3><p>Prototipi di app e istruzioni di sistema del tutor. Demo nella Lezione 2, approfondimento nella Lezione 6.</p></div>
     <div class="box"><h3>Gemini Storybook</h3><p>Storie illustrate con narrazione vocale, disponibile con Gemini Pro (a pagamento). Senza abbonamento si può ottenere un effetto simile leggendo il testo con un lettore vocale (TTS).</p></div>
   </div>
@@ -215,7 +215,7 @@
     <tr><td>Chatbot / assistente</td><td>L'interfaccia con cui si dialoga con il modello</td><td>Gemini</td></tr>
     <tr><td>Gem</td><td>Assistente con istruzioni salvate per un compito preciso</td><td>Lezioni 1 e 6</td></tr>
     <tr><td>Agente</td><td>Sistema che pianifica ed esegue più azioni con strumenti, con un certo grado di autonomia</td><td>Deep Research: pianifica e svolge una ricerca in più passaggi</td></tr>
-    <tr><td>Multimodale</td><td>Lavora con testo, immagini e audio insieme</td><td>NotebookLM, Canvas</td></tr>
+    <tr><td>Multimodale</td><td>Lavora con testo, immagini e audio insieme</td><td>Gemini Notebook, Canvas</td></tr>
   </table></div>
   <p class="note">Più autonomia ha lo strumento, più è importante il controllo del docente (vedi Human-in-the-Loop).</p>
 </section>
@@ -229,7 +229,7 @@
     <tr><td>Gemini</td><td>Assistente generalista</td><td>Conversare, spiegare, creare, cercare</td></tr>
     <tr><td>Gem</td><td>Gemini personalizzato, con istruzioni salvate</td><td>Compiti ripetuti: Pianificatore di Studio, tutor socratico</td></tr>
     <tr><td>Canvas</td><td>Spazio di lavoro dentro Gemini</td><td>Quiz, giochi ed escape room interattivi</td></tr>
-    <tr><td>NotebookLM</td><td>Assistente di studio sulle tue fonti (source-grounded)</td><td>Riassunti, mappe, glossari, flashcard e audio, con citazioni</td></tr>
+    <tr><td>Gemini Notebook</td><td>Assistente di studio sulle tue fonti (source-grounded)</td><td>Riassunti, mappe, glossari, flashcard e audio, con citazioni</td></tr>
     <tr><td>Deep Research</td><td>Modalità «agente» di Gemini</td><td>Ricerche approfondite con report e fonti</td></tr>
     <tr><td>Google AI Studio</td><td>Ambiente per sperimentare i modelli, non un assistente pronto</td><td>Istruzioni di sistema, temperatura, app</td></tr>
     <tr><td>Gemini Storybook</td><td>Funzione per storie illustrate con narrazione</td><td>Richiede Gemini Pro; si può sostituire con un TTS</td></tr>
@@ -241,7 +241,7 @@
   <h2>Quale strumento uso per quale compito</h2>
   <div class="grid g3">
     <div class="box"><h3>Devo conversare, spiegare, creare</h3><p>Gemini.</p></div>
-    <div class="box"><h3>Devo lavorare sui miei documenti</h3><p>NotebookLM: risponde dalle fonti e le cita.</p></div>
+    <div class="box"><h3>Devo lavorare sui miei documenti</h3><p>Gemini Notebook: risponde dalle fonti e le cita.</p></div>
     <div class="box"><h3>Ho un compito che ripeto</h3><p>Un Gem, con istruzioni salvate.</p></div>
     <div class="box"><h3>Voglio un'attività interattiva</h3><p>Canvas: quiz, escape room, flashcard.</p></div>
     <div class="box"><h3>Devo fare una ricerca con fonti</h3><p>Deep Research, poi si verifica con la lettura laterale.</p></div>
@@ -265,7 +265,7 @@
     <tr><td>Iniziativa</td><td>Aspetta sempre una richiesta, come il distributore aspetta il pulsante</td><td>Decide da solo i passi intermedi, come l'organizzatore sceglie location e fornitori</td></tr>
     <tr><td>Controllo umano</td><td>Tu decidi a ogni scambio: sei sempre al bancone (in the loop)</td><td>Tu controlli solo inizio e fine, come quando ordini e ritiri la pizza (on the loop)</td></tr>
     <tr><td>Rischio tipico</td><td>Una risposta sbagliata da correggere</td><td>Un errore che si propaga tra i passaggi o un'azione con effetti reali</td></tr>
-    <tr><td>Nel corso</td><td>Gemini, Gem, NotebookLM</td><td>Deep Research: propone un piano di ricerca, poi cerca e produce il report</td></tr>
+    <tr><td>Nel corso</td><td>Gemini, Gem, Gemini Notebook</td><td>Deep Research: propone un piano di ricerca, poi cerca e produce il report</td></tr>
   </table></div>
   <div class="box"><h3>Tre differenze pratiche che contano davvero</h3><ol>
     <li><b>Chi decide i passaggi.</b> Con l'assistente li decidi tu, uno per uno. Con l'agente li decide lui, dopo che gli hai dato l'obiettivo.</li>
@@ -411,7 +411,7 @@ La suddivisione reale cambia da un modello all'altro.</pre>
   <h2>Allucinazioni: risposte plausibili ma false</h2>
   <div class="grid g2">
     <div class="box"><h3>Come si presentano</h3><ul><li>Citazioni e riferimenti bibliografici inesistenti</li><li>Date, numeri e nomi alterati</li><li>Spiegazioni sicure di sé, ma con un passaggio errato</li><li>Risposte che assecondano una domanda con premessa sbagliata</li></ul></div>
-    <div class="box"><h3>Come si riducono</h3><ul><li>Chiedere di indicare le fonti e aprirle davvero</li><li>Lavorare su fonti proprie (NotebookLM)</li><li>Chiedere «se non lo sai, dillo»</li><li>Verificare a campione ciò che conta</li><li>Non chiedere fatti che non si possono controllare</li></ul></div>
+    <div class="box"><h3>Come si riducono</h3><ul><li>Chiedere di indicare le fonti e aprirle davvero</li><li>Lavorare su fonti proprie (Gemini Notebook)</li><li>Chiedere «se non lo sai, dillo»</li><li>Verificare a campione ciò che conta</li><li>Non chiedere fatti che non si possono controllare</li></ul></div>
   </div>
   <p class="note">Si approfondisce nella Lezione 5, con Deep Research e la scheda «caccia all'errore».</p>
 </section>

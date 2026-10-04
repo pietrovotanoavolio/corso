@@ -17,7 +17,7 @@
   </div>
   <div class="eyebrow" style="margin-top:22px">Appendice</div>
   <h1>Galleria di prompt</h1>
-  <p class="lead mute" style="margin-top:8px">35 prompt pronti per Gemini e i suoi assistenti (Gem, Canvas, NotebookLM, Deep Research, AI Studio), pensati per il metodo di studio e per il lavoro del docente.</p>
+  <p class="lead mute" style="margin-top:8px">35 prompt pronti per Gemini e i suoi assistenti (Gem, Canvas, Gemini Notebook, Deep Research, AI Studio), pensati per il metodo di studio e per il lavoro del docente.</p>
   <p class="note" style="margin-top:8px">Sostituisci le parti tra [parentesi quadre]. Non inserire dati personali degli studenti. L'IA propone: controlla sempre il risultato prima di usarlo (Human-in-the-Loop).</p>
 
   <div class="gl-tools">
@@ -79,7 +79,7 @@ Per ognuna: consegna agli studenti, cosa osservare come docente e come collegarl
 Per ogni livello indica il tipo di aiuto e come lo tolgo man mano (scaffolding). Non semplificare il contenuto disciplinare del livello A.`],
 [14,"Tre analogie per un concetto ostico","Gemini","Docente","Progettazione didattica","1","Per spiegare in modo diverso ciò che non passa.",`Faccio fatica a far capire [CONCETTO] a studenti di [CLASSE]. Proponi tre analogie diverse: una quotidiana, una legata agli interessi dei ragazzi, una visiva.
 Per ciascuna: dove funziona, dove rischia di creare un'idea sbagliata e una domanda per verificare che gli studenti non si fermino all'analogia.`],
-[15,"Verifica a scelta multipla con distrattori","NotebookLM","Docente","Verifica e valutazione","4","Quiz sulle proprie fonti, con la chiave commentata.",`Usa solo le fonti caricate. Crea 10 domande a risposta multipla su [ARGOMENTO] per [CLASSE]: 4 opzioni, una sola corretta, distribuita in modo casuale.
+[15,"Verifica a scelta multipla con distrattori","Gemini Notebook","Docente","Verifica e valutazione","4","Quiz sulle proprie fonti, con la chiave commentata.",`Usa solo le fonti caricate. Crea 10 domande a risposta multipla su [ARGOMENTO] per [CLASSE]: 4 opzioni, una sola corretta, distribuita in modo casuale.
 I 3 distrattori devono rappresentare errori reali (concetti scambiati, causa ed effetto invertiti, casi limite), non risposte assurde.
 Dopo il quiz: chiave con riferimento alla fonte e, per ogni distrattore, l'errore che rappresenta. Contrassegna le domande che ti sembrano ambigue.`],
 [16,"Rubrica di valutazione","Gemini","Docente","Verifica e valutazione","1","Bozza di rubrica con descrittori osservabili.",`Crea una rubrica per valutare [COMPITO] in [MATERIA], classe [CLASSE]. 4 criteri (ad esempio contenuto, ragionamento, uso delle fonti, chiarezza espositiva) e 4 livelli.
@@ -88,10 +88,10 @@ Vincolo: la rubrica è una bozza; il voto resta una mia decisione. Formato: tabe
 [17,"Feedback formativo su un elaborato","Gemini","Docente","Verifica e valutazione","1","Bozza di commento da rivedere prima di consegnarlo.",`Ti fornisco un elaborato anonimo, senza nome né dati personali: [TESTO]. Consegna e criteri: [CONSEGNA / RUBRICA].
 Scrivi una bozza di feedback formativo: 2 punti di forza specifici, 2 aspetti da migliorare e 3 domande guida che aiutino lo studente a correggere da solo.
 Non riscrivere il testo e non assegnare un voto. Segnala dove sei incerto: rivedrò tutto prima di consegnarlo.`],
-[18,"Testo per DSA e BES","NotebookLM","Docente","Inclusione","3","Adatta la forma senza impoverire i contenuti.",`Usa solo le fonti caricate. Riscrivi il passaggio [TITOLO O PAGINA] per uno studente con [DSA: dislessia / BES linguistico].
+[18,"Testo per DSA e BES","Gemini Notebook","Docente","Inclusione","3","Adatta la forma senza impoverire i contenuti.",`Usa solo le fonti caricate. Riscrivi il passaggio [TITOLO O PAGINA] per uno studente con [DSA: dislessia / BES linguistico].
 Mantieni tutti i concetti disciplinari e cambia solo la forma: frasi di massimo 15 parole, un concetto per frase, elenchi puntati per i passaggi, parole difficili spiegate tra parentesi alla prima comparsa, titoletti chiari.
 Alla fine elenca le modifiche fatte, per la mia verifica.`],
-[19,"Mappa, glossario e domande di un capitolo","NotebookLM","Entrambi","Inclusione","3","Più modi di rappresentare lo stesso contenuto (UDL).",`Dalle fonti caricate crea: (1) una mappa concettuale con massimo 12 nodi e le relazioni tra loro; (2) un glossario di 10 termini con definizione in una frase e un esempio; (3) tre domande di comprensione dalla più semplice alla più complessa.
+[19,"Mappa, glossario e domande di un capitolo","Gemini Notebook","Entrambi","Inclusione","3","Più modi di rappresentare lo stesso contenuto (UDL).",`Dalle fonti caricate crea: (1) una mappa concettuale con massimo 12 nodi e le relazioni tra loro; (2) un glossario di 10 termini con definizione in una frase e un esempio; (3) tre domande di comprensione dalla più semplice alla più complessa.
 Cita per ogni elemento la parte della fonte da cui proviene.`],
 [20,"Consegna scomposta in passi","Gemini","Docente","Inclusione","3","Per studenti con difficoltà di attenzione o di organizzazione.",`Riscrivi questa consegna per renderla chiara a studenti con difficoltà di attenzione o di organizzazione: [CONSEGNA].
 Dividila in passi numerati, ognuno con una sola azione e il tempo suggerito; aggiungi un esempio del risultato atteso e una casella ho finito per ogni passo.
@@ -105,11 +105,11 @@ A fine mazzo mostra: carte sapute, carte da ripassare e un consiglio per il pros
 [23,"Escape room disciplinare","Canvas","Docente","Gamification e Canvas","2","Tre stanze, indizi progressivi, concetti da collegare.",`Crea in Canvas un'escape room su [ARGOMENTO] per [CLASSE] con 3 stanze. Ogni stanza ha un enigma la cui soluzione è un concetto (non una formula da copiare), massimo 3 indizi progressivi e una spiegazione di 2 righe alla soluzione.
 La porta finale richiede i concetti delle 3 stanze. Aggiungi timer opzionale e conteggio degli indizi. Ambientazione: [TEMA].
 Segnala tra parentesi ogni dato da verificare.`],
-[24,"Guida allo studio di un capitolo","NotebookLM","Entrambi","Studio sulle fonti","3","Sintesi e autoverifica ancorate alle fonti.",`Usa solo le fonti caricate. Crea una guida allo studio del capitolo [TITOLO] per [CLASSE]: idea centrale in 3 righe; 6 concetti chiave con definizione, esempio e pagina; 5 domande di autoverifica dalla più semplice alla più complessa (senza risposta); 3 errori frequenti.
+[24,"Guida allo studio di un capitolo","Gemini Notebook","Entrambi","Studio sulle fonti","3","Sintesi e autoverifica ancorate alle fonti.",`Usa solo le fonti caricate. Crea una guida allo studio del capitolo [TITOLO] per [CLASSE]: idea centrale in 3 righe; 6 concetti chiave con definizione, esempio e pagina; 5 domande di autoverifica dalla più semplice alla più complessa (senza risposta); 3 errori frequenti.
 Se un'informazione non è nelle fonti scrivi non presente nelle fonti.`],
-[25,"Confronto tra due fonti","NotebookLM","Docente","Studio sulle fonti","5","Per lavorare sul punto di vista e sulle divergenze.",`Confronta le due fonti caricate su [TEMA]. Restituisci: dove concordano; dove differiscono (con citazione di entrambe); cosa dice una e non l'altra; eventuali contraddizioni.
+[25,"Confronto tra due fonti","Gemini Notebook","Docente","Studio sulle fonti","5","Per lavorare sul punto di vista e sulle divergenze.",`Confronta le due fonti caricate su [TEMA]. Restituisci: dove concordano; dove differiscono (con citazione di entrambe); cosa dice una e non l'altra; eventuali contraddizioni.
 Poi proponi 3 domande per una discussione in classe sul perché le fonti possono divergere (scopo, epoca, punto di vista). Non aggiungere informazioni esterne.`],
-[26,"Panoramica audio di ripasso","NotebookLM","Studente","Studio sulle fonti","4","Traccia da ascoltare prima di una verifica.",`Panoramica audio per uno studente di [CLASSE] che ripassa [ARGOMENTO] prima di [VERIFICA]. Durata circa 8 minuti.
+[26,"Panoramica audio di ripasso","Gemini Notebook","Studente","Studio sulle fonti","4","Traccia da ascoltare prima di una verifica.",`Panoramica audio per uno studente di [CLASSE] che ripassa [ARGOMENTO] prima di [VERIFICA]. Durata circa 8 minuti.
 Struttura: idea centrale; 3 concetti chiave con un esempio ciascuno; 2 errori frequenti; 3 domande finali con pausa per rispondere ad alta voce. Registro chiaro e non scolastico. Segui solo le fonti.`],
 [27,"Ricerca approfondita con fonti affidabili","Deep Research","Docente","Ricerca e verifica","5","Report con fonti e sezione sulle incertezze.",`Ricerca approfondita su [TEMA] per una lezione di [MATERIA] in [CLASSE].
 Obiettivo: capire [DOMANDA CENTRALE], comprese le posizioni discordanti.
