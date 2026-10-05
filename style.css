@@ -214,3 +214,5 @@ ol.steps li::before{position:absolute;left:16px;top:10px}
 /* righe del menu senza numero (appendici) */
 .row.nonum{grid-template-columns:minmax(0,1fr) auto}
 @media (max-width:560px){.row.nonum{grid-template-columns:minmax(0,1fr)}.row.nonum .st{grid-column:1}}
+
+.btn.ico{padding:6px 9px}

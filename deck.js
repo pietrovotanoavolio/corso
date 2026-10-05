@@ -22,11 +22,14 @@ function startDeck() {
   var viewport = el("div", "viewport");
   var foot = el("footer", "foot");
 
-  var home = el("a", "btn", "&#8962; Menu");
+  var home = el("a", "btn ico", '<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M2 8.5 9 2.5l7 6"/><path d="M4 7.5V16h4v-4.5h2V16h4V7.5"/></svg>');
+  home.setAttribute("aria-label", "Menu delle lezioni");
   home.href = "index.html";
   home.title = "Torna al menu delle lezioni (Esc dalla panoramica)";
-  var ovBtn = el("button", "btn", "Panoramica <kbd>O</kbd>");
+  var ovBtn = el("button", "btn ico", '<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" fill="currentColor"><rect x="1" y="1" width="7" height="7" rx="1.2"/><rect x="10" y="1" width="7" height="7" rx="1.2"/><rect x="1" y="10" width="7" height="7" rx="1.2"/><rect x="10" y="10" width="7" height="7" rx="1.2"/></svg>');
   ovBtn.type = "button";
+  ovBtn.title = "Panoramica delle slide (tasto O)";
+  ovBtn.setAttribute("aria-label", "Panoramica delle slide");
   var topR = el("div", "top-r");
   var nm = el("a", "btn", "Normativa");
   nm.href = "normativa.html";
@@ -60,7 +63,7 @@ function startDeck() {
   var counter = el("span", "count");
   counter.setAttribute("aria-live", "polite");
 
-  var fl = el("span", "f-l", "Pietro Votano Avolio");
+  var fl = el("span", "f-l", "&copy; 2026 Pietro Votano Avolio");
   var fc = el("div", "f-c");
   fc.appendChild(prev); fc.appendChild(counter); fc.appendChild(next);
   var fr = el("span", "f-r", "IA e Metodo di Studio");
@@ -241,6 +244,6 @@ function startDeck() {
       '<h1>Non ancora disponibile</h1>' +
       '<p class="lead mute" style="margin-top:12px">Questa lezione viene attivata dopo l\'incontro.</p>' +
       '<p style="margin-top:20px"><a class="btn" href="index.html">&#8962; Torna al menu</a></p></main>' +
-      '<footer class="sitefoot"><span>Pietro Votano Avolio</span><span>IA e Metodo di Studio</span></footer>';
+      '<footer class="sitefoot"><span>&copy; 2026 Pietro Votano Avolio</span><span>IA e Metodo di Studio</span></footer>';
   });
 })();
