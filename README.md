@@ -1,4 +1,4 @@
-# AI e Metodo di Studio
+# AI e Metodo di Studio 
 
 Sito del corso per docenti (6 lezioni da 3 ore) di Pietro Votano Avolio.
 
